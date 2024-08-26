@@ -3,10 +3,16 @@ using UnityEngine;
 
 public static class SubscriptionKeeper
 {
-    public static Action<bool> CoinChanged;
+    public static Action CoinChangedEvent;
+    public static Action MoneyValueChangedEvent;
 
-    public static void ChangeCoinWithDropEvent(bool isDrop)
+    public static void ChangeCoin()
     {
-        CoinChanged?.Invoke(isDrop);
-    } 
+        CoinChangedEvent?.Invoke();
+    }
+
+    public static void ChangeMoneyValue()
+    {
+        MoneyValueChangedEvent?.Invoke();
+    }
 }

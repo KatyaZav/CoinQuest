@@ -9,12 +9,17 @@ public class CoinGenerator : MonoBehaviour
 
     public void Init()
     {
-        SubscriptionKeeper.CoinChanged += ChangeCoin;
+        SubscriptionKeeper.CoinChangedEvent += ChangeCoin;
+
+        GenerateCoin();
     }
+
+    public int GetCoinValue() => _coin.Value;
+    public bool GetIsMimik() => _coin.IsMimic;
 
     private void OnDisable()
     {
-        SubscriptionKeeper.CoinChanged -= ChangeCoin;
+        SubscriptionKeeper.CoinChangedEvent -= ChangeCoin;
 
     }
     public void GenerateCoin()
@@ -22,7 +27,7 @@ public class CoinGenerator : MonoBehaviour
         _coin.GenerateCoin(_minValue, _maxValue);
     }
     
-    private void ChangeCoin(bool isDrop)
+    private void ChangeCoin()
     {
         GenerateCoin();
     }

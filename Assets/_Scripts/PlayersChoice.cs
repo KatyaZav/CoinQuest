@@ -4,33 +4,47 @@ using UnityEngine;
 
 public class PlayersChoice : MonoBehaviour
 {
+    [SerializeField] CoinGenerator _generator;
+    [SerializeField] Scrimmer _scrimmer;
+
     public void Init()
     {
 
     }
 
-    private void OnDisable()
-    {
-        
-    }
-
     public void DropCoin()
     {
-        SubscriptionKeeper.ChangeCoinWithDropEvent(true);
+        OnDropCoin();
+        SubscriptionKeeper.ChangeCoin();
     }
 
     public void CollectCoin()
     {
-        SubscriptionKeeper.ChangeCoinWithDropEvent(false);
+        SubscriptionKeeper.ChangeCoin();
+        if (_generator.GetIsMimik())
+            OnCollectMimik();
+        else
+            OnCollectCoin();
     }
 
     private void OnDropCoin()
     {
+    }
 
+    private void OnCollectMimik()
+    {
+        _scrimmer.Generate();
     }
 
     private void OnCollectCoin()
     {
+        PlayerSaves.AddCoins(_generator.GetCoinValue());
+    }
+
+    private void OnValidate()
+    {
+        _generator ??= FindAnyObjectByType<CoinGenerator>(); 
+        _scrimmer ??= FindAnyObjectByType<Scrimmer>();
 
     }
 }

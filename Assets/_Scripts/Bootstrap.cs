@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bootstrap : MonoBehaviour
 {
     [SerializeField] CoinGenerator _generator;
+    
     void Start()
     {
         _generator.Init();
