@@ -20,11 +20,12 @@ public class PlayersChoice : MonoBehaviour
 
     public void CollectCoin()
     {
-        SubscriptionKeeper.ChangeCoin();
         if (_generator.GetIsMimik())
             OnCollectMimik();
         else
             OnCollectCoin();
+
+        SubscriptionKeeper.ChangeCoin();
     }
 
     private void OnDropCoin()

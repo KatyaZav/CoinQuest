@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generator: {fileID: 1234635177}
+  _bank: {fileID: 563043485}
 --- !u!4 &81335169
 Transform:
   m_ObjectHideFlags: 0
@@ -463,7 +464,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99999999
+  m_Text: 999999990000
 --- !u!222 &285134921
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -805,6 +806,7 @@ GameObject:
   - component: {fileID: 563043482}
   - component: {fileID: 563043484}
   - component: {fileID: 563043483}
+  - component: {fileID: 563043485}
   m_Layer: 5
   m_Name: bank
   m_TagString: Untagged
@@ -875,6 +877,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563043481}
   m_CullTransparentMesh: 1
+--- !u!114 &563043485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563043481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a8bdfa85b1506458135aab2743b946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bankText: {fileID: 285134920}
 --- !u!1 &596891375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1907,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1947851645}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 563043485}
+        m_TargetAssemblyTypeName: Bank, Assembly-CSharp
+        m_MethodName: PutCoinToBank
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1947851645
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,9 @@ public static class PlayerSaves
     {
         CoinsInBank += CoinsInPocket;
         CoinsInPocket = 0;
+
+        SubscriptionKeeper.ChangeBank();
+        SubscriptionKeeper.ChangeMoneyValue();
     }
 
     public static void AddCoins(int value)
