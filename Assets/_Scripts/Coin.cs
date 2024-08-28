@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
         float normalizedValue = Mathf.InverseLerp(0, 1, mimicProbability);
         float resultMimikProbability = Mathf.Lerp(minValue, maxValue, normalizedValue);
 
-        IsMimic = Value >= resultMimikProbability;
+        IsMimic = true;//Value >= resultMimikProbability;
 
         ChangeCoinAppearance();
     }

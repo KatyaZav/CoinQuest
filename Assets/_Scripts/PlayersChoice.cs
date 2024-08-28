@@ -6,6 +6,9 @@ public class PlayersChoice : MonoBehaviour
 {
     [SerializeField] CoinGenerator _generator;
     [SerializeField] Scrimmer _scrimmer;
+    [SerializeField] GameObject _yes, _no;
+    [SerializeField] float _timeBetween;
+    [SerializeField] float _timeBetweenScrimmers;
 
     public void Init()
     {
@@ -21,11 +24,30 @@ public class PlayersChoice : MonoBehaviour
     public void CollectCoin()
     {
         if (_generator.GetIsMimik())
+        {
+            Invoke("ActivateButtons", _timeBetweenScrimmers);
             OnCollectMimik();
+        }
         else
+        {
+            Invoke("ActivateButtons", _timeBetween);    
             OnCollectCoin();
+        }
 
         SubscriptionKeeper.ChangeCoin();
+        DisableButtons();
+    }
+
+    void DisableButtons()
+    {
+        _yes.SetActive(false);
+        _no.SetActive(false);
+    }
+
+    void ActivateButtons()
+    {
+        _yes.SetActive(true);
+        _no.SetActive(true);
     }
 
     private void OnDropCoin()
@@ -35,8 +57,13 @@ public class PlayersChoice : MonoBehaviour
     private void OnCollectMimik()
     {
         _scrimmer.Generate();
+        Invoke("Remove", _timeBetweenScrimmers);
     }
 
+    public void Remove()
+    {
+        _scrimmer.Remove();
+    }
     private void OnCollectCoin()
     {
         PlayerSaves.AddCoins(_generator.GetCoinValue());

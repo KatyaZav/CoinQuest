@@ -265,9 +265,9 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
@@ -1633,6 +1633,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _generator: {fileID: 1234635177}
   _scrimmer: {fileID: 1772080633}
+  _yes: {fileID: 2116158167}
+  _no: {fileID: 1319605946}
+  _timeBetween: 0.3
+  _timeBetweenScrimmers: 2
 --- !u!4 &1450359964
 Transform:
   m_ObjectHideFlags: 0
@@ -1699,6 +1703,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569cd8bdd2d919e45b5bb47c99f436a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scrimmers:
+  - _name: rabbit
+    Sprite: {fileID: 710377524, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
+    Clip: {fileID: 0}
+  - _name: sans
+    Sprite: {fileID: -1342852185, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
+    Clip: {fileID: 0}
+  - _name: geom dash
+    Sprite: {fileID: 2137612774, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
+    Clip: {fileID: 0}
+  - _name: dream cat
+    Sprite: {fileID: 201160506, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
+    Clip: {fileID: 0}
+  - _name: freddy
+    Sprite: {fileID: -1791423023, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
+    Clip: {fileID: 0}
+  - _name: bill
+    Sprite: {fileID: 2026882862, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
+    Clip: {fileID: 0}
+  - _name: creeper
+    Sprite: {fileID: 937634299, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
+    Clip: {fileID: 0}
+  - _name: amogus
+    Sprite: {fileID: -2087610207, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
+    Clip: {fileID: 0}
+  _image: {fileID: 1772080634}
+  _currentScrimmer:
+    _name: 
+    Sprite: {fileID: 0}
+    Clip: {fileID: 0}
 --- !u!114 &1772080634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1706,14 +1740,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772080631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
