@@ -5,10 +5,14 @@ using UnityEngine.UI;
 public class Coin : MonoBehaviour
 {
     [Header("Appearance")]
-    [SerializeField] Text _coinText;
+    [SerializeField] private Text _coinText;
+    [SerializeField] private Text _coinProbabilityText;
 
     [Header("Settings"), Space(10)]
-    [SerializeField] AnimationCurve _mimicProbability;
+    [SerializeField] private AnimationCurve _mimicProbability;
+    [SerializeField] private Color _dangerousColor;
+    [SerializeField] private Color _safeColor;
+
     public int Value { get; private set; }
     public bool IsMimic { get; private set; }
 
@@ -16,18 +20,28 @@ public class Coin : MonoBehaviour
     {
         Value = UnityEngine.Random.Range(minValue, maxValue + 1);
 
-        float mimicProbability = _mimicProbability.Evaluate(Value);
-        float normalizedValue = Mathf.InverseLerp(0, 1, mimicProbability);
-        float resultMimikProbability = Mathf.Lerp(minValue, maxValue, normalizedValue);
+        float valueInRange = Mathf.InverseLerp(minValue, maxValue, Value);
+        float mimicProbability = _mimicProbability.Evaluate(valueInRange) * 100;
+        float randomProcent = UnityEngine.Random.Range(1, 101);
 
-        IsMimic = true;//Value >= resultMimikProbability;
+        IsMimic = randomProcent <= mimicProbability;
 
-        ChangeCoinAppearance();
+        ChangeCoinAppearance(Value, Mathf.Round(mimicProbability));
     }
 
-    private void ChangeCoinAppearance()
+    private void ChangeCoinAppearance(float coinValue, float probability)
     {
-        _coinText.text = Value.ToString();
+        _coinText.text = coinValue.ToString();
+        _coinProbabilityText.text = probability.ToString() + "%"; 
+
+        if (probability > 50)
+        {
+            _coinProbabilityText.color = _dangerousColor;
+        }
+        else
+        {
+            _coinProbabilityText.color = _safeColor;
+        }
     }
 
     private void OnValidate()
