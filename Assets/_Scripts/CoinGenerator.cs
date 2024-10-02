@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CoinGenerator : MonoBehaviour
 {
-    [SerializeField] Coin _coin;
-    [SerializeField, Range(1,100)] int _minValue, _maxValue;
+    [SerializeField] private Coin _coin;
+    [SerializeField, Range(1,100)] private int _minValue, _maxValue;
 
     public void Init()
     {

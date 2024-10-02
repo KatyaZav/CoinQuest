@@ -56,7 +56,7 @@ public class PlayersChoice : MonoBehaviour
 
     private void OnCollectMimik()
     {
-        _scrimmer.Generate();
+        _scrimmer.Activate();
         Invoke("Remove", _timeBetweenScrimmers);
     }
 

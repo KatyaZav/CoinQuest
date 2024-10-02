@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Hover : MonoBehaviour
+public class Hover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator _animator;
+    [SerializeField] private string _start;
+
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        _animator.SetBool(_start, true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        
+        _animator.SetBool(_start, false);
     }
 }
