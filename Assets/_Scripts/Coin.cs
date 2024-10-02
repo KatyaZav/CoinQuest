@@ -26,7 +26,7 @@ public class Coin : MonoBehaviour
 
         IsMimic = randomProcent <= mimicProbability;
 
-        ChangeCoinAppearance(Value, Mathf.Round(mimicProbability));
+        ChangeCoinAppearance(Value, 100 - Mathf.Round(mimicProbability));
     }
 
     private void ChangeCoinAppearance(float coinValue, float probability)
@@ -36,11 +36,11 @@ public class Coin : MonoBehaviour
 
         if (probability > 50)
         {
-            _coinProbabilityText.color = _dangerousColor;
+            _coinProbabilityText.color = _safeColor;
         }
         else
         {
-            _coinProbabilityText.color = _safeColor;
+            _coinProbabilityText.color = _dangerousColor;
         }
     }
 

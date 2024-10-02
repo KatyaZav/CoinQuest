@@ -1,5 +1,5 @@
 {
-    "idSave": 207,
+    "idSave": 210,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -11,5 +11,5 @@
         false
     ],
     "CoinsInBank": 3761,
-    "CoinsInPocket": 125
+    "CoinsInPocket": 0
 }
