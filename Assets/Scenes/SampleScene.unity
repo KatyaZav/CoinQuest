@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generator: {fileID: 1234635177}
+  _playersChoice: {fileID: 0}
   _bank: {fileID: 563043485}
   _coinView: {fileID: 163409489}
   _coin: {fileID: 163428141}

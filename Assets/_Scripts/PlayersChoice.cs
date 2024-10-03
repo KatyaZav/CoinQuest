@@ -12,21 +12,13 @@ public class PlayersChoice : MonoBehaviour
 
     private const string ActivateButtonName = "ActivateButtons"; 
 
-    public void Init()
-    {
-
-    }
-
     public void DropCoin()
     {
         ButtonSwitch(_timeBetween);
-        //OnDropCoin();
     }
 
     public void CollectCoin()
     {
-        ActivateCollectCoinAnimation();
-
         if (_generator.GetIsMimik())
         {
             int timeBeforeScrimmer = Random.Range(1, 3);
@@ -50,11 +42,6 @@ public class PlayersChoice : MonoBehaviour
         }
     }
 
-    private void ActivateCollectCoinAnimation()
-    {
-
-    }
-
     private void ButtonSwitch(float time)
     {
         DisableButtons();
@@ -63,20 +50,16 @@ public class PlayersChoice : MonoBehaviour
         SubscriptionKeeper.ChangeCoin();
     }
 
-    void DisableButtons()
+    public void DisableButtons()
     {
         _yes.SetActive(false);
         _no.SetActive(false);
     }
 
-    void ActivateButtons()
+    public void ActivateButtons()
     {
         _yes.SetActive(true);
         _no.SetActive(true);
-    }
-
-    private void OnDropCoin()
-    {
     }
 
     private void OnCollectMimik()
@@ -89,6 +72,7 @@ public class PlayersChoice : MonoBehaviour
     {
         _scrimmer.Remove();
     }
+
     private void OnCollectCoin()
     {
         PlayerSaves.AddCoins(_generator.GetCoinValue());

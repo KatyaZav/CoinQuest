@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] CoinGenerator _generator;
+    [SerializeField] PlayersChoice _playersChoice;
     [SerializeField] Bank _bank;
 
     [SerializeField] private GameObject _coinView;
