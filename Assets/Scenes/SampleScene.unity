@@ -153,11 +153,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generator: {fileID: 1234635177}
-  _playersChoice: {fileID: 0}
+  _playersChoice: {fileID: 1450359963}
   _bank: {fileID: 563043485}
-  _coinView: {fileID: 163409489}
+  _scrimmer: {fileID: 1772080633}
   _coin: {fileID: 163428141}
+  _coinView: {fileID: 163409489}
   _time: 0.5
+  _timeBetweenCoinGet: 0.5
+  _timeBetweenScrimmers: 2
 --- !u!4 &81335169
 Transform:
   m_ObjectHideFlags: 0
@@ -1858,11 +1861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generator: {fileID: 1234635177}
-  _scrimmer: {fileID: 1772080633}
   _yes: {fileID: 2116158167}
   _no: {fileID: 1319605946}
-  _timeBetween: 1
-  _timeBetweenScrimmers: 2
 --- !u!4 &1450359964
 Transform:
   m_ObjectHideFlags: 0

@@ -1,58 +1,95 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] CoinGenerator _generator;
-    [SerializeField] PlayersChoice _playersChoice;
-    [SerializeField] Bank _bank;
-
-    [SerializeField] private GameObject _coinView;
+    [Header("Components")]
+    [SerializeField] private CoinGenerator _generator;
+    [SerializeField] private PlayersChoice _playersChoice;
+    [SerializeField] private Bank _bank;
+    [SerializeField] private Scrimmer _scrimmer;
     [SerializeField] private Coin _coin;
+
+    [Space(8), Header("Settings")]
+    [SerializeField] private GameObject _coinView;
     [SerializeField] float _time;
-
-    void Start()
-    {
-        _bank.Init();
-
-        SubscriptionKeeper.CoinChangedEvent += OnChangeCoin;
-
-        GenerateCoin();
-    }
+    [SerializeField] float _timeBetweenCoinGet = 0.5f;
+    [SerializeField] float _timeBetweenScrimmers = 2;
 
     private void OnDisable()
     {
-        SubscriptionKeeper.CoinChangedEvent -= OnChangeCoin;
+        _playersChoice.CoinCollectedEvent -= OnCoinCollect;
+        _playersChoice.CoinDropedEvent -= OnCoinDrop;
+        _playersChoice.MimikGettedEvent -= OnMimikGet;
     }
-
     private void OnValidate()
     {
         _generator = FindAnyObjectByType<CoinGenerator>();
         _bank = FindAnyObjectByType<Bank>();
     }
 
+    void Start()
+    {
+        _bank.Init();
+
+        _playersChoice.CoinCollectedEvent += OnCoinCollect;
+        _playersChoice.CoinDropedEvent += OnCoinDrop;
+        _playersChoice.MimikGettedEvent += OnMimikGet;
+
+        StartRound();
+    }
+
+    #region Input Events
+    private void OnMimikGet()
+    {
+        StopRound();
+
+    }
+
+    private void OnCoinDrop()
+    {
+        StopRound();
+        Invoke("StartRound", _time + _timeBetweenCoinGet);
+    }
+
+    private void OnCoinCollect()
+    {
+        StopRound();
+    }
+    #endregion
+
+    #region Game logic
+    private void StartRound()
+    {
+        _coinView.SetActive(false);
+
+        GenerateCoin();
+
+        _coin.SetAnimation();
+        _playersChoice.ActivateButtons();
+    }
+    private void StopRound()
+    {
+        _playersChoice.DisableButtons();
+
+        _coinView.SetActive(true);
+        _coin.gameObject.SetActive(false);
+    }
     private void GenerateCoin()
     {
         _coin.gameObject.SetActive(true);
-
         _generator.GenerateCoin();
         _coin.SetAnimation();
     }
 
-    private void OnChangeCoin()
+    private void ActivateMimik()
     {
-        _generator.GenerateCoin();
-
-        _coinView.SetActive(true);
-        _coin.gameObject.SetActive(false);
-        
-        Invoke("AnimateGenerateCoin", _time);
+        _scrimmer.Activate();
     }
 
-    private void AnimateGenerateCoin()
+    public void RemoveMimik()
     {
-        _coinView.SetActive(false);
-        GenerateCoin();
+        _scrimmer.Remove();
     }
+    #endregion
 }
