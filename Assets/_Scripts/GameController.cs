@@ -48,7 +48,6 @@ public class GameController : MonoBehaviour
     #region Input Events
     private void OnMimikGet()
     {
-        print("mimik getted");
         StopRound();
 
         int waitTime = 0;
@@ -74,7 +73,6 @@ public class GameController : MonoBehaviour
 
     private void OnCoinCollect()
     {
-        print("coin getted");
         StopRound();
 
         int time = 0;

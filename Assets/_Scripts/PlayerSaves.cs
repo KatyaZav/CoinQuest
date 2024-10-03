@@ -4,7 +4,7 @@ public static class PlayerSaves
 {
     public static int CoinsInBank => YandexGame.savesData.CoinsInBank;
     public static int CoinsInPocket => YandexGame.savesData.CoinsInPocket;
-
+    
     public static void PutCoinsToBank()
     {
         YandexGame.savesData.CoinsInBank += CoinsInPocket;
