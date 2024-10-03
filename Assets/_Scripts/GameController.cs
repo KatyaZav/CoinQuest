@@ -10,13 +10,17 @@ public class GameController : MonoBehaviour
     [SerializeField] private Coin _coin;
     [SerializeField] private Waiting _waitingTimer;
 
-    [Space(8), Header("Settings")]
+    [Space(5), Header("Settings")]
     [SerializeField] private GameObject _coinView;
     [SerializeField] private float _time;
     [SerializeField] private float _timeBetweenCoinGet = 0.5f;
     [SerializeField] private float _timeBetweenScrimmers = 2;
     [SerializeField] private float _scaryProbability = 60;
     [SerializeField] private int _minScary, _maxScary;
+
+    [Space(5), Header("Particles")]
+    [SerializeField] private ParticleSystem _winSystem;
+    //[SerializeField] private ParticleSystem _loseSystem;
 
     private void OnDisable()
     {
@@ -54,7 +58,7 @@ public class GameController : MonoBehaviour
         else
             waitTime += (int)_timeBetweenCoinGet;
 
-        CraryAnimationActivate(waitTime);
+        CraryAnimationActivate(waitTime, false);
 
         Invoke("ActivateMimik", waitTime);
         Invoke("RemoveMimik", _timeBetweenScrimmers + waitTime);
@@ -65,7 +69,7 @@ public class GameController : MonoBehaviour
     private void OnCoinDrop()
     {
         StopRound();
-        Invoke("StartRound", _time + _timeBetweenCoinGet);
+        Invoke("StartRound", _timeBetweenCoinGet);
     }
 
     private void OnCoinCollect()
@@ -78,9 +82,9 @@ public class GameController : MonoBehaviour
         if (_generator.GetMimikProbability() > _scaryProbability)
         {
             time += UnityEngine.Random.Range(_minScary, _maxScary);
-
-            CraryAnimationActivate(time);
         }
+
+        CraryAnimationActivate(time, true);
 
         Invoke("StartRound", _timeBetweenCoinGet + time);
     }
@@ -121,9 +125,30 @@ public class GameController : MonoBehaviour
     }
     #endregion
 
-    private void CraryAnimationActivate(int waitTime)
+    private void CraryAnimationActivate(int waitTime, bool success)
     {
         _waitingTimer.StartTimer(waitTime);
+
+        if (success)
+        {
+            Invoke("AddCoins", waitTime);
+        }
+        else
+        {
+            Invoke("LooseCoins", waitTime);
+        }
         //throw new NotImplementedException();
+    }
+
+    void AddCoins()
+    {
+        PlayerSaves.AddCoins(_generator.GetCoinValue());
+        _winSystem.Play();
+    }
+
+    void LooseCoins()
+    {
+        PlayerSaves.LooseCoins();
+        //_loseSystem.Play();
     }
 }

@@ -162,9 +162,10 @@ MonoBehaviour:
   _time: 2
   _timeBetweenCoinGet: 0.5
   _timeBetweenScrimmers: 2
-  _scaryProbability: 60
+  _scaryProbability: 50
   _minScary: 2
   _maxScary: 4
+  _winSystem: {fileID: 1594066026}
 --- !u!4 &81335169
 Transform:
   m_ObjectHideFlags: 0
@@ -2066,7 +2067,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
