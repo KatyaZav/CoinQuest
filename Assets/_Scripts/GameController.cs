@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Bank _bank;
     [SerializeField] private Scrimmer _scrimmer;
     [SerializeField] private Coin _coin;
+    [SerializeField] private Waiting _waitingTimer;
 
     [Space(8), Header("Settings")]
     [SerializeField] private GameObject _coinView;
@@ -122,7 +123,7 @@ public class GameController : MonoBehaviour
 
     private void CraryAnimationActivate(int waitTime)
     {
-        Debug.LogError("animation not added");
+        _waitingTimer.StartTimer(waitTime);
         //throw new NotImplementedException();
     }
 }
