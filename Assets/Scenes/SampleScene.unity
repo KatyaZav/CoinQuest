@@ -1884,6 +1884,7 @@ GameObject:
   - component: {fileID: 1772080635}
   - component: {fileID: 1772080634}
   - component: {fileID: 1772080633}
+  - component: {fileID: 1772080636}
   m_Layer: 5
   m_Name: Scrimmer
   m_TagString: Untagged
@@ -2011,6 +2012,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772080631}
   m_CullTransparentMesh: 1
+--- !u!95 &1772080636
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772080631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73f603f646078904088c0769f513b30a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1779989456
 GameObject:
   m_ObjectHideFlags: 0
