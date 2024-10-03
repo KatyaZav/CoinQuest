@@ -9,6 +9,7 @@ public class Scrimmer : MonoBehaviour
     [SerializeField] private ScrimmerType[] _scrimmers;
     [SerializeField] private Image _image;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioSource _audioSource;
 
     [SerializeField] private string _triggerName, _floatName; 
 
@@ -16,6 +17,7 @@ public class Scrimmer : MonoBehaviour
 
     public void Activate()
     {
+
         PlayerSaves.LooseCoins();
         RandomScrimmer();
 
@@ -28,6 +30,9 @@ public class Scrimmer : MonoBehaviour
 
         //_image.enabled = true;
         _image.sprite = _currentScrimmer.Sprite;
+
+        _audioSource.clip = _currentScrimmer.Clip;
+        _audioSource.Play();
     }
 
     public void Remove()
@@ -53,8 +58,10 @@ public class ScrimmerType
 {
     [SerializeField] string _name;
     [SerializeField] public Sprite Sprite;
-    [SerializeField] AudioClip Clip;
+    [SerializeField] AudioClip _clip;
     [SerializeField] UnityEvent _onGetted;
+
+    public AudioClip Clip => _clip;
 
     public void Activate()
     {

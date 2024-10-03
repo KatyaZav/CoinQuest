@@ -7138,6 +7138,7 @@ GameObject:
   - component: {fileID: 1772080633}
   - component: {fileID: 1772080636}
   - component: {fileID: 1772080637}
+  - component: {fileID: 1772080638}
   m_Layer: 5
   m_Name: Scrimmer
   m_TagString: Untagged
@@ -7180,54 +7181,55 @@ MonoBehaviour:
   _scrimmers:
   - _name: rabbit
     Sprite: {fileID: 710377524, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    Clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: d8f2057e51387184383afe0c79e12aec, type: 3}
     _onGetted:
       m_PersistentCalls:
         m_Calls: []
   - _name: sans
     Sprite: {fileID: -1342852185, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    Clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 1e3bb3b768b33bf4bb88eb09108a6276, type: 3}
     _onGetted:
       m_PersistentCalls:
         m_Calls: []
   - _name: geom dash
     Sprite: {fileID: 2137612774, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    Clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: b63511571ceb631419568658e534733c, type: 3}
     _onGetted:
       m_PersistentCalls:
         m_Calls: []
   - _name: dream cat
     Sprite: {fileID: 201160506, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    Clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 2c20c5694a9e49d4b9d1947d57861639, type: 3}
     _onGetted:
       m_PersistentCalls:
         m_Calls: []
   - _name: freddy
     Sprite: {fileID: -1791423023, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    Clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: e15896cc2af564941a63f3005a257bf4, type: 3}
     _onGetted:
       m_PersistentCalls:
         m_Calls: []
   - _name: bill
     Sprite: {fileID: 2026882862, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    Clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 6e068932c716f9e4f9ab9cd4bfc33e2a, type: 3}
     _onGetted:
       m_PersistentCalls:
         m_Calls: []
   - _name: creeper
     Sprite: {fileID: 937634299, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    Clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 39726e0482472844880fd9513ca9b3c6, type: 3}
     _onGetted:
       m_PersistentCalls:
         m_Calls: []
   - _name: amogus
     Sprite: {fileID: -2087610207, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    Clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: ef806018adc49f54d83fd837883d1b7b, type: 3}
     _onGetted:
       m_PersistentCalls:
         m_Calls: []
   _image: {fileID: 1772080634}
   _animator: {fileID: 1772080636}
+  _audioSource: {fileID: 1772080638}
   _triggerName: on
   _floatName: seed
 --- !u!114 &1772080634
@@ -7301,6 +7303,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135d563334f7f5a48bb8cf0f943e2bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1772080638
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772080631}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1779989456
 GameObject:
   m_ObjectHideFlags: 0
