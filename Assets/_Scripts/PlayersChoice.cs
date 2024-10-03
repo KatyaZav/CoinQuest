@@ -10,6 +10,8 @@ public class PlayersChoice : MonoBehaviour
     [SerializeField] float _timeBetween;
     [SerializeField] float _timeBetweenScrimmers;
 
+    private const string ActivateButtonName = "ActivateButtons"; 
+
     public void Init()
     {
 
@@ -17,25 +19,48 @@ public class PlayersChoice : MonoBehaviour
 
     public void DropCoin()
     {
-        OnDropCoin();
-        SubscriptionKeeper.ChangeCoin();
+        ButtonSwitch(_timeBetween);
+        //OnDropCoin();
     }
 
     public void CollectCoin()
     {
+        ActivateCollectCoinAnimation();
+
         if (_generator.GetIsMimik())
         {
-            Invoke("ActivateButtons", _timeBetweenScrimmers);
-            OnCollectMimik();
+            int timeBeforeScrimmer = Random.Range(1, 3);
+
+            ButtonSwitch(_timeBetweenScrimmers + timeBeforeScrimmer);
+            Invoke("OnCollectMimik", timeBeforeScrimmer);
         }
         else
         {
-            Invoke("ActivateButtons", _timeBetween);    
-            OnCollectCoin();
+            float time = _timeBetween;
+
+            if (_generator.GetMimikProbability() > 50)
+            {
+                int timeBeforeScrimmer = Random.Range(1, 3);
+
+                time += timeBeforeScrimmer;
+            }
+
+            ButtonSwitch(time);    
+            Invoke("OnCollectCoin", time);
         }
+    }
+
+    private void ActivateCollectCoinAnimation()
+    {
+
+    }
+
+    private void ButtonSwitch(float time)
+    {
+        DisableButtons();
+        Invoke(ActivateButtonName, time);
 
         SubscriptionKeeper.ChangeCoin();
-        DisableButtons();
     }
 
     void DisableButtons()

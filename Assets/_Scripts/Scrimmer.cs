@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class Scrimmer : MonoBehaviour
 {
-    [SerializeField] ScrimmerType[] _scrimmers;
-    [SerializeField] Image _image;
-    
-    ScrimmerType _currentScrimmer;
+    [SerializeField] private ScrimmerType[] _scrimmers;
+    [SerializeField] private Image _image;
+    [SerializeField] private Animator _animator;
+
+    [SerializeField] private string _triggerName, _floatName; 
+
+    private ScrimmerType _currentScrimmer;
 
     public void Activate()
     {
@@ -18,7 +21,12 @@ public class Scrimmer : MonoBehaviour
 
         _currentScrimmer.Activate();
 
-        _image.enabled = true;
+        float random = Random.Range(0, 101) / 100f;
+
+        _animator.SetFloat(_floatName, random);
+        _animator.SetTrigger(_triggerName);
+
+        //_image.enabled = true;
         _image.sprite = _currentScrimmer.Sprite;
     }
 

@@ -7,21 +7,11 @@ public class CoinGenerator : MonoBehaviour
     [SerializeField] private Coin _coin;
     [SerializeField, Range(1,100)] private int _minValue, _maxValue;
 
-    public void Init()
-    {
-        SubscriptionKeeper.CoinChangedEvent += ChangeCoin;
-
-        GenerateCoin();
-    }
-
+    public float GetMimikProbability() => _coin.Probability;
     public int GetCoinValue() => _coin.Value;
     public bool GetIsMimik() => _coin.IsMimic;
 
-    private void OnDisable()
-    {
-        SubscriptionKeeper.CoinChangedEvent -= ChangeCoin;
-
-    }
+    
     public void GenerateCoin()
     {
         _coin.GenerateCoin(_minValue, _maxValue);

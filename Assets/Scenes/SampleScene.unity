@@ -1779,7 +1779,7 @@ MonoBehaviour:
   _scrimmer: {fileID: 1772080633}
   _yes: {fileID: 2116158167}
   _no: {fileID: 1319605946}
-  _timeBetween: 0.3
+  _timeBetween: 1
   _timeBetweenScrimmers: 2
 --- !u!4 &1450359964
 Transform:
@@ -1974,6 +1974,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   _image: {fileID: 1772080634}
+  _animator: {fileID: 1772080636}
+  _triggerName: on
+  _floatName: seed
 --- !u!114 &1772080634
 MonoBehaviour:
   m_ObjectHideFlags: 0

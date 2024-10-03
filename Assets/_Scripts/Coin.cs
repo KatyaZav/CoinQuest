@@ -15,6 +15,7 @@ public class Coin : MonoBehaviour
 
     public int Value { get; private set; }
     public bool IsMimic { get; private set; }
+    public float Probability { get; private set; }
 
     public void GenerateCoin(int minValue, int maxValue)
     {
@@ -24,9 +25,11 @@ public class Coin : MonoBehaviour
         float mimicProbability = _mimicProbability.Evaluate(valueInRange) * 100;
         float randomProcent = UnityEngine.Random.Range(1, 101);
 
-        IsMimic = randomProcent <= mimicProbability;
+        Probability = mimicProbability;
 
-        ChangeCoinAppearance(Value, 100 - Mathf.Round(mimicProbability));
+        IsMimic = randomProcent <= Probability;
+
+        ChangeCoinAppearance(Value, 100 - Mathf.Round(Probability));
     }
 
     private void ChangeCoinAppearance(float coinValue, float probability)
