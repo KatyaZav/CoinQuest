@@ -20,6 +20,7 @@ namespace YG
 
         public int CoinsInBank = 0;
         public int CoinsInPocket = 0;
+        public int CoinsInLeaderboard = 0;
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

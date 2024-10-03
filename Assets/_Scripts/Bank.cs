@@ -14,6 +14,16 @@ public class Bank : MonoBehaviour
     private GameObject _currentPopup;
     private bool _canAd = true;
 
+    public void FreeBank()
+    {
+        PutCoinToBank(0);
+
+        if (_canAd)
+            ChangePopup(2);
+        else
+            ChangePopup(3);
+    }
+
     public void ChangePopup(int a = 1)
     {
         if (_currentPopup != null) 

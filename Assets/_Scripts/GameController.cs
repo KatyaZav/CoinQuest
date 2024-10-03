@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Scrimmer _scrimmer;
     [SerializeField] private Coin _coin;
     [SerializeField] private Waiting _waitingTimer;
+    [SerializeField] private SliderPoints _sliderPoints;
 
     [Space(5), Header("Settings")]
     [SerializeField] private GameObject _coinView;
@@ -140,6 +141,8 @@ public class GameController : MonoBehaviour
 
     void AddCoins()
     {
+        _sliderPoints.AddValue();
+
         PlayerSaves.AddCoins(_generator.GetCoinValue());
         _winSystem.Play();
     }
