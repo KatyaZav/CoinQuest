@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -12,9 +11,11 @@ public class GameController : MonoBehaviour
 
     [Space(8), Header("Settings")]
     [SerializeField] private GameObject _coinView;
-    [SerializeField] float _time;
-    [SerializeField] float _timeBetweenCoinGet = 0.5f;
-    [SerializeField] float _timeBetweenScrimmers = 2;
+    [SerializeField] private float _time;
+    [SerializeField] private float _timeBetweenCoinGet = 0.5f;
+    [SerializeField] private float _timeBetweenScrimmers = 2;
+    [SerializeField] private float _scaryProbability = 60;
+    [SerializeField] private int _minScary, _maxScary;
 
     private void OnDisable()
     {
@@ -42,8 +43,22 @@ public class GameController : MonoBehaviour
     #region Input Events
     private void OnMimikGet()
     {
+        print("mimik getted");
         StopRound();
 
+        int waitTime = 0;
+
+        if (_generator.GetMimikProbability() > _scaryProbability)
+            waitTime += UnityEngine.Random.Range(_minScary, _maxScary);
+        else
+            waitTime += (int)_timeBetweenCoinGet;
+
+        CraryAnimationActivate(waitTime);
+
+        Invoke("ActivateMimik", waitTime);
+        Invoke("RemoveMimik", _timeBetweenScrimmers + waitTime);
+
+        Invoke("StartRound", _time + _timeBetweenCoinGet + waitTime);
     }
 
     private void OnCoinDrop()
@@ -54,7 +69,19 @@ public class GameController : MonoBehaviour
 
     private void OnCoinCollect()
     {
+        print("coin getted");
         StopRound();
+
+        int time = 0;
+
+        if (_generator.GetMimikProbability() > _scaryProbability)
+        {
+            time += UnityEngine.Random.Range(_minScary, _maxScary);
+
+            CraryAnimationActivate(time);
+        }
+
+        Invoke("StartRound", _timeBetweenCoinGet + time);
     }
     #endregion
 
@@ -92,4 +119,10 @@ public class GameController : MonoBehaviour
         _scrimmer.Remove();
     }
     #endregion
+
+    private void CraryAnimationActivate(int waitTime)
+    {
+        Debug.LogError("animation not added");
+        //throw new NotImplementedException();
+    }
 }

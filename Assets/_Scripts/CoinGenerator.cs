@@ -10,8 +10,7 @@ public class CoinGenerator : MonoBehaviour
     public float GetMimikProbability() => _coin.Probability;
     public int GetCoinValue() => _coin.Value;
     public bool GetIsMimik() => _coin.IsMimic;
-
-    
+        
     public void GenerateCoin()
     {
         _coin.GenerateCoin(_minValue, _maxValue);

@@ -17,7 +17,7 @@ public class PlayersChoice : MonoBehaviour
     {
         if (_generator.GetIsMimik())
         {
-            CoinCollectedEvent?.Invoke();
+            MimikGettedEvent?.Invoke();
         }
         else
         {

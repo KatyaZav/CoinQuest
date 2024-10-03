@@ -34,6 +34,7 @@ public class Coin : MonoBehaviour
         Probability = mimicProbability;
 
         IsMimic = randomProcent <= Probability;
+        Debug.Log($"{Value}, {randomProcent} < {Probability}. IsMimik = {IsMimic}");
 
         ChangeCoinAppearance(Value, 100 - Mathf.Round(Probability));
     }

@@ -158,9 +158,12 @@ MonoBehaviour:
   _scrimmer: {fileID: 1772080633}
   _coin: {fileID: 163428141}
   _coinView: {fileID: 163409489}
-  _time: 0.5
+  _time: 2
   _timeBetweenCoinGet: 0.5
   _timeBetweenScrimmers: 2
+  _scaryProbability: 60
+  _minScary: 2
+  _maxScary: 4
 --- !u!4 &81335169
 Transform:
   m_ObjectHideFlags: 0
