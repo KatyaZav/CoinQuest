@@ -7,6 +7,7 @@ public class Coin : MonoBehaviour
     [Header("Appearance")]
     [SerializeField] private Text _coinText;
     [SerializeField] private Text _coinProbabilityText;
+    [SerializeField] private Animator _animator;
 
     [Header("Settings"), Space(10)]
     [SerializeField] private AnimationCurve _mimicProbability;
@@ -16,6 +17,11 @@ public class Coin : MonoBehaviour
     public int Value { get; private set; }
     public bool IsMimic { get; private set; }
     public float Probability { get; private set; }
+
+    public void SetAnimation()
+    {
+        _animator.SetTrigger("on");
+    }
 
     public void GenerateCoin(int minValue, int maxValue)
     {
