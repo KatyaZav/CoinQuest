@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private Coin _coin;
     [SerializeField] private Waiting _waitingTimer;
     [SerializeField] private SliderPoints _sliderPoints;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _winSound, _dropSound;
 
     [Space(5), Header("Settings")]
     [SerializeField] private GameObject _coinView;
@@ -69,6 +71,8 @@ public class GameController : MonoBehaviour
     private void OnCoinDrop()
     {
         StopRound();
+        _audioSource.clip = _dropSound;
+        _audioSource.Play();
         Invoke("StartRound", _timeBetweenCoinGet);
     }
 
@@ -142,6 +146,8 @@ public class GameController : MonoBehaviour
     void AddCoins()
     {
         _sliderPoints.AddValue();
+        _audioSource.clip = _winSound;
+        _audioSource.Play();
 
         PlayerSaves.AddCoins(_generator.GetCoinValue());
         _winSystem.Play();

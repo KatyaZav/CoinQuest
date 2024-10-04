@@ -16,7 +16,7 @@ public class Bank : MonoBehaviour
 
     public void FreeBank()
     {
-        PutCoinToBank(0);
+        PlayerSaves.PutCoinsToBank();
 
         if (_canAd)
             ChangePopup(2);
@@ -54,6 +54,8 @@ public class Bank : MonoBehaviour
 
     public void Init()
     {
+        _canAd = true;
+
         YG.YandexGame.RewardVideoEvent += PutCoinToBank;
         SubscriptionKeeper.ChangeBankEvent += ChangeBankValue;      
 
