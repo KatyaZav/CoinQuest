@@ -31,7 +31,7 @@ public class Bank : MonoBehaviour
 
         switch (a)
         {
-            case 1:
+            case 1:                
                 _currentPopup = _freeButton;
                 break;
             case 2:
