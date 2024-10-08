@@ -11,7 +11,8 @@ public class Scrimmer : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioSource _audioSource;
 
-    [SerializeField] private string _triggerName, _floatName; 
+    [SerializeField] private string _triggerName, _floatName;
+    [SerializeField] private float _min, _max;
 
     private ScrimmerType _currentScrimmer;
 
@@ -32,6 +33,7 @@ public class Scrimmer : MonoBehaviour
         _image.sprite = _currentScrimmer.Sprite;
 
         _audioSource.clip = _currentScrimmer.Clip;
+        _audioSource.pitch = Random.Range(_min, _max);
         _audioSource.Play();
     }
 

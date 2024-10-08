@@ -42,7 +42,10 @@ public class Bank : MonoBehaviour
                 break;
         }
 
-        _currentPopup.SetActive(true);
+        if (a == 4)
+            _currentPopup = null;
+        else
+            _currentPopup.SetActive(true);
     }
 
     public void PutCoinToBank(int a)
@@ -57,10 +60,27 @@ public class Bank : MonoBehaviour
         _canAd = true;
 
         YG.YandexGame.RewardVideoEvent += PutCoinToBank;
-        SubscriptionKeeper.ChangeBankEvent += ChangeBankValue;      
+        SubscriptionKeeper.ChangeBankEvent += ChangeBankValue;
+        SubscriptionKeeper.MoneyValueChangedEvent += Cheack;
 
         ChangeBankValue();
         ChangePopup(2);
+        Cheack();
+    }
+
+    private void Cheack()
+    {
+        if (PlayerSaves.CoinsInPocket == 0)
+        {
+            ChangePopup(4);
+        }
+        else
+        {
+            if (_canAd)
+                ChangePopup(2);
+            else
+                ChangePopup(3);
+        }
     }
 
     private void ChangeBankValue()
@@ -72,6 +92,7 @@ public class Bank : MonoBehaviour
     {
         SubscriptionKeeper.ChangeBankEvent -= ChangeBankValue;
         YG.YandexGame.RewardVideoEvent -= PutCoinToBank;
+        SubscriptionKeeper.MoneyValueChangedEvent -= Cheack;
     }
 
     private IEnumerator TimerLogic()

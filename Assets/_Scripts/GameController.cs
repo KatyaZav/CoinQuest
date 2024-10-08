@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float _timeBetweenScrimmers = 2;
     [SerializeField] private float _scaryProbability = 60;
     [SerializeField] private int _minScary, _maxScary;
+    [SerializeField] private float _min, _max;
 
     [Space(5), Header("Particles")]
     [SerializeField] private ParticleSystem _winSystem;
@@ -147,6 +148,7 @@ public class GameController : MonoBehaviour
     {
         _sliderPoints.AddValue();
         _audioSource.clip = _winSound;
+        _audioSource.pitch = Random.Range(_min, _max);
         _audioSource.Play();
 
         PlayerSaves.AddCoins(_generator.GetCoinValue());
