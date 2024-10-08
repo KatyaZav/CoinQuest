@@ -16,6 +16,11 @@ public class Hover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _animator.SetBool(_start, false);
     }
 
+    private void OnMouseUp()
+    {
+        _animator.SetBool(_start, false);
+    }
+
     private void OnDisable()
     {
         _animator.SetBool(_start, false);        
