@@ -1,10 +1,6 @@
 {
-<<<<<<< Updated upstream
-    "idSave": 614,
-=======
-    "idSave": 101,
->>>>>>> Stashed changes
-    "isFirstSession": false,
+    "idSave": 5,
+    "isFirstSession": true,
     "language": "ru",
     "promptDone": false,
     "money": 1,
@@ -14,13 +10,7 @@
         true,
         false
     ],
-<<<<<<< Updated upstream
-    "CoinsInBank": 5738,
-    "CoinsInPocket": 166,
-    "CoinsInLeaderboard": 5904
-=======
-    "CoinsInBank": 375,
-    "CoinsInPocket": 20,
-    "CoinsInLeaderboard": 636
->>>>>>> Stashed changes
+    "CoinsInBank": 0,
+    "CoinsInPocket": 50,
+    "CoinsInLeaderboard": 82
 }
