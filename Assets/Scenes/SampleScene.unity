@@ -697,7 +697,7 @@ MonoBehaviour:
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 5
     m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 999999990000
+  m_Text: 999999990000000000
 --- !u!222 &285134921
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1272,8 +1272,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 21.355011, y: -24.912003}
+  m_SizeDelta: {x: -42.71, y: -49.825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596891377
 MonoBehaviour:
@@ -1296,7 +1296,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1361,7 +1361,7 @@ MonoBehaviour:
   hi: 
   changeOnlyFont: 0
   fontNumber: 0
-  uniqueFont: {fileID: 0}
+  uniqueFont: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
   additionalText: {fileID: 0}
   textHeight: 20
   processTranslateLabel: 
@@ -1507,7 +1507,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   hi: 
   changeOnlyFont: 0
   fontNumber: 0
-  uniqueFont: {fileID: 0}
+  uniqueFont: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
   additionalText: {fileID: 0}
   textHeight: 20
   processTranslateLabel: 
@@ -1796,7 +1796,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1861,7 +1861,7 @@ MonoBehaviour:
   hi: 
   changeOnlyFont: 0
   fontNumber: 0
-  uniqueFont: {fileID: 0}
+  uniqueFont: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
   additionalText: {fileID: 0}
   textHeight: 20
   processTranslateLabel: 
@@ -13236,7 +13236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160.36, y: 73.74}
+  m_AnchoredPosition: {x: 36, y: 61}
   m_SizeDelta: {x: 256.62, y: 67.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973155186
@@ -13252,7 +13252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9058824, g: 0.1764706, b: 0.19215688, a: 1}
+  m_Color: {r: 0.9058824, g: 0.1764706, b: 0.19215688, a: 0.58431375}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13260,7 +13260,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
     m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
@@ -13325,7 +13325,7 @@ MonoBehaviour:
   hi: 
   changeOnlyFont: 0
   fontNumber: 0
-  uniqueFont: {fileID: 0}
+  uniqueFont: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
   additionalText: {fileID: 0}
   textHeight: 20
   processTranslateLabel: 
@@ -13860,7 +13860,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -13925,7 +13925,7 @@ MonoBehaviour:
   hi: 
   changeOnlyFont: 0
   fontNumber: 0
-  uniqueFont: {fileID: 0}
+  uniqueFont: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
   additionalText: {fileID: 0}
   textHeight: 20
   processTranslateLabel: 

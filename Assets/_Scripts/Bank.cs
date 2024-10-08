@@ -13,9 +13,11 @@ public class Bank : MonoBehaviour
 
     private GameObject _currentPopup;
     private bool _canAd = true;
+    private bool _canFree = false;
 
     public void FreeBank()
     {
+        _canFree = false;
         PlayerSaves.PutCoinsToBank();
 
         if (_canAd)
@@ -31,7 +33,8 @@ public class Bank : MonoBehaviour
 
         switch (a)
         {
-            case 1:                
+            case 1:
+                _canFree = true;
                 _currentPopup = _freeButton;
                 break;
             case 2:
@@ -76,10 +79,15 @@ public class Bank : MonoBehaviour
         }
         else
         {
-            if (_canAd)
-                ChangePopup(2);
+            if (_canFree)
+                ChangePopup(1);
             else
-                ChangePopup(3);
+            {
+                if (_canAd)
+                    ChangePopup(2);
+                else
+                    ChangePopup(3);
+            }
         }
     }
 
