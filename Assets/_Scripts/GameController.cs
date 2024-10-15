@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private Bank _bank;
     [SerializeField] private Scrimmer _scrimmer;
     [SerializeField] private Coin _coin;
-    [SerializeField] private Waiting _waitingTimer;
     [SerializeField] private SliderPoints _sliderPoints;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _winSound, _dropSound;
@@ -131,8 +130,6 @@ public class GameController : MonoBehaviour
 
     private void CraryAnimationActivate(int waitTime, bool success)
     {
-        _waitingTimer.StartTimer(waitTime);
-
         if (success)
         {
             Invoke("AddCoins", waitTime);
