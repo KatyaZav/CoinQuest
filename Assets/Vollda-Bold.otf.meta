@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 82cc91725ab2f0c41920038a250d768b
+guid: 4df6227e5cf053042a9fd8b26830f52c
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,8 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Futura PT
   fontNames:
-  - Futura PT
+  - Vollda
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
