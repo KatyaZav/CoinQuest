@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using YG;
+using static UnityEditor.Progress;
 
 public static class PlayerSaves
 {
@@ -11,6 +12,30 @@ public static class PlayerSaves
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
     public static List<ItemsData> Items => JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
     
+    public static void MakeSeen(Items item)
+    {
+        ItemsData data;
+
+        if (TryGetItemContain(item, out data))
+        {
+            data.See();
+        }
+
+        YandexGame.SaveProgress();
+    }
+
+    public static void MakeGetted(Items item)
+    {
+        ItemsData data;
+
+        if (TryGetItemContain(item, out data))
+        {
+            data.Get();
+        }
+
+        YandexGame.SaveProgress();
+    }
+
     public static bool TryGetItemContain(Items item, out ItemsData itemData)
     {
         foreach (var e in Items)
