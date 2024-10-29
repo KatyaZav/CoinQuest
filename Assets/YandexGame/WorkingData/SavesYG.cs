@@ -1,4 +1,7 @@
 ﻿
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -21,6 +24,7 @@ namespace YG
         public int CoinsInBank = 0;
         public int CoinsInPocket = 0;
         public int CoinsInLeaderboard = 0;
+        public string ListItems = JsonConvert.SerializeObject(new List<ItemsData>()); 
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

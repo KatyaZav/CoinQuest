@@ -1,3 +1,7 @@
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using YG;
 
 public static class PlayerSaves
@@ -5,7 +9,43 @@ public static class PlayerSaves
     public static int CoinsInBank => YandexGame.savesData.CoinsInBank;
     public static int CoinsInPocket => YandexGame.savesData.CoinsInPocket;
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
+    public static List<ItemsData> Items => JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
     
+    public static bool TryGetItemContain(Items item, out ItemsData itemData)
+    {
+        foreach (var e in Items)
+        {
+            if (e.Item == item)
+            {
+                itemData = e;
+                return true;
+            }
+        }
+
+        itemData = null;
+        return false;
+    }
+
+    public static void UpdateList(List<Items> items)
+    {
+        foreach (var item in items)
+        {
+            ItemsData element;
+
+            if (TryGetItemContain(item, out element) == false)
+            {
+                var newList = new List<ItemsData>(Items);
+                newList.Add(new ItemsData(item));
+                YandexGame.savesData.ListItems = JsonConvert.SerializeObject(newList, Formatting.Indented, new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+            }
+        }
+
+        YandexGame.SaveProgress();
+    }
+
     public static void PutCoinsToBank()
     {
         YandexGame.savesData.CoinsInBank += CoinsInPocket;

@@ -20,5 +20,10 @@ public class LoadScene : MonoBehaviour
     void StartGame()
     {
         SceneManager.LoadScene(1);
+
+        var loader = new ItemsLoader();
+        loader.Load();
+
+        PlayerSaves.UpdateList(loader.GetItemsList());
     }
 }

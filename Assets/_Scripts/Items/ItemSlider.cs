@@ -26,8 +26,27 @@ public class ItemSlider : MonoBehaviour
     {
         foreach (var item in _itemLoader.GetItemsList())
         {
+            ItemsData data;
             var element = Instantiate(_itemPrefab, _content);
-            element.SetItem(item);
+
+            if (PlayerSaves.TryGetItemContain(item, out data) == false)
+            {
+                data = new ItemsData(_itemLoader.GetNullItem());
+            }
+
+            if (data.IsSaw == false)
+            {
+                if (data.IsGetted == false)
+                {
+                    data = new ItemsData(_itemLoader.GetNullItem());                    
+                }
+            }
+            else
+            {
+                element.SetDarkColor();
+            }
+
+            element.SetItem(data.Item);
 
             element.OnMouseEnterEvent += ActivateDescription;
             element.OnMouseExitEvent += DisactivateDescription;
