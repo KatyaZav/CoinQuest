@@ -27,8 +27,8 @@ public class GameController : MonoBehaviour
 
     private void OnDisable()
     {
-        _playersChoice.CoinCollectedEvent -= OnCoinCollect;
-        _playersChoice.CoinDropedEvent -= OnCoinDrop;
+        _playersChoice.ItemCollectedEvent -= OnCoinCollect;
+        _playersChoice.ItemDropedEvent -= OnCoinDrop;
         _playersChoice.MimikGettedEvent -= OnMimikGet;
     }
     private void OnValidate()
@@ -41,8 +41,8 @@ public class GameController : MonoBehaviour
     {
         _bank.Init();
 
-        _playersChoice.CoinCollectedEvent += OnCoinCollect;
-        _playersChoice.CoinDropedEvent += OnCoinDrop;
+        _playersChoice.ItemCollectedEvent += OnCoinCollect;
+        _playersChoice.ItemDropedEvent += OnCoinDrop;
         _playersChoice.MimikGettedEvent += OnMimikGet;
 
         StartRound();

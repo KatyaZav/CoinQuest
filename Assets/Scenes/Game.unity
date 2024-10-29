@@ -2932,19 +2932,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1319605949}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1450359963}
-        m_TargetAssemblyTypeName: PlayersChoice, Assembly-CSharp
-        m_MethodName: DropCoin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1319605949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8963,62 +8951,159 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569cd8bdd2d919e45b5bb47c99f436a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrimmers:
-  - _name: rabbit
-    Sprite: {fileID: 710377524, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    _clip: {fileID: 8300000, guid: d8f2057e51387184383afe0c79e12aec, type: 3}
-    _onGetted:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: sans
-    Sprite: {fileID: -1342852185, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    _clip: {fileID: 8300000, guid: 1e3bb3b768b33bf4bb88eb09108a6276, type: 3}
-    _onGetted:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: geom dash
-    Sprite: {fileID: 2137612774, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    _clip: {fileID: 8300000, guid: b63511571ceb631419568658e534733c, type: 3}
-    _onGetted:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: dream cat
-    Sprite: {fileID: 201160506, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    _clip: {fileID: 8300000, guid: 2c20c5694a9e49d4b9d1947d57861639, type: 3}
-    _onGetted:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: freddy
-    Sprite: {fileID: -1791423023, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    _clip: {fileID: 8300000, guid: e15896cc2af564941a63f3005a257bf4, type: 3}
-    _onGetted:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: bill
-    Sprite: {fileID: 2026882862, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    _clip: {fileID: 8300000, guid: 6e068932c716f9e4f9ab9cd4bfc33e2a, type: 3}
-    _onGetted:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: creeper
-    Sprite: {fileID: 937634299, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    _clip: {fileID: 8300000, guid: 39726e0482472844880fd9513ca9b3c6, type: 3}
-    _onGetted:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: amogus
-    Sprite: {fileID: -2087610207, guid: e06ef1a99bd463748b0168a48dff3d99, type: 3}
-    _clip: {fileID: 8300000, guid: ef806018adc49f54d83fd837883d1b7b, type: 3}
-    _onGetted:
-      m_PersistentCalls:
-        m_Calls: []
-  _image: {fileID: 1772080634}
+  _imageParts:
+  - _name: Body
+    _sprites:
+    - {fileID: -170140445, guid: 23a0fe734a229e645a366cc591d2a248, type: 3}
+    _placeImage:
+    - {fileID: 1772080634}
+    _colors:
+      serializedVersion: 2
+      key0: {r: 0.21698111, g: 0.20347098, b: 0.20347098, a: 1}
+      key1: {r: 0.8490566, g: 0.80420077, b: 0.80420077, a: 1}
+      key2: {r: 0.81509435, g: 0.9056604, b: 0.8864178, a: 0}
+      key3: {r: 1, g: 0.762988, b: 0.56981134, a: 0}
+      key4: {r: 1, g: 0.3293015, b: 0.1830188, a: 0}
+      key5: {r: 0.5283019, g: 0.29797608, b: 0.146529, a: 0}
+      key6: {r: 0.3301887, g: 0.12929867, b: 0.010590936, a: 0}
+      key7: {r: 0.9056604, g: 0.4564629, b: 0.071769245, a: 0}
+      ctime0: 0
+      ctime1: 10409
+      ctime2: 20046
+      ctime3: 28720
+      ctime4: 36815
+      ctime5: 48380
+      ctime6: 57632
+      ctime7: 65535
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 8
+      m_NumAlphaKeys: 2
+  - _name: Eye
+    _sprites:
+    - {fileID: 904986936, guid: 23a0fe734a229e645a366cc591d2a248, type: 3}
+    _placeImage:
+    - {fileID: 208938893}
+    - {fileID: 601440494}
+    _colors:
+      serializedVersion: 2
+      key0: {r: 0.11256671, g: 0.9622642, b: 0.75606704, a: 1}
+      key1: {r: 0.23876432, g: 0.9245283, b: 0.18665004, a: 1}
+      key2: {r: 0.9811321, g: 0.87025285, b: 0.17956562, a: 0}
+      key3: {r: 0.990566, g: 0.4712197, b: 0.35884652, a: 0}
+      key4: {r: 0.12687784, g: 0.581468, b: 0.9339623, a: 0}
+      key5: {r: 0.5342422, g: 0.1641509, b: 1, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 2120
+      ctime1: 15806
+      ctime2: 28527
+      ctime3: 43754
+      ctime4: 56283
+      ctime5: 64379
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 6
+      m_NumAlphaKeys: 2
+  - _name: Paw
+    _sprites:
+    - {fileID: 267689051, guid: 478d7079eacace149ae7fee44b182559, type: 3}
+    - {fileID: 1708583351, guid: 478d7079eacace149ae7fee44b182559, type: 3}
+    - {fileID: -866081758, guid: 478d7079eacace149ae7fee44b182559, type: 3}
+    _placeImage:
+    - {fileID: 1688919610}
+    - {fileID: 1579664771}
+    _colors:
+      serializedVersion: 2
+      key0: {r: 0.21698111, g: 0.20347098, b: 0.20347098, a: 1}
+      key1: {r: 0.8490566, g: 0.80420077, b: 0.80420077, a: 1}
+      key2: {r: 0.81509435, g: 0.9056604, b: 0.8864178, a: 0}
+      key3: {r: 1, g: 0.762988, b: 0.56981134, a: 0}
+      key4: {r: 1, g: 0.3293015, b: 0.1830188, a: 0}
+      key5: {r: 0.5283019, g: 0.29797608, b: 0.146529, a: 0}
+      key6: {r: 0.3301887, g: 0.12929867, b: 0.010590936, a: 0}
+      key7: {r: 0.9056604, g: 0.4564629, b: 0.071769245, a: 0}
+      ctime0: 0
+      ctime1: 10409
+      ctime2: 20046
+      ctime3: 28720
+      ctime4: 36815
+      ctime5: 48380
+      ctime6: 57632
+      ctime7: 65535
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 8
+      m_NumAlphaKeys: 2
+  - _name: low paw
+    _sprites:
+    - {fileID: 335784764, guid: 478d7079eacace149ae7fee44b182559, type: 3}
+    _placeImage:
+    - {fileID: 2048703713}
+    - {fileID: 295201455}
+    _colors:
+      serializedVersion: 2
+      key0: {r: 0.8773585, g: 0.7978996, b: 0.80826384, a: 1}
+      key1: {r: 0.9433962, g: 0.52865785, b: 0.83510673, a: 1}
+      key2: {r: 0.9245283, g: 0.7091773, b: 0.43086502, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 1542
+      ctime1: 33731
+      ctime2: 64186
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
   _animator: {fileID: 0}
   _audioSource: {fileID: 0}
   _triggerName: on
   _floatName: seed
   _min: 0.9
   _max: 1.1
+  _losePopup: {fileID: 1186397208}
 --- !u!114 &1772080634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14583,7 +14668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a316e4046bbef8446bd7f382b1b1c445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _freeButtonParticle: {fileID: 1873509465}
 --- !u!1 &2009320547
 GameObject:
   m_ObjectHideFlags: 0
@@ -14914,19 +14998,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2116158170}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1450359963}
-        m_TargetAssemblyTypeName: PlayersChoice, Assembly-CSharp
-        m_MethodName: CollectCoin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2116158170
 MonoBehaviour:
   m_ObjectHideFlags: 0

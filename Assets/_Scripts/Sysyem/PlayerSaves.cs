@@ -1,9 +1,6 @@
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using YG;
-using static UnityEditor.Progress;
 
 public static class PlayerSaves
 {
@@ -20,6 +17,10 @@ public static class PlayerSaves
         {
             data.See();
         }
+        else
+        {
+            AddItem(item);
+        }
 
         YandexGame.SaveProgress();
     }
@@ -31,6 +32,10 @@ public static class PlayerSaves
         if (TryGetItemContain(item, out data))
         {
             data.Get();
+        }
+        else
+        {
+            AddItem(item);
         }
 
         YandexGame.SaveProgress();
@@ -59,12 +64,7 @@ public static class PlayerSaves
 
             if (TryGetItemContain(item, out element) == false)
             {
-                var newList = new List<ItemsData>(Items);
-                newList.Add(new ItemsData(item));
-                YandexGame.savesData.ListItems = JsonConvert.SerializeObject(newList, Formatting.Indented, new JsonSerializerSettings
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                });
+                AddItem(item);
             }
         }
 
@@ -123,5 +123,15 @@ public static class PlayerSaves
             YandexGame.savesData.CoinsInLeaderboard = count;
             YG.YandexGame.NewLeaderboardScores("leaderboard", count);
         }
+    }
+
+    static void AddItem(Items item)
+    {
+        var newList = new List<ItemsData>(Items);
+        newList.Add(new ItemsData(item));
+        YandexGame.savesData.ListItems = JsonConvert.SerializeObject(newList, Formatting.Indented, new JsonSerializerSettings
+        {
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        });
     }
 }
