@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Bank _bank;
     [SerializeField] private Scrimmer _scrimmer;
     [SerializeField] private Coin _coin;
-    [SerializeField] private SliderPoints _sliderPoints;
+    [SerializeField] private CustomSlider _sliderPoints;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _winSound, _dropSound;
 

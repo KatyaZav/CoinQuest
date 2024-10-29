@@ -3231,7 +3231,6 @@ GameObject:
   - component: {fileID: 1483343223}
   - component: {fileID: 1483343225}
   - component: {fileID: 1483343224}
-  - component: {fileID: 1483343226}
   m_Layer: 5
   m_Name: slide
   m_TagString: Untagged
@@ -3299,21 +3298,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483343222}
   m_CullTransparentMesh: 1
---- !u!114 &1483343226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483343222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c863985a447ec044b8d554ce2a81e9b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bank: {fileID: 563043485}
-  _image: {fileID: 1855152076}
-  _maxValue: 30
 --- !u!1 &1520114507
 GameObject:
   m_ObjectHideFlags: 0
@@ -9136,7 +9120,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.519
+  m_FillAmount: 0.5
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

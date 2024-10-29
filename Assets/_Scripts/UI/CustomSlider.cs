@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderPoints : MonoBehaviour
+public class CustomSlider
 {
-    [SerializeField] Bank _bank;
+    public Action OnSliderEndEvent;
 
     [SerializeField] private Image _image;
     [SerializeField] private float _maxValue;
     private float _currentValue = 0;
+
+    public CustomSlider(Image image, float maxValue)
+    {
+        _image = image;
+        _maxValue = maxValue;
+        _currentValue = 0;
+    }
 
     public void ResetValue()
     {
@@ -30,7 +38,7 @@ public class SliderPoints : MonoBehaviour
         if (_currentValue / _maxValue >= 1)
         {
             ResetValue();
-            _bank.ChangePopup();
+            OnSliderEndEvent?.Invoke();
         }
     }
 }

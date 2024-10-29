@@ -112,7 +112,6 @@ public class Bank : MonoBehaviour
         while (u > 0)
         {
             yield return new WaitForSeconds(1);
-
             u--;
 
             int minites = u / 60;
