@@ -7,6 +7,9 @@ public class CoinGenerator : MonoBehaviour
     [SerializeField] private Coin _coin;
     [SerializeField, Range(1,100)] private int _minValue, _maxValue;
 
+    private ItemsLoader _loader;
+           
+
     public float GetMimikProbability() => _coin.Probability;
     public int GetCoinValue() => _coin.Value;
     public bool GetIsMimik() => _coin.IsMimic;

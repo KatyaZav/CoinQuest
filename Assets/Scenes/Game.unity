@@ -2995,8 +2995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f639cb40f952ac45872e476cb9fe45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _start: on
 --- !u!1001 &1372748518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8938,7 +8936,6 @@ GameObject:
   - component: {fileID: 1772080635}
   - component: {fileID: 1772080634}
   - component: {fileID: 1772080633}
-  - component: {fileID: 1772080637}
   m_Layer: 5
   m_Name: Scrimmer
   m_TagString: Untagged
@@ -9076,18 +9073,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772080631}
   m_CullTransparentMesh: 1
---- !u!114 &1772080637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772080631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 135d563334f7f5a48bb8cf0f943e2bd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1855152074
 GameObject:
   m_ObjectHideFlags: 0
@@ -15008,8 +14993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f639cb40f952ac45872e476cb9fe45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _start: collecting
 --- !u!1 &2129081113
 GameObject:
   m_ObjectHideFlags: 0
