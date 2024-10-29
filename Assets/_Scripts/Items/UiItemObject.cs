@@ -1,20 +1,33 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UiItemObject : MonoBehaviour
+public class UiItemObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Action OnMouseEnterEvent;
+    public Action<Items> OnMouseEnterEvent;
     public Action OnMouseExitEvent;
+
+    [SerializeField] private Image _image;
+    [SerializeField] private Items _item;
 
     private Color _darkColor = new Color(11, 48, 0, 255);
     private Color _normalColor = Color.white;
 
-    [SerializeField] private Image _image;
-    
-    public void SetImage(Sprite sprite)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        _image.sprite = sprite;
+        OnMouseEnterEvent?.Invoke(_item);
+    }
+
+    public virtual void OnPointerExit(PointerEventData eventData)
+    {
+        OnMouseExitEvent?.Invoke();
+    }
+
+    public void SetItem(Items item)
+    {
+        _item = item;
+        _image.sprite = item.Icon;
     }
 
     public void SetNormalColor()
@@ -25,15 +38,5 @@ public class UiItemObject : MonoBehaviour
     public void SetDarkColor()
     {
         _image.color = _darkColor;
-    }
-
-    private void OnMouseEnter()
-    {
-        OnMouseEnterEvent?.Invoke();
-    }
-
-    private void OnMouseExit()
-    {
-        OnMouseExitEvent?.Invoke();
     }
 }

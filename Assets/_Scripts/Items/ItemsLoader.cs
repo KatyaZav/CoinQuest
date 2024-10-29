@@ -13,6 +13,7 @@ public class ItemsLoader
     public bool IsLoaded { get; private set;}
 
     public Items GetNullItem() => _noneItem;
+    public List<Items> GetItemsList() => _items;
 
     public Items GetItemByName(string name)
     {

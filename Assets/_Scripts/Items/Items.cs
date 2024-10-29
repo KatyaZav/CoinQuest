@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Items", order = 1)]
 public class Items : ScriptableObject
@@ -16,13 +17,13 @@ public class Items : ScriptableObject
     public Sprite Icon => _icon;
     public string Name => _name;
 
-    public string GetDescription(Language lang)
+    public string GetDescription(string lang)
     {
         switch (lang)
         {
-            case Language.English:
+            case "en":
                 return _enDesccription;
-            case Language.Russian:
+            case "ru":
                 return _rusDesccription;
             default:
                 Debug.LogError(NotFoundLanguageError);
