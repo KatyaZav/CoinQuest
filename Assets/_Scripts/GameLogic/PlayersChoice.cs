@@ -9,12 +9,6 @@ public class PlayersChoice : MonoBehaviour
     [SerializeField] CoinGenerator _generator;
     [SerializeField] Button _yes, _no;
 
-    private void Start()
-    {
-        _yes.onClick.AddListener(CollectCoin);
-        _no.onClick.AddListener(DropCoin);
-    }
-
     public void DropCoin()
     {
         ItemDropedEvent?.Invoke();

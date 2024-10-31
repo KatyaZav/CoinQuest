@@ -147,6 +147,7 @@ public class GameController : MonoBehaviour
         _audioSource.clip = _winSound;
         _audioSource.pitch = Random.Range(_min, _max);
         _audioSource.Play();
+        _generator.GetCoin();
 
         PlayerSaves.AddCoins(_generator.GetCoinValue());
         _winSystem.Play();

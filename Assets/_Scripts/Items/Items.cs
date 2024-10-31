@@ -36,7 +36,7 @@ public class Items : ScriptableObject
         usual = 1,
         normal = 2,
         rare = 4,
-        legendary = 8
+        //legendary = 8
     }
 
     public enum Language

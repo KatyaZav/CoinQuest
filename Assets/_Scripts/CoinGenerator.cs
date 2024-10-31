@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CoinGenerator : MonoBehaviour
 {
-    [SerializeField] private Coin _coin;
-    [SerializeField, Range(1,100)] private int _minValue, _maxValue;
+    [SerializeField] private Coin _coin;           
 
-    private ItemsLoader _loader;
-           
+    public void GetCoin()
+    {
+        _coin.GetCoin();
+    }
 
     public float GetMimikProbability() => _coin.Probability;
     public int GetCoinValue() => _coin.Value;
@@ -16,7 +17,7 @@ public class CoinGenerator : MonoBehaviour
         
     public void GenerateCoin()
     {
-        _coin.GenerateCoin(_minValue, _maxValue);
+        _coin.GenerateCoin();
     }
     
     private void ChangeCoin()
@@ -30,11 +31,5 @@ public class CoinGenerator : MonoBehaviour
 
         if (_coin == null )
             Debug.LogWarning("Coin not found");
-
-        if (_maxValue <= _minValue)
-        {
-            Debug.LogWarning("Max value lower min value");
-            _maxValue = _minValue+1;
-        }
     }
 }

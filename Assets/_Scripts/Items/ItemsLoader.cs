@@ -10,10 +10,13 @@ public class ItemsLoader
     private List<Items> _items;
     private Items _noneItem;
 
+    private Dictionary<Items.Rare, List<Items>> _dictionaryItems = new Dictionary<Items.Rare, List<Items>>();
+
     public bool IsLoaded { get; private set;}
 
     public Items GetNullItem() => _noneItem;
     public List<Items> GetItemsList() => _items;
+    public List<Items> GetListByRare(Items.Rare rare) => _dictionaryItems[rare];
 
     public Items GetItemByName(string name)
     {
@@ -27,11 +30,24 @@ public class ItemsLoader
         return _noneItem;
     }
 
-    public void Load()
+    public void Load(bool needToMakeList = false)
     {
         IsLoaded = true;
 
         _items = Resources.LoadAll(PathItems, typeof(Items)).Cast<Items>().ToList();
         _noneItem = Resources.Load<Items>(NoneItem);
+
+        if (needToMakeList)
+        {
+            foreach (var item in _items)
+            {
+                if (_dictionaryItems.ContainsKey(item.GetRare) == false)
+                {
+                    _dictionaryItems[item.GetRare] = new List<Items>();
+                }
+
+                _dictionaryItems[item.GetRare].Add(item);
+            }
+        }
     }
 }

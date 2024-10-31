@@ -15,6 +15,9 @@ public static class PlayerSaves
 
         if (TryGetItemContain(item, out data))
         {
+            if (data.IsSaw == true)
+                return;
+
             data.See();
         }
         else
@@ -31,6 +34,10 @@ public static class PlayerSaves
 
         if (TryGetItemContain(item, out data))
         {
+            if (data.IsGetted == true)
+                return;
+
+            SubscriptionKeeper.GettedNew(item);
             data.Get();
         }
         else
