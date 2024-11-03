@@ -5,7 +5,7 @@ public static class SubscriptionKeeper
 {
     public static Action MoneyValueChangedEvent;
     public static Action ChangeBankEvent;
-    public static Action GettedNewEvent;
+    public static Action<ItemsInfo> GettedNewEvent;
 
     public static void ChangeMoneyValue()
     {
@@ -17,8 +17,8 @@ public static class SubscriptionKeeper
         ChangeBankEvent?.Invoke();
     }
 
-    public static void GettedNew(Items item)
+    public static void GettedNew(ItemsInfo item)
     {
-        GettedNewEvent?.Invoke();
+        GettedNewEvent?.Invoke(item);
     }
 }

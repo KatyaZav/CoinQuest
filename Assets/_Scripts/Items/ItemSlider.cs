@@ -62,7 +62,7 @@ public class ItemSlider : MonoBehaviour
         }
     }
 
-    private void ActivateDescription(Items item)
+    private void ActivateDescription(ItemsInfo item)
     {
         _descriptionText.text = item.GetDescription(YandexGame.lang);
         _description.SetActive(true);

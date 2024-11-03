@@ -31,17 +31,11 @@ public class Items : ScriptableObject
         }
     }
 
-    public enum Rare
-    {
-        usual = 1,
-        normal = 2,
-        rare = 4,
-        //legendary = 8
-    }
-
-    public enum Language
-    {
-        Russian,
-        English
-    }
+}
+public enum Rare
+{
+    usual = 1,
+    normal = 2,
+    rare = 4,
+    //legendary = 8
 }

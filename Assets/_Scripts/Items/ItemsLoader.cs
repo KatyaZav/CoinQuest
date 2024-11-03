@@ -7,18 +7,18 @@ public class ItemsLoader
     private const string PathItems = "Items";
     private const string NoneItem = "Closed";
 
-    private List<Items> _items;
-    private Items _noneItem;
+    private List<ItemsInfo> _items = new List<ItemsInfo>();
+    private ItemsInfo _noneItem;
 
-    private Dictionary<Items.Rare, List<Items>> _dictionaryItems = new Dictionary<Items.Rare, List<Items>>();
+    private Dictionary<Rare, List<ItemsInfo>> _dictionaryItems = new Dictionary<Rare, List<ItemsInfo>>();
 
     public bool IsLoaded { get; private set;}
 
-    public Items GetNullItem() => _noneItem;
-    public List<Items> GetItemsList() => _items;
-    public List<Items> GetListByRare(Items.Rare rare) => _dictionaryItems[rare];
+    public ItemsInfo GetNullItem() => _noneItem;
+    public List<ItemsInfo> GetItemsList() => _items;
+    public List<ItemsInfo> GetListByRare(Rare rare) => _dictionaryItems[rare];
 
-    public Items GetItemByName(string name)
+    public ItemsInfo GetItemByName(string name)
     {
         foreach (var item in _items)
         {
@@ -34,8 +34,15 @@ public class ItemsLoader
     {
         IsLoaded = true;
 
-        _items = Resources.LoadAll(PathItems, typeof(Items)).Cast<Items>().ToList();
-        _noneItem = Resources.Load<Items>(NoneItem);
+        var _itemsZero = Resources.LoadAll(PathItems, typeof(Items)).Cast<Items>().ToList();
+
+        foreach (var e in _itemsZero)
+        {
+            var item = new ItemsInfo(e);
+            _items.Add(item);
+        }
+
+        _noneItem = new ItemsInfo(Resources.Load<Items>(NoneItem));
 
         if (needToMakeList)
         {
@@ -43,7 +50,7 @@ public class ItemsLoader
             {
                 if (_dictionaryItems.ContainsKey(item.GetRare) == false)
                 {
-                    _dictionaryItems[item.GetRare] = new List<Items>();
+                    _dictionaryItems[item.GetRare] = new List<ItemsInfo>();
                 }
 
                 _dictionaryItems[item.GetRare].Add(item);

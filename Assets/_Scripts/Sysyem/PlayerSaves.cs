@@ -9,7 +9,7 @@ public static class PlayerSaves
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
     public static List<ItemsData> Items => JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
     
-    public static void MakeSeen(Items item)
+    public static void MakeSeen(ItemsInfo item)
     {
         ItemsData data;
 
@@ -28,7 +28,7 @@ public static class PlayerSaves
         YandexGame.SaveProgress();
     }
 
-    public static void MakeGetted(Items item)
+    public static void MakeGetted(ItemsInfo item)
     {
         ItemsData data;
 
@@ -48,7 +48,7 @@ public static class PlayerSaves
         YandexGame.SaveProgress();
     }
 
-    public static bool TryGetItemContain(Items item, out ItemsData itemData)
+    public static bool TryGetItemContain(ItemsInfo item, out ItemsData itemData)
     {
         foreach (var e in Items)
         {
@@ -63,7 +63,7 @@ public static class PlayerSaves
         return false;
     }
 
-    public static void UpdateList(List<Items> items)
+    public static void UpdateList(List<ItemsInfo> items)
     {
         foreach (var item in items)
         {
@@ -132,7 +132,7 @@ public static class PlayerSaves
         }
     }
 
-    static void AddItem(Items item)
+    static void AddItem(ItemsInfo item)
     {
         var newList = new List<ItemsData>(Items);
         newList.Add(new ItemsData(item));

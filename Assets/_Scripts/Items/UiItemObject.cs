@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class UiItemObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Action<Items> OnMouseEnterEvent;
+    public Action<ItemsInfo> OnMouseEnterEvent;
     public Action OnMouseExitEvent;
 
     [SerializeField] private Image _image;
-    [SerializeField] private Items _item;
+    [SerializeField] private ItemsInfo _item;
 
     private Color _darkColor = new Color(11, 48, 0, 255);
     private Color _normalColor = Color.white;
@@ -24,7 +24,7 @@ public class UiItemObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         OnMouseExitEvent?.Invoke();
     }
 
-    public void SetItem(Items item)
+    public void SetItem(ItemsInfo item)
     {
         _item = item;
         _image.sprite = item.Icon;

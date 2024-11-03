@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -19,11 +20,14 @@ public class LoadScene : MonoBehaviour
 
     void StartGame()
     {
-        SceneManager.LoadScene(1);
-
         var loader = new ItemsLoader();
         loader.Load();
 
+        print(PlayerSaves.CoinsInBank);
+        print(YandexGame.savesData.ListItems.Count());
+
         PlayerSaves.UpdateList(loader.GetItemsList());
+        
+        SceneManager.LoadScene(1);
     }
 }

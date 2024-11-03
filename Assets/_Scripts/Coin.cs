@@ -7,6 +7,7 @@ public class Coin : MonoBehaviour
 {
     [Header("Appearance")]
     [SerializeField] private Text _coinProbabilityText;
+    [SerializeField] private Image _img;
     [SerializeField] private Animator _animator;
 
     [Header("Settings"), Space(10)]
@@ -15,13 +16,13 @@ public class Coin : MonoBehaviour
     [SerializeField] private AnimationCurve _probability;
 
     private ItemsLoader _loader;
-    private Items _item;
+    private ItemsInfo _item;
 
     public int Value { get; private set; }
     public bool IsMimic { get; private set; }
     public float Probability { get; private set; }
 
-    private void Start()
+    public void Init()
     {
         _loader = new ItemsLoader();
         _loader.Load(true);
@@ -51,22 +52,22 @@ public class Coin : MonoBehaviour
         ChangeCoinAppearance(Value, 100 - Mathf.Round(Probability));
     }
 
-    private Items GetRandomItem(ItemsLoader loader)
+    private ItemsInfo GetRandomItem(ItemsLoader loader)
     {
         int rnd = UnityEngine.Random.Range(0, 101);
-        Items.Rare rare = Items.Rare.usual;
+        Rare rare = Rare.usual;
 
         if (rnd < 50)
         {
-            rare = Items.Rare.usual;
+            rare = Rare.usual;
         }
         else if (rnd < 90)
         {
-            rare = Items.Rare.normal;
+            rare = Rare.normal;
         }
         else
         {
-            rare = Items.Rare.rare;
+            rare = Rare.rare;
         }
 
         var listItems = loader.GetListByRare(rare);
@@ -76,7 +77,8 @@ public class Coin : MonoBehaviour
 
     private void ChangeCoinAppearance(float coinValue, float probability)
     {
-        _coinProbabilityText.text = probability.ToString() + "%"; 
+        _coinProbabilityText.text = probability.ToString() + "%";
+        _img.sprite = _item.Icon;
 
         if (probability > 50)
         {

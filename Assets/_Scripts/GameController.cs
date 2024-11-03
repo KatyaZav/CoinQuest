@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
         _playersChoice.ItemCollectedEvent -= OnCoinCollect;
         _playersChoice.ItemDropedEvent -= OnCoinDrop;
         _playersChoice.MimikGettedEvent -= OnMimikGet;
+        SubscriptionKeeper.GettedNewEvent -= OnGettedNew;
     }
     private void OnValidate()
     {
@@ -40,12 +41,19 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _bank.Init();
+        _coin.Init();
 
         _playersChoice.ItemCollectedEvent += OnCoinCollect;
         _playersChoice.ItemDropedEvent += OnCoinDrop;
         _playersChoice.MimikGettedEvent += OnMimikGet;
+        SubscriptionKeeper.GettedNewEvent += OnGettedNew;
 
         StartRound();
+    }
+
+    private void OnGettedNew(ItemsInfo items)
+    {
+        print("getted new");
     }
 
     #region Input Events
@@ -96,7 +104,8 @@ public class GameController : MonoBehaviour
     #region Game logic
     private void StartRound()
     {
-        _coinView.SetActive(false);
+        print("start round");
+        //_coinView.SetActive(false);
 
         GenerateCoin();
 
