@@ -24,9 +24,6 @@ public class LoadScene : MonoBehaviour
         var loader = new ItemsLoader();
         loader.Load();
 
-        //YandexGame.ResetSaveProgress();
-        //YandexGame.SaveProgress();
-
         print(PlayerSaves.Items.Count());
 
         foreach (var e in loader.GetItemsList())
