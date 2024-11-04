@@ -1,8 +1,8 @@
 public class ItemsData
 {
     private int _id;
-    private bool _isGetted;
-    private bool _isSaw;
+    public bool _isGetted;
+    public bool _isSaw;
 
     public ItemsData(int id)
     {

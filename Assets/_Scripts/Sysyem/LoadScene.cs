@@ -21,13 +21,12 @@ public class LoadScene : MonoBehaviour
 
     void StartGame()
     {
+        Debug.Log("Load data");
+
         var loader = new ItemsLoader();
         loader.Load();
 
-        print(PlayerSaves.Items.Count());
-        PlayerSaves.UpdateList(loader.GetItemsList());
-        print(PlayerSaves.Items.Count());
-        
+        PlayerSaves.UpdateList(loader.GetItemsList());        
         SceneManager.LoadScene(1);
     }
 }

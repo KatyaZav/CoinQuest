@@ -9,30 +9,24 @@ public static class PlayerSaves
     public static int CoinsInPocket => YandexGame.savesData.CoinsInPocket;
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
     public static List<ItemsData> Items =>
-        JsonConvert.DeserializeObject<List<ItemsData>> (YandexGame.savesData.ListItems);
+        JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
     
     public static void MakeSeen(Items item)
     {
-        ItemsData data;
+        var list = JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
 
-        if (TryGetItemContain(item, out data))
+        foreach (var e in list)
         {
-            if (data.IsSaw == true)
-                return;
-
-            data.See();
-            Debug.Log("aa");
-        }
-        else
-        {
-            Debug.Log("bb");
-            AddItem(item);
+            if (e.ID == item.ID)
+            {
+                e.See();
+                break;
+            }
         }
 
-        if (TryGetItemContain(item, out data))
-            Debug.Log(item.ID + "seen " + data.IsSaw);
-        else
-            Debug.Log("Not found");
+        YandexGame.savesData.test = !YandexGame.savesData.test;
+
+        YandexGame.savesData.ListItems = JsonConvert.SerializeObject(list);
         YandexGame.SaveProgress();
     }
 
@@ -73,6 +67,8 @@ public static class PlayerSaves
 
     public static void UpdateList(List<Items> items)
     {
+        Debug.Log("Start updatings list");
+
         foreach (var item in items)
         {
             if (TryGetItemContain(item, out var element) == false)
@@ -85,6 +81,7 @@ public static class PlayerSaves
         YandexGame.SaveProgress();
     }
 
+    #region Coins
     public static void PutCoinsToBank()
     {
         YandexGame.savesData.CoinsInBank += CoinsInPocket;
@@ -138,9 +135,11 @@ public static class PlayerSaves
             YG.YandexGame.NewLeaderboardScores("leaderboard", count);
         }
     }
+    #endregion
 
     static void AddItem(Items item)
     {
+        Debug.Log("Add new item");
         var newList = Items;
         newList.Add(new ItemsData(item.ID));
 
