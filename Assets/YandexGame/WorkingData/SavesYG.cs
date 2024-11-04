@@ -25,7 +25,6 @@ namespace YG
         public int CoinsInPocket = 0;
         public int CoinsInLeaderboard = 0;
         public string ListItems = JsonConvert.SerializeObject(new List<ItemsData>());
-        public bool test = false;
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

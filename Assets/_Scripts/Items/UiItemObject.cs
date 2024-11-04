@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class UiItemObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Action<Items> OnMouseEnterEvent;
+    public Action<Items, ItemsData> OnMouseEnterEvent;
     public Action OnMouseExitEvent;
 
     [SerializeField] private Image _image;
     [SerializeField] private Items _item;
+    [SerializeField] private ItemsData _itemData;
 
-    private Color _darkColor = new Color(11, 48, 0, 255);
-    private Color _normalColor = Color.white;
+    [SerializeField] private Color _darkColor = new Color(11, 48, 0, 255);
+    [SerializeField] private Color _normalColor = Color.white;
 
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        OnMouseEnterEvent?.Invoke(_item);
+        OnMouseEnterEvent?.Invoke(_item, _itemData);
     }
 
     public virtual void OnPointerExit(PointerEventData eventData)
@@ -24,8 +25,9 @@ public class UiItemObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         OnMouseExitEvent?.Invoke();
     }
 
-    public void SetItem(Items item)
+    public void SetItem(Items item, ItemsData data)
     {
+        _itemData = data;
         _item = item;
         _image.sprite = item.Icon;
     }

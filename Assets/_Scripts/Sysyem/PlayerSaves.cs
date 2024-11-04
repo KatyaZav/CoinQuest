@@ -13,7 +13,7 @@ public static class PlayerSaves
     
     public static void MakeSeen(Items item)
     {
-        var list = JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
+        var list = Items;
 
         foreach (var e in list)
         {
@@ -24,29 +24,24 @@ public static class PlayerSaves
             }
         }
 
-        YandexGame.savesData.test = !YandexGame.savesData.test;
-
         YandexGame.savesData.ListItems = JsonConvert.SerializeObject(list);
         YandexGame.SaveProgress();
     }
 
     public static void MakeGetted(Items item)
     {
-        ItemsData data;
+        var list = Items;
 
-        if (TryGetItemContain(item, out data))
+        foreach (var e in list)
         {
-            if (data.IsGetted == true)
-                return;
-
-            SubscriptionKeeper.GettedNew(item);
-            data.Get();
-        }
-        else
-        {
-            AddItem(item);
+            if (e.ID == item.ID)
+            {
+                e.Get();
+                break;
+            }
         }
 
+        YandexGame.savesData.ListItems = JsonConvert.SerializeObject(list);
         YandexGame.SaveProgress();
     }
 

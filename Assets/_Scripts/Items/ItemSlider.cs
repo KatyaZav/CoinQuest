@@ -37,14 +37,16 @@ public class ItemSlider : MonoBehaviour
 
             if (data.IsSaw == false)
             {
-                element.SetItem(_itemLoader.GetNullItem());                    
+                element.SetItem(_itemLoader.GetNullItem(), data);                    
             }
             else
             {
-                element.SetItem(item);
-                
+                element.SetItem(item, data);
+
                 if (data.IsGetted == false)
                     element.SetDarkColor();
+                else
+                    element.SetNormalColor();
             }
 
 
@@ -62,9 +64,12 @@ public class ItemSlider : MonoBehaviour
         }
     }
 
-    private void ActivateDescription(Items item)
+    private void ActivateDescription(Items item, ItemsData data)
     {
-        _descriptionText.text = item.GetDescription(YandexGame.lang);
+        if (data.IsGetted == false)
+            _descriptionText.text = _itemLoader.GetNullItem().GetDescription(YandexGame.lang);
+        else
+            _descriptionText.text = item.GetDescription(YandexGame.lang);
         _description.SetActive(true);
     }
 
