@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -8,12 +9,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private Bank _bank;
     [SerializeField] private Scrimmer _scrimmer;
     [SerializeField] private Coin _coin;
-    [SerializeField] private CustomSlider _sliderPoints;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _winSound, _dropSound;
 
     [Space(5), Header("Settings")]
     [SerializeField] private GameObject _coinView;
+    [SerializeField] private Image _sliderImage;
+    [SerializeField] private int _eventMaxCount;
     [SerializeField] private float _time;
     [SerializeField] private float _timeBetweenCoinGet = 0.5f;
     [SerializeField] private float _timeBetweenScrimmers = 2;
@@ -24,6 +26,8 @@ public class GameController : MonoBehaviour
     [Space(5), Header("Particles")]
     [SerializeField] private ParticleSystem _winSystem;
     //[SerializeField] private ParticleSystem _loseSystem;
+    
+    private CustomSlider _sliderPoints;
 
     private void OnDisable()
     {
@@ -31,6 +35,8 @@ public class GameController : MonoBehaviour
         _playersChoice.ItemDropedEvent -= OnCoinDrop;
         _playersChoice.MimikGettedEvent -= OnMimikGet;
         SubscriptionKeeper.GettedNewEvent -= OnGettedNew;
+
+        _sliderPoints.OnSliderEndEvent -= OnPointsGetted;
     }
     private void OnValidate()
     {
@@ -48,7 +54,14 @@ public class GameController : MonoBehaviour
         _playersChoice.MimikGettedEvent += OnMimikGet;
         SubscriptionKeeper.GettedNewEvent += OnGettedNew;
 
+        _sliderPoints = new CustomSlider(_sliderImage, _eventMaxCount);
+        _sliderPoints.OnSliderEndEvent += OnPointsGetted;
         StartRound();
+    }
+
+    private void OnPointsGetted()
+    {
+        print("throw event");
     }
 
     private void OnGettedNew(Items id)
@@ -159,7 +172,7 @@ public class GameController : MonoBehaviour
         _generator.GetCoin();
 
         PlayerSaves.AddCoins(_generator.GetCoinValue());
-        _winSystem.Play();
+     //   _winSystem.Play();
     }
 
     void LooseCoins()

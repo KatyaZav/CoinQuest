@@ -21,12 +21,18 @@ public static class PlayerSaves
                 return;
 
             data.See();
+            Debug.Log("aa");
         }
         else
         {
+            Debug.Log("bb");
             AddItem(item);
         }
 
+        if (TryGetItemContain(item, out data))
+            Debug.Log(item.ID + "seen " + data.IsSaw);
+        else
+            Debug.Log("Not found");
         YandexGame.SaveProgress();
     }
 
