@@ -31,23 +31,22 @@ public class ItemSlider : MonoBehaviour
 
             if (PlayerSaves.TryGetItemContain(item, out data) == false)
             {
-                Debug.LogError("Saves npt found item!");
+                Debug.LogError("Saves not found item!");
                 data = new ItemsData(_itemLoader.GetNullItem().ID);
             }
 
             if (data.IsSaw == false)
             {
-                if (data.IsGetted == false)
-                {
-                    data = new ItemsData(_itemLoader.GetNullItem().ID);                    
-                }
+                element.SetItem(_itemLoader.GetNullItem());                    
             }
             else
             {
-                element.SetDarkColor();
+                element.SetItem(item);
+                
+                if (data.IsGetted == false)
+                    element.SetDarkColor();
             }
 
-            element.SetItem(item);
 
             element.OnMouseEnterEvent += ActivateDescription;
             element.OnMouseExitEvent += DisactivateDescription;

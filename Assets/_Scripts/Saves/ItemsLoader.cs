@@ -35,7 +35,7 @@ public class ItemsLoader
         IsLoaded = true;
 
         _items = Resources.LoadAll<Items>(PathItems).ToList();
-        var _noneItem = Resources.Load<Items>(NoneItem);
+        _noneItem = Resources.Load<Items>(NoneItem);
 
         if (needToMakeList)
         {

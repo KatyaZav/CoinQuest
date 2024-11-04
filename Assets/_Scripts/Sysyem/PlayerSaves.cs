@@ -9,7 +9,7 @@ public static class PlayerSaves
     public static int CoinsInPocket => YandexGame.savesData.CoinsInPocket;
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
     public static List<ItemsData> Items =>
-        JsonUtility.FromJson<List<ItemsData>>(YandexGame.savesData.ListItems);
+        JsonConvert.DeserializeObject<List<ItemsData>> (YandexGame.savesData.ListItems);
     
     public static void MakeSeen(Items item)
     {
@@ -72,6 +72,7 @@ public static class PlayerSaves
             if (TryGetItemContain(item, out var element) == false)
             {
                 AddItem(item);
+                YandexGame.SaveLocal();
             }
         }
 
@@ -137,6 +138,6 @@ public static class PlayerSaves
         var newList = Items;
         newList.Add(new ItemsData(item.ID));
 
-        YandexGame.savesData.ListItems = JsonUtility.ToJson(newList);
+        YandexGame.savesData.ListItems = JsonConvert.SerializeObject(newList);
     }
 }
