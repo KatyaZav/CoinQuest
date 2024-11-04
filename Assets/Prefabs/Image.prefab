@@ -128,9 +128,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 948463489931419590}
-  _item: {fileID: 0}
+  _rampImage: {fileID: 817452104075623047}
   _darkColor: {r: 0.03814728, g: 0.14150941, b: 0.0072089587, a: 255}
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _colors:
+  - {r: 1, g: 0.965319, b: 0.63584906, a: 1}
+  - {r: 0.81509435, g: 1, b: 0.985992, a: 1}
+  - {r: 0.7682331, g: 0.9716981, b: 0.73702383, a: 1}
 --- !u!1 &9157522560195701937
 GameObject:
   m_ObjectHideFlags: 0
