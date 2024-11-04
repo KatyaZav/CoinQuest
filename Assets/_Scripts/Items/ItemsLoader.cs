@@ -34,15 +34,18 @@ public class ItemsLoader
     {
         IsLoaded = true;
 
-        var _itemsZero = Resources.LoadAll(PathItems, typeof(Items)).Cast<Items>().ToList();
+        var _itemsZero = Resources.LoadAll<Items>(PathItems);
 
         foreach (var e in _itemsZero)
         {
-            var item = new ItemsInfo(e);
+            var item = new ItemsInfo(e.name, e.Icon, e.GetDescription("ru"), e.GetDescription("en"), e.GetRare);
             _items.Add(item);
         }
 
-        _noneItem = new ItemsInfo(Resources.Load<Items>(NoneItem));
+        var noneItem = Resources.Load<Items>(NoneItem);
+        _noneItem = new ItemsInfo(
+            noneItem.name, noneItem.Icon, noneItem.GetDescription("ru"), noneItem.GetDescription("en"),
+            noneItem.GetRare);
 
         if (needToMakeList)
         {

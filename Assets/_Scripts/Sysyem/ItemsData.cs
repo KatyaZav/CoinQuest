@@ -52,7 +52,6 @@ public class ItemsInfo
     public Sprite Icon => _icon;
     public string Name => _name;
 
-    [JsonConstructor]
     public ItemsInfo(Items item)
     {
         _name = item.Name;
@@ -60,6 +59,16 @@ public class ItemsInfo
         _rusDesccription = item.GetDescription("ru");
         _enDesccription = item.GetDescription("en");
         _rare = item.GetRare;
+    }
+
+    [JsonConstructor]
+    public ItemsInfo(string name, Sprite icon, string rusDesccription, string enDesccription, Rare rare)
+    {
+        _name = name;
+        _icon = icon;
+        _rusDesccription = rusDesccription;
+        _enDesccription = enDesccription;
+        _rare = rare;
     }
 
     public string GetDescription(string lang)

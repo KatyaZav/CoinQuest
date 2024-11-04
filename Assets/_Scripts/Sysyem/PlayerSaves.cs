@@ -7,7 +7,8 @@ public static class PlayerSaves
     public static int CoinsInBank => YandexGame.savesData.CoinsInBank;
     public static int CoinsInPocket => YandexGame.savesData.CoinsInPocket;
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
-    public static List<ItemsData> Items => JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
+    public static List<ItemsData> Items => 
+        JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
     
     public static void MakeSeen(ItemsInfo item)
     {
