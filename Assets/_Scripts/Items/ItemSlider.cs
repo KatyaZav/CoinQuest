@@ -31,14 +31,15 @@ public class ItemSlider : MonoBehaviour
 
             if (PlayerSaves.TryGetItemContain(item, out data) == false)
             {
-                data = new ItemsData(_itemLoader.GetNullItem());
+                Debug.LogError("Saves npt found item!");
+                data = new ItemsData(_itemLoader.GetNullItem().ID);
             }
 
             if (data.IsSaw == false)
             {
                 if (data.IsGetted == false)
                 {
-                    data = new ItemsData(_itemLoader.GetNullItem());                    
+                    data = new ItemsData(_itemLoader.GetNullItem().ID);                    
                 }
             }
             else
@@ -46,7 +47,7 @@ public class ItemSlider : MonoBehaviour
                 element.SetDarkColor();
             }
 
-            element.SetItem(data.Item);
+            element.SetItem(item);
 
             element.OnMouseEnterEvent += ActivateDescription;
             element.OnMouseExitEvent += DisactivateDescription;
@@ -62,7 +63,7 @@ public class ItemSlider : MonoBehaviour
         }
     }
 
-    private void ActivateDescription(ItemsInfo item)
+    private void ActivateDescription(Items item)
     {
         _descriptionText.text = item.GetDescription(YandexGame.lang);
         _description.SetActive(true);

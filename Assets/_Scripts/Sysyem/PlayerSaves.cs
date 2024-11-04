@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using UnityEngine;
 using YG;
 
 public static class PlayerSaves
@@ -7,10 +8,10 @@ public static class PlayerSaves
     public static int CoinsInBank => YandexGame.savesData.CoinsInBank;
     public static int CoinsInPocket => YandexGame.savesData.CoinsInPocket;
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
-    public static List<ItemsData> Items => 
-        JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
+    public static List<ItemsData> Items =>
+        JsonUtility.FromJson<List<ItemsData>>(YandexGame.savesData.ListItems);
     
-    public static void MakeSeen(ItemsInfo item)
+    public static void MakeSeen(Items item)
     {
         ItemsData data;
 
@@ -29,7 +30,7 @@ public static class PlayerSaves
         YandexGame.SaveProgress();
     }
 
-    public static void MakeGetted(ItemsInfo item)
+    public static void MakeGetted(Items item)
     {
         ItemsData data;
 
@@ -49,11 +50,11 @@ public static class PlayerSaves
         YandexGame.SaveProgress();
     }
 
-    public static bool TryGetItemContain(ItemsInfo item, out ItemsData itemData)
+    public static bool TryGetItemContain(Items item, out ItemsData itemData)
     {
         foreach (var e in Items)
         {
-            if (e.Item == item)
+            if (e.ID == item.ID)
             {
                 itemData = e;
                 return true;
@@ -64,13 +65,11 @@ public static class PlayerSaves
         return false;
     }
 
-    public static void UpdateList(List<ItemsInfo> items)
+    public static void UpdateList(List<Items> items)
     {
         foreach (var item in items)
         {
-            ItemsData element;
-
-            if (TryGetItemContain(item, out element) == false)
+            if (TryGetItemContain(item, out var element) == false)
             {
                 AddItem(item);
             }
@@ -133,13 +132,11 @@ public static class PlayerSaves
         }
     }
 
-    static void AddItem(ItemsInfo item)
+    static void AddItem(Items item)
     {
-        var newList = new List<ItemsData>(Items);
-        newList.Add(new ItemsData(item));
-        YandexGame.savesData.ListItems = JsonConvert.SerializeObject(newList, Formatting.Indented, new JsonSerializerSettings
-        {
-            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-        });
+        var newList = Items;
+        newList.Add(new ItemsData(item.ID));
+
+        YandexGame.savesData.ListItems = JsonUtility.ToJson(newList);
     }
 }

@@ -6,7 +6,6 @@ public class Items : ScriptableObject
 {
     private const string NotFoundLanguageError = "Language not founded";
 
-    [SerializeField] private int _id;
     [SerializeField] private Sprite _icon;
     [SerializeField] private string _rusDesccription;
     [SerializeField] private string _enDesccription;
@@ -15,7 +14,7 @@ public class Items : ScriptableObject
 
     public Rare GetRare => _rare;
     public Sprite Icon => _icon;
-    public int ID => _id;
+    public int ID => GetInstanceID();
 
     public string GetDescription(string lang)
     {

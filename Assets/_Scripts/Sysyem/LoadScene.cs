@@ -25,28 +25,8 @@ public class LoadScene : MonoBehaviour
         loader.Load();
 
         print(PlayerSaves.Items.Count());
-
-        foreach (var e in loader.GetItemsList())
-        {
-            print(e.ID + " Added: " + PlayerSaves.TryGetItemContain(e, out var y));
-
-            if (PlayerSaves.TryGetItemContain(e, out y) == false)
-            {
-                var res = PlayerSaves.Items;
-                res.Add(new ItemsData(e));
-                YandexGame.savesData.ListItems = JsonConvert.SerializeObject(res, Formatting.Indented, new JsonSerializerSettings
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                });
-
-                YandexGame.SaveProgress();
-                print("Add complete");
-                print(YandexGame.savesData.ListItems);
-                print(PlayerSaves.Items);
-            }
-        }
-
         PlayerSaves.UpdateList(loader.GetItemsList());
+        print(PlayerSaves.Items.Count());
         
         SceneManager.LoadScene(1);
     }

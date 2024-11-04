@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
         StartRound();
     }
 
-    private void OnGettedNew(ItemsInfo items)
+    private void OnGettedNew(Items id)
     {
         print("getted new");
     }

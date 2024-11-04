@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
     [SerializeField] private AnimationCurve _probability;
 
     private ItemsLoader _loader;
-    private ItemsInfo _item;
+    private Items _item;
 
     public int Value { get; private set; }
     public bool IsMimic { get; private set; }
@@ -52,7 +52,7 @@ public class Coin : MonoBehaviour
         ChangeCoinAppearance(Value, 100 - Mathf.Round(Probability));
     }
 
-    private ItemsInfo GetRandomItem(ItemsLoader loader)
+    private Items GetRandomItem(ItemsLoader loader)
     {
         int rnd = UnityEngine.Random.Range(0, 101);
         Rare rare = Rare.usual;
