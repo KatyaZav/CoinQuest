@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ItemsLoader
@@ -18,11 +17,11 @@ public class ItemsLoader
     public List<ItemsInfo> GetItemsList() => _items;
     public List<ItemsInfo> GetListByRare(Rare rare) => _dictionaryItems[rare];
 
-    public ItemsInfo GetItemByName(string name)
+    public ItemsInfo GetItemByID(int id)
     {
         foreach (var item in _items)
         {
-            if (item.Name == name)
+            if (item.ID == id)
                 return item;
         }
 
@@ -38,13 +37,13 @@ public class ItemsLoader
 
         foreach (var e in _itemsZero)
         {
-            var item = new ItemsInfo(e.name, e.Icon, e.GetDescription("ru"), e.GetDescription("en"), e.GetRare);
+            var item = new ItemsInfo(e.ID, e.Icon, e.GetDescription("ru"), e.GetDescription("en"), e.GetRare);
             _items.Add(item);
         }
 
         var noneItem = Resources.Load<Items>(NoneItem);
         _noneItem = new ItemsInfo(
-            noneItem.name, noneItem.Icon, noneItem.GetDescription("ru"), noneItem.GetDescription("en"),
+            noneItem.ID, noneItem.Icon, noneItem.GetDescription("ru"), noneItem.GetDescription("en"),
             noneItem.GetRare);
 
         if (needToMakeList)

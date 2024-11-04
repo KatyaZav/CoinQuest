@@ -11,7 +11,7 @@ public class ItemsData
  
     public ItemsData(Items item)
     {
-        Item = new ItemsInfo(item);
+        Item = new ItemsInfo(item.ID, item.Icon, item.GetDescription("ru"), item.GetDescription("en"), item.GetRare);
         _isGetted = false;
         _isSaw = false;
     }
@@ -38,33 +38,30 @@ public class ItemsData
     }
 }
 
+[System.Serializable]
 public class ItemsInfo
 {
     private const string NotFoundLanguageError = "Language not founded";
 
-    private string _name;
+    [Newtonsoft.Json.JsonIgnore]
     private Sprite _icon;
+
+    private int _id;
     private string _rusDesccription;
     private string _enDesccription;
     private Rare _rare = Rare.usual;
 
     public Rare GetRare => _rare;
-    public Sprite Icon => _icon;
-    public string Name => _name;
+    public int ID => _id;
 
-    public ItemsInfo(Items item)
-    {
-        _name = item.Name;
-        _icon = item.Icon;
-        _rusDesccription = item.GetDescription("ru");
-        _enDesccription = item.GetDescription("en");
-        _rare = item.GetRare;
-    }
+    [Newtonsoft.Json.JsonIgnore]
+    public Sprite Icon => _icon;
+
 
     [JsonConstructor]
-    public ItemsInfo(string name, Sprite icon, string rusDesccription, string enDesccription, Rare rare)
+    public ItemsInfo(int id, Sprite icon, string rusDesccription, string enDesccription, Rare rare)
     {
-        _name = name;
+        _id = id;
         _icon = icon;
         _rusDesccription = rusDesccription;
         _enDesccription = enDesccription;

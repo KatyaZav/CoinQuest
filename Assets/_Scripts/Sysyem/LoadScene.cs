@@ -1,10 +1,8 @@
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
-using static UnityEditor.Progress;
 
 public class LoadScene : MonoBehaviour
 {
@@ -26,14 +24,14 @@ public class LoadScene : MonoBehaviour
         var loader = new ItemsLoader();
         loader.Load();
 
-        YG.YandexGame.ResetSaveProgress();
-        YandexGame.SaveProgress();
+        //YandexGame.ResetSaveProgress();
+        //YandexGame.SaveProgress();
 
         print(PlayerSaves.Items.Count());
 
         foreach (var e in loader.GetItemsList())
         {
-            print(e.Name + " " + PlayerSaves.TryGetItemContain(e, out var y));
+            print(e.ID + " Added: " + PlayerSaves.TryGetItemContain(e, out var y));
 
             if (PlayerSaves.TryGetItemContain(e, out y) == false)
             {
@@ -43,8 +41,11 @@ public class LoadScene : MonoBehaviour
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 });
+
+                YandexGame.SaveProgress();
                 print("Add complete");
-                print(PlayerSaves.Items.Count());
+                print(YandexGame.savesData.ListItems);
+                print(PlayerSaves.Items);
             }
         }
 
