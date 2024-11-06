@@ -22,6 +22,8 @@ namespace YG
         public int CoinsInPocket = 0;
         public int CoinsInLeaderboard = 0;
 
+        public bool IsSoundOn = true; 
+
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 
 
