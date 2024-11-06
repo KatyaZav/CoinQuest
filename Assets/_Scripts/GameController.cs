@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float _timeBetweenCoinGet = 0.5f;
     [SerializeField] private float _timeBetweenScrimmers = 2;
     [SerializeField] private float _scaryProbability = 60;
-    [SerializeField] private int _minScary, _maxScary;
+    [SerializeField] private float _minScary, _maxScary;
     [SerializeField] private float _min, _max;
 
     [Space(5), Header("Particles")]
@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
     {
         StopRound();
 
-        int waitTime = 0;
+        float waitTime = 0;
 
         if (_generator.GetMimikProbability() > _scaryProbability)
             waitTime += UnityEngine.Random.Range(_minScary, _maxScary);
@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
     {
         StopRound();
 
-        int time = 0;
+        float time = 0;
 
         if (_generator.GetMimikProbability() > _scaryProbability)
         {
@@ -129,7 +129,7 @@ public class GameController : MonoBehaviour
     }
     #endregion
 
-    private void CraryAnimationActivate(int waitTime, bool success)
+    private void CraryAnimationActivate(float waitTime, bool success)
     {
         _waitingTimer.StartTimer(waitTime);
 
