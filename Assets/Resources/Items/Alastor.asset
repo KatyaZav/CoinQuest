@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd4eaf68bc0113949b37915e6eab2242, type: 3}
-  m_Name: Pig
+  m_Name: Alastor
   m_EditorClassIdentifier: 
-  _icon: {fileID: -739697921, guid: c5b2e9bb5a6e2af4ebfa92552c04a481, type: 3}
-  _sound: {fileID: 8300000, guid: dc7f92e3c630ee74ba811cff1af86934, type: 3}
+  _icon: {fileID: -2101141776, guid: c5b2e9bb5a6e2af4ebfa92552c04a481, type: 3}
+  _sound: {fileID: 8300000, guid: cbb11ef1c7c486843807122c5551f55a, type: 3}

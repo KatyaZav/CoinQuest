@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4eaf68bc0113949b37915e6eab2242, type: 3}
   m_Name: Tima
   m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
+  _icon: {fileID: -1203627385, guid: c5b2e9bb5a6e2af4ebfa92552c04a481, type: 3}
   _sound: {fileID: 8300000, guid: b4bc729e077f7634291d97cbf5a13cd9, type: 3}

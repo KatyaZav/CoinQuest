@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4eaf68bc0113949b37915e6eab2242, type: 3}
   m_Name: sing
   m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
+  _icon: {fileID: -930133540, guid: c5b2e9bb5a6e2af4ebfa92552c04a481, type: 3}
   _sound: {fileID: 8300000, guid: 6f89d2aba117af04eb9baf8ac91e6e1c, type: 3}
