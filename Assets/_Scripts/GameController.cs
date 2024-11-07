@@ -34,7 +34,6 @@ public class GameController : MonoBehaviour
         _playersChoice.ItemCollectedEvent -= OnCoinCollect;
         _playersChoice.ItemDropedEvent -= OnCoinDrop;
         _playersChoice.MimikGettedEvent -= OnMimikGet;
-        SubscriptionKeeper.GettedNewEvent -= OnGettedNew;
 
         _sliderPoints.OnSliderEndEvent -= OnPointsGetted;
     }
@@ -52,7 +51,6 @@ public class GameController : MonoBehaviour
         _playersChoice.ItemCollectedEvent += OnCoinCollect;
         _playersChoice.ItemDropedEvent += OnCoinDrop;
         _playersChoice.MimikGettedEvent += OnMimikGet;
-        SubscriptionKeeper.GettedNewEvent += OnGettedNew;
 
         _sliderPoints = new CustomSlider(_sliderImage, _eventMaxCount);
         _sliderPoints.OnSliderEndEvent += OnPointsGetted;
@@ -62,11 +60,6 @@ public class GameController : MonoBehaviour
     private void OnPointsGetted()
     {
         print("throw event");
-    }
-
-    private void OnGettedNew(Items id)
-    {
-        print("getted new");
     }
 
     #region Input Events

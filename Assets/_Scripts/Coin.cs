@@ -57,11 +57,11 @@ public class Coin : MonoBehaviour
         int rnd = UnityEngine.Random.Range(0, 101);
         Rare rare = Rare.usual;
 
-        if (rnd < 50)
+        if (rnd < 70)
         {
             rare = Rare.usual;
         }
-        else if (rnd < 90)
+        else if (rnd < 95)
         {
             rare = Rare.normal;
         }

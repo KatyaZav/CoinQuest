@@ -36,7 +36,11 @@ public static class PlayerSaves
         {
             if (e.ID == item.ID)
             {
-                e.Get();
+                if (e.IsGetted == false)
+                {
+                    e.Get();
+                    SubscriptionKeeper.GettedNew(item);
+                }
                 break;
             }
         }
