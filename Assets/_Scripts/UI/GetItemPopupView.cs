@@ -7,6 +7,8 @@ public class GetItemPopupView : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Text _rareText;
 
+    [SerializeField] private Color _normalColor, _usualColor, _rareColor;
+
     public void Close()
     {
         gameObject.SetActive(false);
@@ -33,6 +35,19 @@ public class GetItemPopupView : MonoBehaviour
 
     private string GetRare(Items item)
     {
+        switch (item.GetRare)
+        {
+            case Rare.usual:
+                _rareText.color = _normalColor;
+                break;
+            case Rare.normal:
+                _rareText.color = _usualColor;
+                break;
+            case Rare.rare:
+                _rareText.color = _rareColor;
+                break;
+        }
+
         if (YandexGame.lang == "ru")
         {
             switch (item.GetRare)
