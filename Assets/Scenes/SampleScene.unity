@@ -468,7 +468,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.34583333
     - serializedVersion: 3
-      time: 0.1
+      time: 0.19655761
       value: 0
       inSlope: -0.006071293
       outSlope: -0.006071293
@@ -477,14 +477,14 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.74083155
     - serializedVersion: 3
-      time: 0.5
-      value: 0.2
-      inSlope: 0.012352923
-      outSlope: 0.012352923
+      time: 0.40518188
+      value: 0.29609984
+      inSlope: -0.026915181
+      outSlope: -0.026915181
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.9748586
-      outWeight: 0.33333334
+      outWeight: 0.118675865
     - serializedVersion: 3
       time: 1
       value: 0.99
@@ -2894,7 +2894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 563043485}
   _image: {fileID: 1855152076}
-  _maxValue: 30
+  _maxValue: 50
 --- !u!1 &1551750092
 GameObject:
   m_ObjectHideFlags: 0

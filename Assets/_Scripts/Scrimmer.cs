@@ -39,10 +39,6 @@ public class Scrimmer : MonoBehaviour
         _audioSource.pitch = Random.Range(_min, _max);
         _audioSource.Play();
 
-        print($"{_currentScrimmer.ID} is getted:" +
-            $" {PlayerSaves.CheakIsScrimmerGetted(_currentScrimmer.ID)}. " +
-            $"Getted mimiks count: {PlayerSaves.GettedScrimmerCount}" +
-            $"!");
         if (PlayerSaves.CheakIsScrimmerGetted(_currentScrimmer.ID) == false)
             PlayerSaves.AddScrimmer(_currentScrimmer.ID);
     }
