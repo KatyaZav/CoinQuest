@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -21,6 +23,7 @@ namespace YG
         public int CoinsInBank = 0;
         public int CoinsInPocket = 0;
         public int CoinsInLeaderboard = 0;
+        public List<int> GettedScrimmersID = new();
 
         public bool IsSoundOn = true; 
 

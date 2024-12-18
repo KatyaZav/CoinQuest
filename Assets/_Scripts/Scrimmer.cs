@@ -13,6 +13,8 @@ public class Scrimmer : MonoBehaviour
     private Items _currentScrimmer;
     private Items[] _scrimmers;
 
+    public int ScrimmersCount => _scrimmers.Length;
+
     private void Start()
     {
         var loader = new ItemsLoader();
@@ -22,7 +24,6 @@ public class Scrimmer : MonoBehaviour
 
     public void Activate()
     {
-
         PlayerSaves.LooseCoins();
         RandomScrimmer();
 
@@ -37,6 +38,9 @@ public class Scrimmer : MonoBehaviour
         _audioSource.clip = _currentScrimmer.Clip;
         _audioSource.pitch = Random.Range(_min, _max);
         _audioSource.Play();
+
+        if (PlayerSaves.CheakIsScrimmerGetted(_currentScrimmer.ID))
+            PlayerSaves.AddScrimmer(_currentScrimmer.ID);
     }
 
     public void Remove()
