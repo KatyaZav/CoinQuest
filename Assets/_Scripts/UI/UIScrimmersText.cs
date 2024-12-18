@@ -8,7 +8,7 @@ public class UIScrimmersText : MonoBehaviour
     [SerializeField] private Text _text;
     [SerializeField] private Scrimmer _scrimmer;
 
-    void Start()
+    public void Init()
     {
         PlayerSaves.ChangedCountScrimmers += UpdateCount;
 

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using YG;
 
@@ -14,14 +15,16 @@ public static class PlayerSaves
 
     public static bool CheakIsScrimmerGetted(int id) => 
         YandexGame.savesData.GettedScrimmersID
-        .DefaultIfEmpty(-1)
+        //.DefaultIfEmpty(-1)
         .FirstOrDefault(item => item == id)
-        != -1; 
+        != 0; 
 
     public static void AddScrimmer(int id)
     {
         if (CheakIsScrimmerGetted(id))
             throw new System.ArgumentException($"Already contain {id} item");
+
+        //Debug.Log("added new scrimmer");
 
         YandexGame.savesData.GettedScrimmersID.Add(id);
         YandexGame.SaveProgress();

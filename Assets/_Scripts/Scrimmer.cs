@@ -15,7 +15,7 @@ public class Scrimmer : MonoBehaviour
 
     public int ScrimmersCount => _scrimmers.Length;
 
-    private void Start()
+    public void Init()
     {
         var loader = new ItemsLoader();
         loader.Load();
@@ -39,7 +39,11 @@ public class Scrimmer : MonoBehaviour
         _audioSource.pitch = Random.Range(_min, _max);
         _audioSource.Play();
 
-        if (PlayerSaves.CheakIsScrimmerGetted(_currentScrimmer.ID))
+        print($"{_currentScrimmer.ID} is getted:" +
+            $" {PlayerSaves.CheakIsScrimmerGetted(_currentScrimmer.ID)}. " +
+            $"Getted mimiks count: {PlayerSaves.GettedScrimmerCount}" +
+            $"!");
+        if (PlayerSaves.CheakIsScrimmerGetted(_currentScrimmer.ID) == false)
             PlayerSaves.AddScrimmer(_currentScrimmer.ID);
     }
 

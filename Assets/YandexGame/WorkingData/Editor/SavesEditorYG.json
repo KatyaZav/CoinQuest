@@ -1,5 +1,5 @@
 {
-    "idSave": 272,
+    "idSave": 308,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -12,6 +12,11 @@
     ],
     "CoinsInBank": 583,
     "CoinsInPocket": 0,
-    "CoinsInLeaderboard": 1104,
-    "IsSoundOn": true
+    "CoinsInLeaderboard": 1391,
+    "GettedScrimmersID": [
+        23632,
+        23708,
+        23688
+    ],
+    "IsSoundOn": false
 }
