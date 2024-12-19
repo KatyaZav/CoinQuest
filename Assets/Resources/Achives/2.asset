@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   <MinScore>k__BackingField: 150
-  <Rus>k__BackingField: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E!"
-  <En>k__BackingField: Good!
+  <Rus>k__BackingField: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E! \u0421\u043A\u0440\u0438\u043C\u043C\u0435\u0440\u044B
+    \u0440\u044F\u0434\u043E\u043C..."
+  <En>k__BackingField: Great! Screamers are nearby...
