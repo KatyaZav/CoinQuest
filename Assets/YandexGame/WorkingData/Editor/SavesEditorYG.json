@@ -1,0 +1,21 @@
+{
+    "idSave": 16,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "PreviousMoney": 105,
+    "CoinsInBank": 152,
+    "CoinsInPocket": 0,
+    "CoinsInLeaderboard": 152,
+    "GettedScrimmersID": [
+        21186
+    ],
+    "IsSoundOn": false
+}

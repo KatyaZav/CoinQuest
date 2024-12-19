@@ -7084,6 +7084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scrimmer: {fileID: 1772080633}
   _uIScrimmersText: {fileID: 725416384}
+  _countHolder: {fileID: 181528605}
 --- !u!4 &674112906
 Transform:
   m_ObjectHideFlags: 0
