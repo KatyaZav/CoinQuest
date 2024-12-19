@@ -21,15 +21,17 @@ public class CountHolder : MonoBehaviour
         _allScores = new ResourceLoader().Load<ScoreThreshold>(Path);
         _allScores.Sort((a, b) => a.MinScore.CompareTo(b.MinScore));
 
-        _scores = new List<ScoreThreshold>(_allScores);
+        List<ScoreThreshold> temp = new List<ScoreThreshold>(_allScores);
 
-        foreach (var score in _scores)
+        foreach (var score in _allScores)
         {
             if (score.MinScore < prev || score.MinScore < cur)            
-                _scores.Remove(score);            
+                temp.Remove(score);            
             else
                 break;
         }
+
+        _scores = temp;
     }
 
     private void OnDestroy()
