@@ -10,8 +10,8 @@ public class Scrimmer : MonoBehaviour
     [SerializeField] private string _triggerName, _floatName;
     [SerializeField] private float _min, _max;
 
-    private Items _currentScrimmer;
-    private Items[] _scrimmers;
+    private ItemsConfig _currentScrimmer;
+    private ItemsConfig[] _scrimmers;
 
     public int ScrimmersCount => _scrimmers.Length;
 

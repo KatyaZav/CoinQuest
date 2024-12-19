@@ -1,8 +1,8 @@
 using UnityEngine;
 using YG;
 
-[CreateAssetMenu(fileName = "Scrimmer", menuName = "ScriptableObjects/Scrimmer", order = 1)]
-public class Items : ScriptableObject
+[CreateAssetMenu(fileName = "Scrimmer", menuName = "Config/Scrimmer", order = 1)]
+public class ItemsConfig : ScriptableObject
 {
     private const string NotFoundLanguageError = "Language not founded";
 
