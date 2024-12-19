@@ -5471,6 +5471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36cfc23af4463b45b6bcdc575c30bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popupUI: {fileID: 2133684021}
 --- !u!4 &181528606
 Transform:
   m_ObjectHideFlags: 0
@@ -8292,8 +8293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f639cb40f952ac45872e476cb9fe45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _start: 
+  _animator: {fileID: 1779989460}
+  _start: on
 --- !u!1001 &1372748518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20179,8 +20180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f639cb40f952ac45872e476cb9fe45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _start: 
+  _animator: {fileID: 431989748}
+  _start: collecting
 --- !u!1 &2129081113
 GameObject:
   m_ObjectHideFlags: 0
