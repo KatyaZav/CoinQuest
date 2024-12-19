@@ -158,8 +158,8 @@ MonoBehaviour:
   _bank: {fileID: 563043485}
   _scrimmer: {fileID: 1772080633}
   _coin: {fileID: 163428141}
-  _waitingTimer: {fileID: 1945228072}
-  _sliderPoints: {fileID: 1483343226}
+  _waitingTimer: {fileID: 0}
+  _sliderPoints: {fileID: 0}
   _audioSource: {fileID: 81335170}
   _winSound: {fileID: 8300000, guid: e564625e0d44bfe4e9e1beddff9ac78f, type: 3}
   _dropSound: {fileID: 8300000, guid: e61e93de1480f354bb05394150b4b933, type: 3}
@@ -168,8 +168,8 @@ MonoBehaviour:
   _timeBetweenCoinGet: 0.5
   _timeBetweenScrimmers: 2
   _scaryProbability: 85
-  _minScary: 0.5
-  _maxScary: 1
+  _minScary: 0
+  _maxScary: 0
   _min: 0.8
   _max: 1.2
   _winSystem: {fileID: 1594066026}
@@ -5415,43 +5415,7 @@ MonoBehaviour:
   _animator: {fileID: 163428142}
   _mimicProbability:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.04360531
-      outSlope: 0.04360531
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.34583333
-    - serializedVersion: 3
-      time: 0.19655761
-      value: 0
-      inSlope: -0.006071293
-      outSlope: -0.006071293
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.74083155
-    - serializedVersion: 3
-      time: 0.40518188
-      value: 0.29609984
-      inSlope: -0.026915181
-      outSlope: -0.026915181
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.9748586
-      outWeight: 0.118675865
-    - serializedVersion: 3
-      time: 1
-      value: 0.99
-      inSlope: 2.026617
-      outSlope: 2.026617
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.0625
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -5607,14 +5571,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253051039}
-  m_LocalRotation: {x: 0, y: 0, z: -0.21643952, w: 0.97629607}
+  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1297843223}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -5633,7 +5597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.88113207, g: 1, b: 0.99322456, a: 0.27058825}
+  m_Color: {r: 0.3339622, g: 0.94424313, b: 1, a: 0.27058825}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5998,14 +5962,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392726093}
-  m_LocalRotation: {x: -0, y: -0, z: 0.5094001, w: 0.8605298}
+  m_LocalRotation: {x: 0, y: 0, z: -0.86602545, w: 0.49999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1297843223}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.248}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -120}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -6024,7 +5988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.88113207, g: 1, b: 0.99322456, a: 0.27058825}
+  m_Color: {r: 0.645283, g: 0.8744984, b: 1, a: 0.12941177}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6380,14 +6344,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502367463}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7443613, w: 0.6677772}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1297843223}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 96.209}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -6406,7 +6370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.88113207, g: 1, b: 0.99322456, a: 0.27058825}
+  m_Color: {r: 0.3339622, g: 0.94424313, b: 1, a: 0.27058825}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7311,14 +7275,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727488803}
-  m_LocalRotation: {x: -0, y: -0, z: 0.25113338, w: 0.9679525}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9659258, w: 0.2588191}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1297843223}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -150}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7337,7 +7301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.88113207, g: 1, b: 0.99322456, a: 0.27058825}
+  m_Color: {r: 0.3339622, g: 0.94424313, b: 1, a: 0.27058825}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7480,7 +7444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 107.109985, y: -455}
+  m_AnchoredPosition: {x: 107.11011, y: -455}
   m_SizeDelta: {x: 190.89, y: 92.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909130183
@@ -7617,14 +7581,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087331364}
-  m_LocalRotation: {x: 0, y: 0, z: -0.42261827, w: 0.9063079}
+  m_LocalRotation: {x: 0, y: 0, z: -0.5, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1297843223}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -50}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7643,7 +7607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.88113207, g: 1, b: 0.99322456, a: 0.27058825}
+  m_Color: {r: 0.645283, g: 0.8744984, b: 1, a: 0.12941177}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7905,8 +7869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coin: {fileID: 163428141}
-  _minValue: 1
-  _maxValue: 100
+  _minValue: 0
+  _maxValue: 1
 --- !u!4 &1234635178
 Transform:
   m_ObjectHideFlags: 0
@@ -8191,8 +8155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f639cb40f952ac45872e476cb9fe45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1779989460}
-  _start: on
+  _animator: {fileID: 0}
+  _start: 
 --- !u!1001 &1372748518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8521,7 +8485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.88113207, g: 1, b: 0.99322456, a: 0.27058825}
+  m_Color: {r: 0.645283, g: 0.8744984, b: 1, a: 0.12941177}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20020,8 +19984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f639cb40f952ac45872e476cb9fe45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 431989748}
-  _start: collecting
+  _animator: {fileID: 0}
+  _start: 
 --- !u!1 &2129081113
 GameObject:
   m_ObjectHideFlags: 0
@@ -20168,7 +20132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2133684020
 RectTransform:
   m_ObjectHideFlags: 0
