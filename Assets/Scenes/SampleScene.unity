@@ -5436,7 +5436,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1
+      value: 0.97029877
       inSlope: 0.7944131
       outSlope: 0.7944131
       tangentMode: 0
@@ -8022,8 +8022,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coin: {fileID: 163428141}
-  _minValue: 0
-  _maxValue: 50
+  _minValue: 2
+  _maxValue: 30
 --- !u!4 &1234635178
 Transform:
   m_ObjectHideFlags: 0
@@ -8523,7 +8523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 563043485}
   _image: {fileID: 1855152076}
-  _maxValue: 30
+  _maxValue: 15
 --- !u!1 &1551750092
 GameObject:
   m_ObjectHideFlags: 0

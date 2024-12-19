@@ -43,7 +43,7 @@ public class CountHolder : MonoBehaviour
     {
         ScoreThreshold first = _scores[0];
 
-        if (first.MinScore < cur && first.MinScore > prev)
+        if (first.MinScore <= cur)
         {
             _popupUI.Activate(first.GetText(YG.YandexGame.lang), first.MinScore);
             _scores.Remove(first);
