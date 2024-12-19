@@ -13,6 +13,8 @@ public class PopupUI : MonoBehaviour
 
     public void Activate(string text)
     {
+        gameObject.SetActive(true);
+
         _particle.Play();
         _rotator.Activate(_speed);
 

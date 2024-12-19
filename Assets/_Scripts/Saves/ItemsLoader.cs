@@ -18,3 +18,5 @@ public class ItemsLoader
         _items = Resources.LoadAll<Items>(PathItems).ToList();
     }
 }
+
+
