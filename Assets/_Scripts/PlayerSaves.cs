@@ -6,12 +6,10 @@ using YG;
 public static class PlayerSaves
 {
     public static Action<int> ChangedCountScrimmers;
-    public static Action<int, int> ChangedFinalCountMoney;
 
     public static int CoinsInBank => YandexGame.savesData.CoinsInBank;
     public static int CoinsInPocket => YandexGame.savesData.CoinsInPocket;
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
-    public static int PreviousCount => YandexGame.savesData.PreviousCount;
 
     public static int GettedScrimmerCount => YandexGame.savesData.GettedScrimmersID.Count;
 
@@ -37,8 +35,6 @@ public static class PlayerSaves
 
     public static void PutCoinsToBank()
     {
-        YandexGame.savesData.PreviousCount = YandexGame.savesData.CoinsInBank;
-
         YandexGame.savesData.CoinsInBank += CoinsInPocket;
         YandexGame.savesData.CoinsInPocket = 0;
 
@@ -47,8 +43,6 @@ public static class PlayerSaves
 
         CheackLeaderBoard();
         YandexGame.SaveProgress();
-
-        ChangedFinalCountMoney.Invoke(PreviousCount, CoinsInBank);
     }
 
     public static void AddCoins(int value)
@@ -56,7 +50,7 @@ public static class PlayerSaves
         YandexGame.savesData.CoinsInPocket += value;
 
         SubscriptionKeeper.ChangeMoneyValue();
-        //CheackLeaderBoard();
+        CheackLeaderBoard();
 
         YandexGame.SaveProgress();
     }    
@@ -84,7 +78,7 @@ public static class PlayerSaves
 
     private static void CheackLeaderBoard()
     {
-        int count = CoinsInBank;
+        int count = CoinsInBank + CoinsInPocket;
 
         if (CoinsInLeaderboards < count)
         {
