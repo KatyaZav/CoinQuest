@@ -7,11 +7,11 @@ public class PopupUI : MonoBehaviour
 {
     [SerializeField] private Rotator _rotator;
     [SerializeField] private ParticleSystem _particle;
-    [SerializeField] private Text _text;
+    [SerializeField] private Text _text, _moneyText;
 
     [SerializeField] private float _speed = 10;
 
-    public void Activate(string text)
+    public void Activate(string text, int money)
     {
         gameObject.SetActive(true);
 
@@ -19,6 +19,7 @@ public class PopupUI : MonoBehaviour
         _rotator.Activate(_speed);
 
         _text.text = text;
+        _moneyText.text = money.ToString();
     }
 
     private void OnDisable()
