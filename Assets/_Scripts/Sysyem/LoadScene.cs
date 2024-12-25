@@ -27,6 +27,6 @@ public class LoadScene : MonoBehaviour
         loader.Load();
 
         PlayerSaves.UpdateList(loader.GetItemsList());        
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
 }

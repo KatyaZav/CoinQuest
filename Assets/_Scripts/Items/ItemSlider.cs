@@ -31,7 +31,7 @@ public class ItemSlider : MonoBehaviour
 
             if (PlayerSaves.TryGetItemContain(item, out data) == false)
             {
-                Debug.LogError("Saves not found item!");
+                Debug.Log("Add new item!");
                 data = new ItemsData(_itemLoader.GetNullItem().ID);
             }
 
