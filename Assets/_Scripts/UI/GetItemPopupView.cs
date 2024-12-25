@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -9,14 +10,29 @@ public class GetItemPopupView : MonoBehaviour
 
     [SerializeField] private Color _normalColor, _usualColor, _rareColor;
 
+    [SerializeField] private Image _anticlickZone;
+    [SerializeField] private RectTransform _popupZone;
+    [SerializeField] private float _durection;
+
+    private Sequence _animation;
+
     public void Close()
     {
-        gameObject.SetActive(false);
+        _animation.Complete();
+
+        _animation
+            .Append(_anticlickZone.DOFade(0, _durection / 2))
+            .Join(_popupZone.DOScale(new Vector2(0.0f, 0.0f), _durection/3) 
+                .OnComplete(() => gameObject.SetActive(false)));
     }
 
     public void Init(Items item)
     {
         gameObject.SetActive(true);
+
+        _animation
+            .Append(_anticlickZone.DOFade(1, _durection / 2))
+            .Join(_popupZone.DOScale(Vector2.one, _durection));
 
         _image.sprite = item.Icon;
         _rareText.text = GetRare(item);
@@ -25,7 +41,7 @@ public class GetItemPopupView : MonoBehaviour
     private void Start()
     {
         SubscriptionKeeper.GettedNewEvent += Init;
-        Close();
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -75,4 +91,6 @@ public class GetItemPopupView : MonoBehaviour
 
         return "not found";
     }
+
+
 }
