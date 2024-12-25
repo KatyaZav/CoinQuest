@@ -26,7 +26,7 @@ public class GetItemPopupView : MonoBehaviour
                 .OnComplete(() => gameObject.SetActive(false)));
     }
 
-    public void Init(Items item)
+    public void Open(Items item)
     {
         gameObject.SetActive(true);
 
@@ -40,13 +40,13 @@ public class GetItemPopupView : MonoBehaviour
 
     private void Start()
     {
-        SubscriptionKeeper.GettedNewEvent += Init;
+        SubscriptionKeeper.GettedNewEvent += Open;
         gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        SubscriptionKeeper.GettedNewEvent -= Init;        
+        SubscriptionKeeper.GettedNewEvent -= Open;        
     }
 
     private string GetRare(Items item)

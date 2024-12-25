@@ -23,6 +23,7 @@ public class OnMouseScaleAnimation : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         _animation.Complete();
 
+        _animation = DOTween.Sequence();
         _animation
             .Append(transform.DOScale(new Vector2(1.1f, 1.1f), DuractionTime));
     }
@@ -31,6 +32,7 @@ public class OnMouseScaleAnimation : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         _animation.Complete();
 
+        _animation = DOTween.Sequence();
         _animation
             .Append(transform.DOScale(Vector2.one, DuractionTime));
     }

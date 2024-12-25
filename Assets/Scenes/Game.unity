@@ -7825,7 +7825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -119, y: 688.5}
+  m_AnchoredPosition: {x: 0, y: 688.5}
   m_SizeDelta: {x: 643.16, y: 443}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115530019
@@ -8086,6 +8086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1186397209}
+  - component: {fileID: 1186397210}
   m_Layer: 5
   m_Name: Scrimmer
   m_TagString: Untagged
@@ -8116,6 +8117,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -980, y: -1820}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1186397210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186397208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5774d08dca707b644b6c981d12db32b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scrimmer: {fileID: 1772080632}
+  _anticliker: {fileID: 67591981}
+  _scrimmerAnimator: {fileID: 1772080636}
+  _duraction: 1
 --- !u!1 &1234635176
 GameObject:
   m_ObjectHideFlags: 0
@@ -9797,6 +9814,7 @@ GameObject:
   - component: {fileID: 1772080635}
   - component: {fileID: 1772080634}
   - component: {fileID: 1772080633}
+  - component: {fileID: 1772080636}
   m_Layer: 5
   m_Name: Scrimmer
   m_TagString: Untagged
@@ -9825,7 +9843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000028043985, y: -558}
+  m_AnchoredPosition: {x: 0, y: -558}
   m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772080633
@@ -9986,8 +10004,8 @@ MonoBehaviour:
       m_ColorSpace: -1
       m_NumColorKeys: 3
       m_NumAlphaKeys: 2
-  _animator: {fileID: 0}
   _audioSource: {fileID: 0}
+  _scrimmerAnimation: {fileID: 1186397210}
   _triggerName: on
   _floatName: seed
   _min: 0.9
@@ -10031,6 +10049,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772080631}
   m_CullTransparentMesh: 1
+--- !u!95 &1772080636
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772080631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3138c2a03489a3144aecd5a2d2db3b0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1818870621
 GameObject:
   m_ObjectHideFlags: 0

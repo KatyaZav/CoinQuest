@@ -16,6 +16,7 @@ public class SizingAnimation : MonoBehaviour
     {
         _animation.Complete();
 
+        _animation = DOTween.Sequence();
         _animation
             .Append(_text.DOFade(0, _duration / 4))
             .Append(transform.DOScale(Vector2.one, _duration))
@@ -28,6 +29,7 @@ public class SizingAnimation : MonoBehaviour
     {
         _animation.Complete();
 
+        _animation = DOTween.Sequence();
         _animation
             .Append(transform.DOScale(Vector2.zero, _duration))
             .Join(transform.GetComponent<Image>().DOFade(0, _duration))

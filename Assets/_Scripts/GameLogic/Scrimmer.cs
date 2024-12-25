@@ -9,8 +9,8 @@ public class Scrimmer : MonoBehaviour
     [SerializeField] private ImagePart[] _imageParts;
 
     [Header("Components")]
-    [SerializeField] private Animator _animator;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private ScrimmerAnimation _scrimmerAnimation;
 
     [Header("Settings")]
     [SerializeField] private string _triggerName, _floatName;
@@ -26,18 +26,15 @@ public class Scrimmer : MonoBehaviour
         PlayerSaves.LooseCoins();
         RandomScrimmer();
         
-        float random = Random.Range(0, 101) / 100f;
-
-        _animator.SetFloat(_floatName, random);
-        _animator.SetTrigger(_triggerName);
-
+        _scrimmerAnimation.Activate();
+        
         _audioSource.pitch = Random.Range(_min, _max);
         _audioSource.Play();
     }
 
     public void Remove()
     {
-        _losePopup.SetActive(false);
+        _scrimmerAnimation.Deactivate(() => _losePopup.SetActive(false));
     }
 
     private void RandomScrimmer()
