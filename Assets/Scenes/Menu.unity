@@ -430,7 +430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00011475954, y: 0}
+  m_AnchoredPosition: {x: 0.000021529859, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &775000843
@@ -882,6 +882,7 @@ GameObject:
   - component: {fileID: 1461241391}
   - component: {fileID: 1461241393}
   - component: {fileID: 1461241392}
+  - component: {fileID: 1461241394}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -948,6 +949,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461241390}
   m_CullTransparentMesh: 1
+--- !u!114 &1461241394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461241390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3a9c395ab798b449536ca54dbc0810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 1
+  _rect: {fileID: 1461241391}
+  _text: {fileID: 1939299745}
 --- !u!1 &1469412319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1120,7 @@ GameObject:
   - component: {fileID: 1565044267}
   - component: {fileID: 1565044266}
   - component: {fileID: 1565044265}
+  - component: {fileID: 1565044268}
   m_Layer: 5
   m_Name: music
   m_TagString: Untagged
@@ -1214,6 +1231,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565044263}
   m_CullTransparentMesh: 1
+--- !u!114 &1565044268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565044263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d2699975a9f704bb60761517a7b605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1626300556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 86.07004, y: 0}
+  m_AnchoredPosition: {x: 86.07001, y: 0}
   m_SizeDelta: {x: -181.98, y: 57.81}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1626300558
@@ -1323,10 +1352,7 @@ MonoBehaviour:
   _description: {fileID: 1461241390}
   _descriptionText: {fileID: 1939299745}
   _content: {fileID: 775000842}
-  _contentRect: {fileID: 1461241391}
-  _minScale: {x: 0, y: 0}
-  _maxScale: {x: 960, y: 460}
-  _duraction: 1
+  _animation: {fileID: 1461241394}
 --- !u!1 &1831548983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1614,7 @@ GameObject:
   - component: {fileID: 2022108534}
   - component: {fileID: 2022108533}
   - component: {fileID: 2022108532}
+  - component: {fileID: 2022108535}
   m_Layer: 5
   m_Name: play
   m_TagString: Untagged
@@ -1710,6 +1737,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022108530}
   m_CullTransparentMesh: 1
+--- !u!114 &2022108535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022108530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d2699975a9f704bb60761517a7b605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2092964019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,6 +1761,7 @@ GameObject:
   - component: {fileID: 2092964023}
   - component: {fileID: 2092964022}
   - component: {fileID: 2092964021}
+  - component: {fileID: 2092964024}
   m_Layer: 5
   m_Name: sounds
   m_TagString: Untagged
@@ -1832,3 +1872,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092964019}
   m_CullTransparentMesh: 1
+--- !u!114 &2092964024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092964019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d2699975a9f704bb60761517a7b605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
