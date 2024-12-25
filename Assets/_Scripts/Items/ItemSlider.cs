@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,8 +11,14 @@ public class ItemSlider : MonoBehaviour
     [SerializeField] private Text _descriptionText;
     [SerializeField] private Transform _content;
 
+    [SerializeField] private RectTransform _contentRect;    
+    [SerializeField] private Vector2 _minScale, _maxScale;
+    [SerializeField] private float _duraction;
+
     private List<UiItemObject> _items = new List<UiItemObject>();
     private ItemsLoader _itemLoader;
+
+    private Sequence _anim;
 
     private void Start()
     {
@@ -70,6 +77,7 @@ public class ItemSlider : MonoBehaviour
             _descriptionText.text = _itemLoader.GetNullItem().GetDescription(YandexGame.lang);
         else
             _descriptionText.text = item.GetDescription(YandexGame.lang);
+       
         _description.SetActive(true);
     }
 
