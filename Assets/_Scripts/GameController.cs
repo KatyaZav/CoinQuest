@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
@@ -29,6 +31,8 @@ public class GameController : MonoBehaviour
     //[SerializeField] private ParticleSystem _loseSystem;
     
     private CustomSlider _sliderPoints;
+
+    public CustomSlider OnSliderEnded => _sliderPoints;
 
     private void OnDisable()
     {
