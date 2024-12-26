@@ -14,7 +14,8 @@ public class SizingAnimation : MonoBehaviour
 
     public void Open(Action callback = null)
     {
-        _animation.Complete();
+        _animation.Kill();
+        //_animation.Complete();
 
         _animation = DOTween.Sequence();
         _animation
@@ -27,7 +28,8 @@ public class SizingAnimation : MonoBehaviour
 
     public void Hide(Action callback = null)
     {
-        _animation.Complete();
+        _animation.Kill();
+        //_animation.Complete();
 
         _animation = DOTween.Sequence();
         _animation
