@@ -31,6 +31,22 @@ public class GameController : MonoBehaviour
     //[SerializeField] private ParticleSystem _loseSystem;
     
     private CustomSlider _sliderPoints;
+    
+    public void Init()
+    {
+        _bank.Init();
+        _coin.Init();
+
+        _playersChoice.ItemCollectedEvent += OnCoinCollect;
+        _playersChoice.ItemDropedEvent += OnCoinDrop;
+        _playersChoice.MimikGettedEvent += OnMimikGet;
+
+        _sliderPoints = new CustomSlider(_sliderImage, _eventMaxCount);
+        _sliderPoints.OnSliderEndEvent += OnPointsGetted;
+        StartRound();
+
+        _moneyText.text = PlayerSaves.CoinsInPocket.ToString();
+    }
 
     public CustomSlider OnSliderEnded => _sliderPoints;
 
@@ -48,21 +64,6 @@ public class GameController : MonoBehaviour
         _bank = FindAnyObjectByType<Bank>();
     }
 
-    void Start()
-    {
-        _bank.Init();
-        _coin.Init();
-
-        _playersChoice.ItemCollectedEvent += OnCoinCollect;
-        _playersChoice.ItemDropedEvent += OnCoinDrop;
-        _playersChoice.MimikGettedEvent += OnMimikGet;
-
-        _sliderPoints = new CustomSlider(_sliderImage, _eventMaxCount);
-        _sliderPoints.OnSliderEndEvent += OnPointsGetted;
-        StartRound();
-
-        _moneyText.text = PlayerSaves.CoinsInPocket.ToString();
-    }
 
     private void OnPointsGetted()
     {

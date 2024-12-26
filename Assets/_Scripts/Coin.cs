@@ -18,14 +18,24 @@ public class Coin : MonoBehaviour
     private ItemsLoader _loader;
     private Items _item;
 
-    public int Value { get; private set; }
-    public bool IsMimic { get; private set; }
-    public float Probability { get; private set; }
-
+    private int _extraProbability = 0;
+   
     public void Init()
     {
         _loader = new ItemsLoader();
         _loader.Load(true);
+    }
+
+    public int Value { get; private set; }
+    public bool IsMimic { get; private set; }
+    public float Probability { get; private set; }
+
+    public void ChangeExtraProbability(int probability)
+    {
+        if (probability < -100 || probability > 100)
+            throw new ArgumentException("Try change probability in wrong way");
+
+        _extraProbability = probability;
     }
 
     public void SetAnimation()
@@ -40,7 +50,9 @@ public class Coin : MonoBehaviour
         PlayerSaves.MakeSeen(_item);
 
         float rnd = UnityEngine.Random.Range(0, 1f);
-        float mimicProbability = Math.Clamp(_probability.Evaluate(rnd) * 100 + (int)_item.GetRare*2, 10, 90);
+        float mimicProbability = Math
+            .Clamp(_probability.Evaluate(rnd) * 100 + (int)_item.GetRare*2 + _extraProbability, 5, 95);
+        
         float randomProcent = UnityEngine.Random.Range(1, 101);
 
         Probability = mimicProbability;

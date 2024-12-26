@@ -11,6 +11,8 @@ public class GameBootstrap : MonoBehaviour
 
     void Start()
     {
+        _gameController.Init();
+
         _eventSystemHolder = new EventSystemHolder();
         _eventSystemHolder.Init(new EventsFabric().GetFullEventsList());
 
