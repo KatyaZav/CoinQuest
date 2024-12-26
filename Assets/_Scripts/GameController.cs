@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Coin _coin;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _winSound, _dropSound;
+    [SerializeField] private Text _moneyText;
 
     [Space(5), Header("Settings")]
     [SerializeField] private GameObject _coinView;
@@ -55,6 +56,8 @@ public class GameController : MonoBehaviour
         _sliderPoints = new CustomSlider(_sliderImage, _eventMaxCount);
         _sliderPoints.OnSliderEndEvent += OnPointsGetted;
         StartRound();
+
+        _moneyText.text = PlayerSaves.CoinsInPocket.ToString();
     }
 
     private void OnPointsGetted()
@@ -165,6 +168,7 @@ public class GameController : MonoBehaviour
         _generator.GetCoin();
 
         PlayerSaves.AddCoins(_generator.GetCoinValue());
+        _moneyText.text = PlayerSaves.CoinsInPocket.ToString();
      //   _winSystem.Play();
     }
 
