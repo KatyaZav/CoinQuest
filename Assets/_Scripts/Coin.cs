@@ -65,7 +65,7 @@ public class Coin : MonoBehaviour
         float randomProcent = UnityEngine.Random.Range(1, 101);
 
         Probability = mimicProbability;
-        Value = (int) Mathf.Round((int)_item.GetRare * _modifier);
+        Value = Mathf.Max((int) Mathf.Round((int)_item.GetRare * _modifier), 1);
 
         IsMimic = randomProcent <= Probability;
         //Debug.Log($"{Value}, {randomProcent} < {Probability}. IsMimik = {IsMimic}");

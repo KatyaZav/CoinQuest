@@ -23,6 +23,8 @@ namespace Events
         public void Exit()
         {
             _eventSystemHolder.ChangedEvent -= OnEventChange;
+
+            _tween.Kill();
         }
 
         public void Close()

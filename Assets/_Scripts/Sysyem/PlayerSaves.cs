@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using YG;
 
@@ -32,7 +33,15 @@ public static class PlayerSaves
     {
         var list = Items;
 
-        foreach (var e in list)
+        var e = list.FirstOrDefault(e => e.ID == item.ID);
+
+        if (e == null)
+            throw new System.ArgumentNullException($"Item {item.name} not found!");
+
+        e.Get();
+        SubscriptionKeeper.GettedNew(item);
+
+        /*foreach (var e in list)
         {
             if (e.ID == item.ID)
             {
@@ -42,8 +51,8 @@ public static class PlayerSaves
                     SubscriptionKeeper.GettedNew(item);
                 }
                 break;
-            }
-        }
+            }*/
+    
 
         YandexGame.savesData.ListItems = JsonConvert.SerializeObject(list);
         YandexGame.SaveProgress();
