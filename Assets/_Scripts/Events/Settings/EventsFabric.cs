@@ -20,6 +20,13 @@ namespace Events
         private const string AddPawPath4 = "Events/AddPaw/AddPaw 4";
         #endregion
 
+        #region BonusCollectionPath
+        private const string BonusCollectionPath = "Events/BonusPawsForCollect/Bonus 1";
+        private const string BonusCollectionPath2 = "Events/BonusPawsForCollect/Bonus 2";
+        private const string BonusCollectionPath3 = "Events/BonusPawsForCollect/Bonus 3";
+
+        #endregion
+
         public List<IEvent> GetFullEventsList()
         {
             List<IEvent> events = new List<IEvent>();
@@ -37,6 +44,12 @@ namespace Events
             events.Add(new AddPawsEvent(LoadData(AddPawPath2), 3));
             events.Add(new AddPawsEvent(LoadData(AddPawPath3), 5));
             events.Add(new AddPawsEvent(LoadData(AddPawPath4), 1));
+            #endregion
+
+            #region BonusCollection
+            events.Add(new BonusCollectEvent(LoadData(BonusCollectionPath), 2, GetCoin()));
+            events.Add(new BonusCollectEvent(LoadData(BonusCollectionPath2), 3, GetCoin()));
+            events.Add(new BonusCollectEvent(LoadData(BonusCollectionPath3), 0.5f, GetCoin()));
             #endregion
 
             return events;

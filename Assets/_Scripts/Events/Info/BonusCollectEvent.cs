@@ -2,17 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusCollectEvent : MonoBehaviour
+namespace Events
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BonusCollectEvent : IEvent
     {
-        
-    }
+        private EventData _data;
+        private float _modifier;
+        private Coin _coin;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public BonusCollectEvent(EventData data, float modifier, Coin coin)
+        {
+            _data = data;
+            _modifier = modifier;
+            _coin = coin;
+        }
+
+        public EventData EventData => _data;
+
+        public void Enter()
+        {
+            _coin.ChangeModifier(_modifier);
+        }
+
+        public void Exit()
+        {
+            _coin.ChangeModifier(1);
+        }
     }
 }

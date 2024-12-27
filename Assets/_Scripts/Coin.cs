@@ -18,6 +18,7 @@ public class Coin : MonoBehaviour
     private ItemsLoader _loader;
     private Items _item;
 
+    private float _modifier;
     private int _extraProbability = 0;
    
     public void Init()
@@ -29,6 +30,14 @@ public class Coin : MonoBehaviour
     public int Value { get; private set; }
     public bool IsMimic { get; private set; }
     public float Probability { get; private set; }
+
+    public void ChangeModifier(float value)
+    {
+        if (value < 1)
+            throw new ArgumentException($"Can't change modifier to {value}");
+
+        _modifier = value;
+    }
 
     public void ChangeExtraProbability(int probability)
     {
@@ -56,7 +65,7 @@ public class Coin : MonoBehaviour
         float randomProcent = UnityEngine.Random.Range(1, 101);
 
         Probability = mimicProbability;
-        Value = (int)_item.GetRare;
+        Value = (int) Mathf.Round((int)_item.GetRare * _modifier);
 
         IsMimic = randomProcent <= Probability;
         //Debug.Log($"{Value}, {randomProcent} < {Probability}. IsMimik = {IsMimic}");
