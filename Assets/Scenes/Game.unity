@@ -543,10 +543,19 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.3
     - serializedVersion: 3
-      time: 0.3
-      value: 0.2
-      inSlope: 1.3035506
-      outSlope: 1.3035506
+      time: 0.4
+      value: 0.1
+      inSlope: 0.70970345
+      outSlope: 0.70970345
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.18363774
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8
+      value: 0.4
+      inSlope: 1.5161335
+      outSlope: 1.5161335
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
