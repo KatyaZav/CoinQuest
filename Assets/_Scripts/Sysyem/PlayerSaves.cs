@@ -98,7 +98,7 @@ public static class PlayerSaves
         YandexGame.savesData.CoinsInPocket += value;
 
         SubscriptionKeeper.ChangeMoneyValue();
-        CheackLeaderBoard();
+        //CheackLeaderBoard();
 
         YandexGame.SaveProgress();
     }    
@@ -126,7 +126,7 @@ public static class PlayerSaves
 
     private static void CheackLeaderBoard()
     {
-        int count = CoinsInBank + CoinsInPocket;
+        int count = CoinsInBank;
 
         if (CoinsInLeaderboards < count)
         {
