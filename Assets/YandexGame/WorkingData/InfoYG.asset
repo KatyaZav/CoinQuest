@@ -42,7 +42,27 @@ MonoBehaviour:
     methodName: _SaveProgress
   leaderboardEnable: 1
   saveScoreAnonymousPlayers: 1
-  leaderboardSimulation: []
+  leaderboardSimulation:
+  - technoName: leaderboard
+    entries: 2
+    isDefault: 1
+    isInvertSortOrder: 0
+    decimalOffset: 0
+    type: 
+    players:
+    - rank: 1
+      name: 
+      score: 0
+      photo: 
+      uniqueID: 
+    - rank: 2
+      name: 
+      score: 0
+      photo: 
+      uniqueID: 
+    thisPlayer:
+      rank: 2
+      score: 2
   LocalizationEnable: 1
   callingLanguageCheck: 1
   translateMethod: 1
