@@ -20,13 +20,11 @@ namespace Events
 
         public void Enter()
         {
-            Debug.Log("Activate event");
             _coin.ChangeExtraProbability(_probability);
         }
 
         public void Exit()
         {
-            Debug.Log("Disactivate event");
             _coin.ChangeExtraProbability(_probability * -1);
         }
     }

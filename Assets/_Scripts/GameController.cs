@@ -67,7 +67,6 @@ public class GameController : MonoBehaviour
 
     private void OnPointsGetted()
     {
-        print("throw event");
     }
 
     #region Input Events
