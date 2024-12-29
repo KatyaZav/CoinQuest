@@ -41,7 +41,7 @@ namespace Events
 
             Coin coin = GetCoin();
 
-            /*#region Probability
+            #region Probability
             events.Add(new ChangeProbabilityEvent(coin, 20, LoadEventData(ChangeProbabilityEventDataPath)));
             events.Add(new ChangeProbabilityEvent(coin, -20, LoadEventData(ChangeProbabilityEventData2Path)));
             events.Add(new ChangeProbabilityEvent(coin, -50, LoadEventData(ChangeProbabilityEventData3Path)));
@@ -60,7 +60,7 @@ namespace Events
             events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath), 2, coin));
             events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath2), 3, coin));
             events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath3), 0.5f, coin));
-            #endregion*/
+            #endregion
 
             #region Secret
             Sprite secretSprite = LoadData<Sprite>(SecretImagePath1);
