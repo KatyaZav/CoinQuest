@@ -20,7 +20,7 @@ public class GameBootstrap : MonoBehaviour
         _gameController.OnSliderEnded.OnSliderEndEvent += _eventSystemHolder.OnNewEvent;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         _gameController.OnSliderEnded.OnSliderEndEvent -= _eventSystemHolder.OnNewEvent;
 

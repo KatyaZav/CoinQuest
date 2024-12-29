@@ -20,6 +20,8 @@ public class Coin : MonoBehaviour
 
     private float _modifier;
     private int _extraProbability = 0;
+
+    private Sprite _secretImage;
    
     public void Init()
     {
@@ -27,9 +29,21 @@ public class Coin : MonoBehaviour
         _loader.Load(true);
     }
 
+    public bool _isSecretImage => _secretImage != null;
+
     public int Value { get; private set; }
     public bool IsMimic { get; private set; }
     public float Probability { get; private set; }
+
+    public void MakeImageSecret(Sprite sprite)
+    {
+        _secretImage = sprite;
+    }
+
+    public void DisactivateImageSecret()
+    {
+        _secretImage = null;
+    }
 
     public void ChangeModifier(float value)
     {
@@ -95,11 +109,19 @@ public class Coin : MonoBehaviour
 
         return listItems[UnityEngine.Random.Range(0, listItems.Count)];
     }
+    public void GetCoin()
+    {
+        PlayerSaves.MakeGetted(_item);
+    }
 
     private void ChangeCoinAppearance(float coinValue, float probability)
     {
         _coinProbabilityText.text = probability.ToString() + "%";
-        _img.sprite = _item.Icon;
+        
+        if (_isSecretImage == false)
+            _img.sprite = _item.Icon;
+        else
+            _img.sprite = _secretImage;
 
         if (probability > 50)
         {
@@ -109,10 +131,5 @@ public class Coin : MonoBehaviour
         {
             _coinProbabilityText.color = _dangerousColor;
         }
-    }
-
-    public void GetCoin()
-    {
-        PlayerSaves.MakeGetted(_item);
     }
 }

@@ -38,21 +38,11 @@ public static class PlayerSaves
         if (e == null)
             throw new System.ArgumentNullException($"Item {item.name} not found!");
 
-        e.Get();
-        SubscriptionKeeper.GettedNew(item);
-
-        /*foreach (var e in list)
+        if (e.IsGetted == false)
         {
-            if (e.ID == item.ID)
-            {
-                if (e.IsGetted == false)
-                {
-                    e.Get();
-                    SubscriptionKeeper.GettedNew(item);
-                }
-                break;
-            }*/
-    
+            e.Get();
+            SubscriptionKeeper.GettedNew(item);
+        }
 
         YandexGame.savesData.ListItems = JsonConvert.SerializeObject(list);
         YandexGame.SaveProgress();

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System; 
 
 namespace Events
 {
@@ -24,6 +25,12 @@ namespace Events
         private const string BonusCollectionPath = "Events/BonusPawsForCollect/Bonus 1";
         private const string BonusCollectionPath2 = "Events/BonusPawsForCollect/Bonus 2";
         private const string BonusCollectionPath3 = "Events/BonusPawsForCollect/Bonus 3";
+        #endregion
+
+        #region SecretsPaths
+        private const string SecretImageEventPath1 = "Events/Secrets/SecretImage";
+        private const string SecretImagePath1 = "Images/SecretImage";
+
 
         #endregion
 
@@ -31,32 +38,50 @@ namespace Events
         {
             List<IEvent> events = new List<IEvent>();
 
-            #region Probability
-            events.Add(new ChangeProbabilityEvent(GetCoin(), 20, LoadData(ChangeProbabilityEventDataPath)));
-            events.Add(new ChangeProbabilityEvent(GetCoin(), -20, LoadData(ChangeProbabilityEventData2Path)));
-            events.Add(new ChangeProbabilityEvent(GetCoin(), -50, LoadData(ChangeProbabilityEventData3Path)));
-            events.Add(new ChangeProbabilityEvent(GetCoin(), 50, LoadData(ChangeProbabilityEventData4Path)));
-            events.Add(new ChangeProbabilityEvent(GetCoin(), -80, LoadData(ChangeProbabilityEventData5Path)));
+            Coin coin = GetCoin();
+
+            /*#region Probability
+            events.Add(new ChangeProbabilityEvent(coin, 20, LoadEventData(ChangeProbabilityEventDataPath)));
+            events.Add(new ChangeProbabilityEvent(coin, -20, LoadEventData(ChangeProbabilityEventData2Path)));
+            events.Add(new ChangeProbabilityEvent(coin, -50, LoadEventData(ChangeProbabilityEventData3Path)));
+            events.Add(new ChangeProbabilityEvent(coin, 50, LoadEventData(ChangeProbabilityEventData4Path)));
+            events.Add(new ChangeProbabilityEvent(coin, -80, LoadEventData(ChangeProbabilityEventData5Path)));
             #endregion
 
             #region AddPaw
-            events.Add(new AddPawsEvent(LoadData(AddPawPath1), 2));
-            events.Add(new AddPawsEvent(LoadData(AddPawPath2), 3));
-            events.Add(new AddPawsEvent(LoadData(AddPawPath3), 5));
-            events.Add(new AddPawsEvent(LoadData(AddPawPath4), 1));
+            events.Add(new AddPawsEvent(LoadEventData(AddPawPath1), 2));
+            events.Add(new AddPawsEvent(LoadEventData(AddPawPath2), 3));
+            events.Add(new AddPawsEvent(LoadEventData(AddPawPath3), 5));
+            events.Add(new AddPawsEvent(LoadEventData(AddPawPath4), 1));
             #endregion
 
             #region BonusCollection
-            events.Add(new BonusCollectEvent(LoadData(BonusCollectionPath), 2, GetCoin()));
-            events.Add(new BonusCollectEvent(LoadData(BonusCollectionPath2), 3, GetCoin()));
-            events.Add(new BonusCollectEvent(LoadData(BonusCollectionPath3), 0.5f, GetCoin()));
+            events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath), 2, coin));
+            events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath2), 3, coin));
+            events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath3), 0.5f, coin));
+            #endregion*/
+
+            #region Secret
+            Sprite secretSprite = LoadData<Sprite>(SecretImagePath1);
+
+            events.Add(new MakeImageSecretEvent(coin, LoadEventData(SecretImageEventPath1), secretSprite));
             #endregion
 
             return events;
         }
 
-        private EventData LoadData(string path)
-            => Resources.Load<EventData>(path);
+        private T LoadData<T>(string path) where T : UnityEngine.Object
+        {
+            var item = Resources.Load<T>(path);
+
+            if (item == null)
+                throw new NullReferenceException($"Not found item {typeof(T)} in path {path}");
+
+            return item;
+        }
+
+        private EventData LoadEventData(string path)
+            => LoadData<EventData>(path);
 
         private Coin GetCoin()
         {
