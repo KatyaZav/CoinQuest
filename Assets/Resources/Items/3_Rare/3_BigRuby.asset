@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4eaf68bc0113949b37915e6eab2242, type: 3}
   m_Name: 3_BigRuby
   m_EditorClassIdentifier: 
-  _id: 7
   _icon: {fileID: -47118146, guid: 336db196642e1974c9ac61e6879ec48e, type: 3}
   _rusDesccription: "\u041A\u0430\u043A\u043E\u0439 \u043A\u0440\u0430\u0441\u0438\u0432\u044B\u0439
-    \u043A\u0430\u043C\u0443\u0448\u0435\u043A"
-  _enDesccription: 
+    \u043A\u0430\u043C\u0435\u0448\u0435\u043A"
+  _enDesccription: What a beautiful pebble
   _rare: 4

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4eaf68bc0113949b37915e6eab2242, type: 3}
   m_Name: 2_Ruby
   m_EditorClassIdentifier: 
-  _id: 6
   _icon: {fileID: 1354691383, guid: 336db196642e1974c9ac61e6879ec48e, type: 3}
   _rusDesccription: "\u041A\u0440\u0430\u0441\u0438\u0432\u0430\u044F \u0431\u043B\u0435\u0441\u0442\u044F\u0448\u043A\u0430"
-  _enDesccription: 
+  _enDesccription: Beautiful glitter
   _rare: 2

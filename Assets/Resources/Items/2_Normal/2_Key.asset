@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4eaf68bc0113949b37915e6eab2242, type: 3}
   m_Name: 2_Key
   m_EditorClassIdentifier: 
-  _id: 4
   _icon: {fileID: 1586357409, guid: 336db196642e1974c9ac61e6879ec48e, type: 3}
   _rusDesccription: "\u041F\u043E\u0442\u0435\u0440\u044F\u044E\u0442\u0441\u044F
     \u0432 \u0441\u0430\u043C\u044B\u0439 \u043D\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0438\u0439
     \u043C\u043E\u043C\u0435\u043D\u0442"
-  _enDesccription: 
+  _enDesccription: Get lost at the most inopportune moment
   _rare: 2
