@@ -11,7 +11,21 @@ public static class PlayerSaves
     public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
     public static List<ItemsData> Items =>
         JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
-    
+
+    public static int ButtonCount => YandexGame.savesData.ButtonCount;
+
+    public static void AddButtonCount(int count)
+    {
+        YandexGame.savesData.ButtonCount += count;
+        YandexGame.SaveProgress();
+    }
+
+    public static void RemoveButtonCount(int count)
+    {
+        YandexGame.savesData.ButtonCount -= count;
+        YandexGame.SaveProgress();
+    }
+
     public static void MakeSeen(Items item)
     {
         var list = Items;

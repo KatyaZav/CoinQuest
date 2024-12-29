@@ -15,14 +15,15 @@ public class Bank : MonoBehaviour
     private GameObject _currentPopup;
     private bool _canAd = true;
     private bool _canFree = false;
-    private int _freeButtonCount = 1;
+    private int _freeButtonCount => PlayerSaves.ButtonCount;
 
     public void AddFreeButton(int count)
     {
         if (count < 0)
             throw new ArgumentException($"Cant add {count} free points");
 
-        _freeButtonCount += count;
+        PlayerSaves.AddButtonCount(count);
+        //_freeButtonCount += count;
         Cheack();
 
         _freeText.text = _freeButtonCount.ToString();
@@ -33,7 +34,8 @@ public class Bank : MonoBehaviour
         if (_freeButtonCount <= 0)
             throw new ArgumentException("Cant activate free button");
 
-        _freeButtonCount -= 1;
+        PlayerSaves.RemoveButtonCount(1);
+        //_freeButtonCount -= 1;
         _canFree = false;
         PlayerSaves.PutCoinsToBank();
 
