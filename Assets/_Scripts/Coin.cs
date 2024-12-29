@@ -22,6 +22,7 @@ public class Coin : MonoBehaviour
     private int _extraProbability = 0;
 
     private Sprite _secretImage;
+    private string _secreteText = "";
    
     public void Init()
     {
@@ -29,7 +30,8 @@ public class Coin : MonoBehaviour
         _loader.Load(true);
     }
 
-    public bool _isSecretImage => _secretImage != null;
+    public bool IsSecretImage => _secretImage != null;
+    public bool IsSecretText => _secreteText != "";
 
     public int Value { get; private set; }
     public bool IsMimic { get; private set; }
@@ -43,6 +45,16 @@ public class Coin : MonoBehaviour
     public void DisactivateImageSecret()
     {
         _secretImage = null;
+    }
+
+    public void MakeTextSecret(string text)
+    {
+        _secreteText = text;
+    }
+
+    public void DisactivateTextSecret()
+    {
+        _secreteText = "";
     }
 
     public void ChangeModifier(float value)
@@ -115,10 +127,8 @@ public class Coin : MonoBehaviour
     }
 
     private void ChangeCoinAppearance(float coinValue, float probability)
-    {
-        _coinProbabilityText.text = probability.ToString() + "%";
-        
-        if (_isSecretImage == false)
+    {        
+        if (IsSecretImage == false)
             _img.sprite = _item.Icon;
         else
             _img.sprite = _secretImage;
@@ -131,5 +141,20 @@ public class Coin : MonoBehaviour
         {
             _coinProbabilityText.color = _dangerousColor;
         }
+
+        if (IsSecretText)
+            MakeSecretText();
+        else
+            MakeText(probability);
+    }
+
+    private void MakeText(float probability)
+    {
+        _coinProbabilityText.text = probability.ToString() + "%";        
+    }
+
+    private void MakeSecretText()
+    {
+        _coinProbabilityText.text = _secreteText;
     }
 }

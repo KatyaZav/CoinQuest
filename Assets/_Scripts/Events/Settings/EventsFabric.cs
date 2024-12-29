@@ -29,8 +29,9 @@ namespace Events
 
         #region SecretsPaths
         private const string SecretImageEventPath1 = "Events/Secrets/SecretImage";
+        private const string SecretTextEventPath1 = "Events/Secrets/TextSecretEvent";
+        
         private const string SecretImagePath1 = "Images/SecretImage";
-
 
         #endregion
 
@@ -65,6 +66,11 @@ namespace Events
             Sprite secretSprite = LoadData<Sprite>(SecretImagePath1);
 
             events.Add(new MakeImageSecretEvent(coin, LoadEventData(SecretImageEventPath1), secretSprite));
+
+            events.Add(new SecretTextEvent(coin, LoadEventData(SecretTextEventPath1), -3, "?"));
+            events.Add(new SecretTextEvent(coin, LoadEventData(SecretTextEventPath1), -5, "?"));
+            events.Add(new SecretTextEvent(coin, LoadEventData(SecretTextEventPath1), -7, "??"));
+            events.Add(new SecretTextEvent(coin, LoadEventData(SecretTextEventPath1), -12, "???"));
             #endregion
 
             return events;
