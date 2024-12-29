@@ -7032,6 +7032,7 @@ MonoBehaviour:
   _adButton: {fileID: 1947851642}
   _timerPopup: {fileID: 311363384}
   _freeButton: {fileID: 1992592362}
+  _freeText: {fileID: 679933657}
   _timerText: {fileID: 604426153}
   _time: 240
 --- !u!1 &567174914

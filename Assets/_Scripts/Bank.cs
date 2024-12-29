@@ -7,6 +7,7 @@ public class Bank : MonoBehaviour
 {
     [SerializeField] Text _bankText;
     [SerializeField] GameObject _adButton, _timerPopup,  _freeButton;
+    [SerializeField] Text _freeText;
 
     [SerializeField] Text _timerText;
     [SerializeField] int _time;
@@ -14,16 +15,35 @@ public class Bank : MonoBehaviour
     private GameObject _currentPopup;
     private bool _canAd = true;
     private bool _canFree = false;
+    private int _freeButtonCount = 1;
+
+    public void AddFreeButton(int count)
+    {
+        if (count < 0)
+            throw new ArgumentException($"Cant add {count} free points");
+
+        _freeButtonCount += count;
+        Cheack();
+
+        _freeText.text = _freeButtonCount.ToString();
+    }
 
     public void FreeBank()
     {
+        if (_freeButtonCount <= 0)
+            throw new ArgumentException("Cant activate free button");
+
+        _freeButtonCount -= 1;
         _canFree = false;
         PlayerSaves.PutCoinsToBank();
 
-        if (_canAd)
-            ChangePopup(2);
-        else
-            ChangePopup(3);
+        if (_freeButtonCount <= 0)
+        {
+            if (_canAd)
+                ChangePopup(2);
+            else
+                ChangePopup(3);
+        }
     }
 
     public void ChangePopup(int a = 1)
@@ -36,6 +56,7 @@ public class Bank : MonoBehaviour
             case 1:
                 _canFree = true;
                 _currentPopup = _freeButton;
+                _freeText.text = _freeButtonCount.ToString();
                 break;
             case 2:
                 _currentPopup = _adButton;
@@ -79,7 +100,7 @@ public class Bank : MonoBehaviour
         }
         else
         {
-            if (_canFree)
+            if (_freeButtonCount > 0)
                 ChangePopup(1);
             else
             {
