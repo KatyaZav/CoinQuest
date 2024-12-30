@@ -27,19 +27,23 @@ namespace Events
         private const string BonusCollectionPath3 = "Events/BonusPawsForCollect/Bonus 3";
         #endregion
 
-        #region SecretsPaths
+        #region SecretsPath
         private const string SecretImageEventPath1 = "Events/Secrets/SecretImage";
         private const string SecretTextEventPath1 = "Events/Secrets/TextSecretEvent";
         
         private const string SecretImagePath1 = "Images/SecretImage";
+        #endregion
 
+        #region FreeButtonPaths
+        private const string FreeButtonEventPath = "Events/Bank/BankFreeButton"; 
         #endregion
 
         public List<IEvent> GetFullEventsList()
         {
             List<IEvent> events = new List<IEvent>();
 
-            Coin coin = GetCoin();
+            Coin coin = GetScriptFromScene<Coin>();
+            Bank bank = GetScriptFromScene<Bank>();
 
             #region Probability
             events.Add(new ChangeProbabilityEvent(coin, 20, LoadEventData(ChangeProbabilityEventDataPath)));
@@ -64,13 +68,23 @@ namespace Events
 
             #region Secret
             Sprite secretSprite = LoadData<Sprite>(SecretImagePath1);
+            EventData data = LoadEventData(SecretTextEventPath1);
 
             events.Add(new MakeImageSecretEvent(coin, LoadEventData(SecretImageEventPath1), secretSprite));
 
-            events.Add(new SecretTextEvent(coin, LoadEventData(SecretTextEventPath1), -3, "?"));
-            events.Add(new SecretTextEvent(coin, LoadEventData(SecretTextEventPath1), -5, "?"));
-            events.Add(new SecretTextEvent(coin, LoadEventData(SecretTextEventPath1), -7, "??"));
-            events.Add(new SecretTextEvent(coin, LoadEventData(SecretTextEventPath1), -12, "???"));
+            events.Add(new SecretTextEvent(coin, data, -3, "?"));
+            events.Add(new SecretTextEvent(coin, data, -5, "?"));
+            events.Add(new SecretTextEvent(coin, data, -7, "??"));
+            events.Add(new SecretTextEvent(coin, data, -12, "???"));
+            #endregion
+
+            #region FreeButton
+            EventData freeButtonData = LoadEventData(FreeButtonEventPath);
+
+            events.Add(new AddFreeButtonEvent(freeButtonData, bank, 1));
+            events.Add(new AddFreeButtonEvent(freeButtonData, bank, 2));
+            events.Add(new AddFreeButtonEvent(freeButtonData, bank, 3));
+            events.Add(new AddFreeButtonEvent(freeButtonData, bank, 4));
             #endregion
 
             return events;
@@ -89,14 +103,24 @@ namespace Events
         private EventData LoadEventData(string path)
             => LoadData<EventData>(path);
 
+        private T GetScriptFromScene<T>() where T : UnityEngine.Object
+        {
+            var script = GameObject.FindFirstObjectByType<T>();
+
+            if (script == null)
+                throw new System.ArgumentNullException($"Not found object type {typeof(T)} in scene!");
+
+            return script;
+        }
+
         private Coin GetCoin()
         {
-            var _coins = GameObject.FindFirstObjectByType<Coin>();
+            var coins = GameObject.FindFirstObjectByType<Coin>();
 
-            if (_coins == null)
+            if (coins == null)
                 throw new System.ArgumentNullException("Not found coin in scene!");
 
-            return _coins;
+            return coins;
         }
     }
 }
