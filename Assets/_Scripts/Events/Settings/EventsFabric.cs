@@ -35,7 +35,11 @@ namespace Events
         #endregion
 
         #region FreeButtonPaths
-        private const string FreeButtonEventPath = "Events/Bank/BankFreeButton"; 
+        private const string FreeButtonEventPath = "Events/Bank/BankFreeButton";
+        #endregion
+
+        #region AdRewardEventPath
+        private const string AdRewardEventPath = "Events/Ad/AdReward";
         #endregion
 
         public List<IEvent> GetFullEventsList()
@@ -87,6 +91,13 @@ namespace Events
             events.Add(new AddFreeButtonEvent(freeButtonData, bank, 4));
             #endregion
 
+            #region AdReward
+
+            EventData AdRewardData = LoadEventData(AdRewardEventPath);
+
+            events.Add(new RewardBankEvent(AdRewardData, 5));
+            #endregion
+
             return events;
         }
 
@@ -111,16 +122,6 @@ namespace Events
                 throw new System.ArgumentNullException($"Not found object type {typeof(T)} in scene!");
 
             return script;
-        }
-
-        private Coin GetCoin()
-        {
-            var coins = GameObject.FindFirstObjectByType<Coin>();
-
-            if (coins == null)
-                throw new System.ArgumentNullException("Not found coin in scene!");
-
-            return coins;
         }
     }
 }

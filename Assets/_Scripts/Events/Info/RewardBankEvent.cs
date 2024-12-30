@@ -1,15 +1,16 @@
+using UnityEngine;
+using YG;
+
 namespace Events
 {
-    public class AddFreeButtonEvent : IEvent
+    public class RewardBankEvent : IEvent
     {
         private EventData _data;
-        private Bank _bank;
         private int _count;
 
-        public AddFreeButtonEvent(EventData data, Bank bank, int count)
+        public RewardBankEvent(EventData data, int count)
         {
             _data = data;
-            _bank = bank;
             _count = count;
         }
 
@@ -17,7 +18,10 @@ namespace Events
 
         public void Enter()
         {
-            _bank.AddFreeButton(_count);
+            YandexGame.FullscreenShow();
+
+            PlayerSaves.AddCoins(_count);
+            PlayerSaves.PutCoinsToBank();
         }
 
         public void Exit()

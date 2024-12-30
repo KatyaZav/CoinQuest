@@ -1,5 +1,5 @@
 {
-  "idSave": 238,
+  "idSave": 257,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -10,9 +10,9 @@
     true,
     false
   ],
-  "CoinsInBank": 48,
-  "CoinsInPocket": 2,
-  "CoinsInLeaderboard": 48,
+  "CoinsInBank": 61,
+  "CoinsInPocket": 1,
+  "CoinsInLeaderboard": 61,
   "ButtonCount": 7,
-  "ListItems": "[{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20222,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20286,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20254,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":false,\"_isSaw\":true,\"ID\":20226,\"IsSaw\":true,\"IsGetted\":false},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20266,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20236,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20220,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20272,\"IsSaw\":true,\"IsGetted\":true}]"
+  "ListItems": "[{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20222,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20286,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20254,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20226,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20266,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20236,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20220,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20272,\"IsSaw\":true,\"IsGetted\":true}]"
 }
