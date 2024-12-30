@@ -86,7 +86,7 @@ public class Coin : MonoBehaviour
 
         float rnd = UnityEngine.Random.Range(0, 1f);
         float mimicProbability = Math
-            .Clamp(_probability.Evaluate(rnd) * 100 + (int)_item.GetRare*2 + _extraProbability, 5, 95);
+            .Clamp(_probability.Evaluate(rnd) * 100 / ((int)_item.GetRare*0.75f) + _extraProbability, 5, 95);
         
         float randomProcent = UnityEngine.Random.Range(1, 101);
 
@@ -104,11 +104,11 @@ public class Coin : MonoBehaviour
         int rnd = UnityEngine.Random.Range(0, 101);
         Rare rare = Rare.usual;
 
-        if (rnd < 70)
+        if (rnd < 80)
         {
             rare = Rare.usual;
         }
-        else if (rnd < 95)
+        else if (rnd < 97)
         {
             rare = Rare.normal;
         }
