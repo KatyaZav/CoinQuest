@@ -104,7 +104,7 @@ public class Coin : MonoBehaviour
         int rnd = UnityEngine.Random.Range(0, 101);
         Rare rare = Rare.usual;
 
-        if (rnd < 80)
+        if (rnd < 85)
         {
             rare = Rare.usual;
         }
