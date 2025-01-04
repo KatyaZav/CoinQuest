@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Events
@@ -20,10 +21,12 @@ namespace Events
         public void OnNewEvent()
         {
             int randomIndex = Random.Range(0, _events.Count);
+            var choosedEvent = _events[randomIndex];
 
-            ChangeEvent(_events[randomIndex]);
+            Debug.Log($"Activate event {choosedEvent.EventData.GetDescription("en")}");
 
-            ChangedEvent?.Invoke(_events[randomIndex].EventData);
+            ChangeEvent(choosedEvent);
+            ChangedEvent?.Invoke(choosedEvent.EventData);
         }
 
         public void OnDisable()

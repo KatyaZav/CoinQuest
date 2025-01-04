@@ -7406,6 +7406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 603743278}
   - component: {fileID: 603743279}
+  - component: {fileID: 603743280}
   m_Layer: 5
   m_Name: GetPopup
   m_TagString: Untagged
@@ -7457,6 +7458,18 @@ MonoBehaviour:
   _anticlickZone: {fileID: 1531479478}
   _popupZone: {fileID: 822529139}
   _durection: 1
+--- !u!225 &603743280
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603743277}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &604426151
 GameObject:
   m_ObjectHideFlags: 0
@@ -8966,6 +8979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264610794}
   - component: {fileID: 1264610795}
+  - component: {fileID: 1264610796}
   m_Layer: 5
   m_Name: EventPopup
   m_TagString: Untagged
@@ -9009,8 +9023,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _descriptionText: {fileID: 1836907475}
-  _popup: {fileID: 126446893}
-  _duraction: 0.5
+  _popupTransform: {fileID: 126446893}
+  _popupGroup: {fileID: 1264610796}
+--- !u!225 &1264610796
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264610793}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1319605946
 GameObject:
   m_ObjectHideFlags: 0
@@ -11047,7 +11073,7 @@ MonoBehaviour:
   _moneyText: {fileID: 2009320549}
   _coinView: {fileID: 1551750092}
   _sliderImage: {fileID: 1855152076}
-  _eventMaxCount: 8
+  _eventMaxCount: 2
   _time: 0
   _timeBetweenCoinGet: 0.5
   _timeBetweenScrimmers: 2
