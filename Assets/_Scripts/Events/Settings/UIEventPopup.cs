@@ -4,6 +4,11 @@ using DG.Tweening;
 
 namespace Events
 {
+    //.From() - указать из какого состояния начинается анимацияя
+    //.SetLoops() - зацикливание
+    //CanvasGroup для попапа
+    //Sequance - сборник Tween
+
     public class UIEventPopup : MonoBehaviour
     {
         [SerializeField] private Text _descriptionText;
@@ -25,6 +30,7 @@ namespace Events
             _eventSystemHolder.ChangedEvent -= OnEventChange;
 
             _tween.Kill();
+            _eventSystemHolder.OnDisable();
         }
 
         public void Close()
