@@ -2379,7 +2379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1461241391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2439,21 +2439,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461241390}
   m_CullTransparentMesh: 1
---- !u!114 &1461241394
-MonoBehaviour:
+--- !u!225 &1461241394
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461241390}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3a9c395ab798b449536ca54dbc0810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 1
-  _rect: {fileID: 1461241391}
-  _text: {fileID: 1939299745}
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1469412319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2733,9 +2730,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d2699975a9f704bb60761517a7b605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxScale: 0
-  _duraction: 0
-  _rectTransform: {fileID: 0}
+  _maxScale: 1.2
+  _standartScale: 1
+  _duraction: 0.5
+  _rectTransform: {fileID: 1565044264}
 --- !u!1 &1626300556
 GameObject:
   m_ObjectHideFlags: 0
@@ -2842,10 +2840,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemPrefab: {fileID: 6700728517805145367, guid: 3f7506cad70715c49a3215a82ee8c2a6, type: 3}
-  _description: {fileID: 1461241390}
+  _description: {fileID: 1461241394}
+  _rectTransform: {fileID: 1461241391}
   _descriptionText: {fileID: 1939299745}
   _content: {fileID: 775000842}
-  _animation: {fileID: 1461241394}
 --- !u!1 &1648750215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3039,7 +3037,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6885}
   m_AnchorMax: {x: 1, y: 0.8755}
-  m_AnchoredPosition: {x: 0, y: 513.07947}
+  m_AnchoredPosition: {x: 0, y: 513.0788}
   m_SizeDelta: {x: 980, y: 328.83014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831548985
@@ -3554,9 +3552,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d2699975a9f704bb60761517a7b605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxScale: 0
-  _duraction: 0
-  _rectTransform: {fileID: 0}
+  _maxScale: 1.2
+  _standartScale: 1
+  _duraction: 0.5
+  _rectTransform: {fileID: 2022108531}
 --- !u!1 &2082308170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3848,9 +3847,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d2699975a9f704bb60761517a7b605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxScale: 0
-  _duraction: 0
-  _rectTransform: {fileID: 0}
+  _maxScale: 1.2
+  _standartScale: 1
+  _duraction: 0.5
+  _rectTransform: {fileID: 2092964020}
 --- !u!1 &2094197553
 GameObject:
   m_ObjectHideFlags: 0

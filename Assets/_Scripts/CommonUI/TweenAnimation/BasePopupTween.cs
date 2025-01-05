@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-namespace UI.Tween
+namespace UI.Tweening
 {
     public class BasePopupTween
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UI.Tween;
+using UI.Tweening;
 
 namespace Events
 {

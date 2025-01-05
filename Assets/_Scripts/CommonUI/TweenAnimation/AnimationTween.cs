@@ -1,16 +1,18 @@
 using DG.Tweening;
 using System;
+using UI.Tweening.Factory;
 
-namespace UI.Tween
+namespace UI.Tweening
 {
-    public class BaseTween
+    public class AnimationTween
     {
-        private Sequence _currentAnimation, _startAnimation, _endAnimation;
+        private Sequence _currentAnimation;
+        private ITweenFactory _startAnimation, _endAnimation;
 
-        public BaseTween(Sequence startAnimation, Sequence endAnimation)
+        public AnimationTween(ITweenFactory start, ITweenFactory stop)
         {
-            _startAnimation = startAnimation;
-            _endAnimation = endAnimation;
+            _startAnimation = start;
+            _endAnimation = stop;
         }
 
         public bool IsActiveAnimation => _currentAnimation != null && _currentAnimation.active;
@@ -19,16 +21,14 @@ namespace UI.Tween
         {
             KillActiveAnimation();
 
-            _currentAnimation = _startAnimation;
-            _currentAnimation.Play();
+            _currentAnimation = _startAnimation.GetSequence(callback);
         }
 
         public void Disactivate(Action callback = null)
         {
             KillActiveAnimation();
 
-            _currentAnimation = _endAnimation;
-            _currentAnimation.Play();
+            _currentAnimation = _endAnimation.GetSequence(callback);
         }
 
         public void CompleteActiveAnimation()
@@ -36,12 +36,12 @@ namespace UI.Tween
             if (IsActiveAnimation)
                 _currentAnimation.Complete(true);
         }
-
-        public void KillActiveAnimation()
+        
+        public void KillActiveAnimation(bool needCallback = false)
         {
             if (IsActiveAnimation)
             {
-                _currentAnimation.Kill();
+                _currentAnimation.Kill(needCallback);
             }
         }
     }
