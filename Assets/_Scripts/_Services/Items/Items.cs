@@ -24,7 +24,7 @@ public class Items : ScriptableObject
             case "ru":
                 return _rusDesccription;
             default:
-                Debug.LogError(NotFoundLanguageError);
+                Debug.LogError($"{NotFoundLanguageError} named {lang} in {this.name}");
                 return NotFoundLanguageError;
         }
     }
