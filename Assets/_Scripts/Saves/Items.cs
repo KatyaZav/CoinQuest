@@ -1,5 +1,4 @@
 using UnityEngine;
-using YG;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Items", order = 1)]
 public class Items : ScriptableObject
@@ -10,7 +9,7 @@ public class Items : ScriptableObject
     [SerializeField] private string _rusDesccription;
     [SerializeField] private string _enDesccription;
 
-    [SerializeField] private Rare _rare = Rare.usual;
+    [SerializeField] private Rare _rare = Rare.Usual;
 
     public Rare GetRare => _rare;
     public Sprite Icon => _icon;
@@ -33,8 +32,7 @@ public class Items : ScriptableObject
 }
 public enum Rare
 {
-    usual = 1,
-    normal = 2,
-    rare = 4,
-    //legendary = 8
+    Usual = 1,
+    Rare = 2,
+    Legendary = 4,
 }

@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SizingAnimation : MonoBehaviour
+public class ScalerFadeTween : MonoBehaviour
 {
     [SerializeField] private float _duration;
 

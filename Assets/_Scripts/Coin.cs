@@ -102,19 +102,19 @@ public class Coin : MonoBehaviour
     private Items GetRandomItem(ItemsLoader loader)
     {
         int rnd = UnityEngine.Random.Range(0, 101);
-        Rare rare = Rare.usual;
+        Rare rare = Rare.Usual;
 
         if (rnd < 85)
         {
-            rare = Rare.usual;
+            rare = Rare.Usual;
         }
         else if (rnd < 97)
         {
-            rare = Rare.normal;
+            rare = Rare.Rare;
         }
         else
         {
-            rare = Rare.rare;
+            rare = Rare.Legendary;
         }
 
         var listItems = loader.GetListByRare(rare);

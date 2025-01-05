@@ -130,12 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 948463489931419590}
   _rampImage: {fileID: 817452104075623047}
-  _darkColor: {r: 0.03814728, g: 0.14150941, b: 0.0072089587, a: 255}
-  _normalColor: {r: 1, g: 1, b: 1, a: 1}
-  _colors:
-  - {r: 1, g: 0.965319, b: 0.63584906, a: 1}
-  - {r: 0.81509435, g: 1, b: 0.985992, a: 1}
-  - {r: 0.7682331, g: 0.9716981, b: 0.73702383, a: 1}
 --- !u!114 &351349632279703353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d2699975a9f704bb60761517a7b605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxScale: 1.2
+  _duraction: 0.5
+  _rectTransform: {fileID: 4143404738987424051}
 --- !u!1 &9157522560195701937
 GameObject:
   m_ObjectHideFlags: 0

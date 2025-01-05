@@ -1,39 +1,56 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UI.Tween;
 using DG.Tweening;
-using System;
 
-public class OnMouseScaleAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+namespace UI
 {
-    private const float DuractionTime = 0.5f;
-
-    private Sequence _animation;
-
-    public virtual void OnPointerEnter(PointerEventData eventData)
+    public class OnMouseScaleAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        Open();
-    }
+        [SerializeField] private float _maxScale = 1.2f, _duraction = 0.5f;
+        [SerializeField] private RectTransform _rectTransform;
 
-    public virtual void OnPointerExit(PointerEventData eventData)
-    {
-        Hide();
-    }
+        private ScalerTween _scalerTween;
+        //private BaseTween _scalerTween;
 
-    public void Open()
-    {
-        _animation.Complete();
+        public virtual void OnPointerEnter(PointerEventData eventData)
+        {
+            _scalerTween.Activate();
+        }
 
-        _animation = DOTween.Sequence();
-        _animation
-            .Append(transform.DOScale(new Vector2(1.1f, 1.1f), DuractionTime));
-    }
+        public virtual void OnPointerExit(PointerEventData eventData)
+        {
+            _scalerTween.Disactivate();
+        }
+        
+        private void Start()
+        {
+            _rectTransform ??= GetComponent<RectTransform>();
 
-    public void Hide(Action callback = null)
-    {
-        _animation.Complete();
+            var _animation = DOTween.Sequence();
 
-        _animation = DOTween.Sequence();
-        _animation
-            .Append(transform.DOScale(Vector2.one, DuractionTime));
+            _animation
+                .Append(_rectTransform
+                    .DOScale(Vector2.one * _maxScale, _duraction)
+                    .SetEase(Ease.OutQuart));
+            _animation.Pause();
+
+            var _animation1 = DOTween.Sequence();
+
+            _animation1
+                .Append(_rectTransform
+                    .DOScale(Vector2.one, _duraction)
+                    .SetEase(Ease.OutQuart));
+            _animation1.Pause();
+
+            //_scalerTween = new BaseTween(_animation, _animation1);
+            _scalerTween = new ScalerTween(_rectTransform, _maxScale, _duraction);
+        }
+
+        private void OnDisable()
+        {
+            _scalerTween.CompleteAnimation();
+            //_scalerTween.CompleteActiveAnimation();
+        }
     }
 }

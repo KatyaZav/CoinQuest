@@ -53,13 +53,13 @@ public class GetItemPopupView : MonoBehaviour
     {
         switch (item.GetRare)
         {
-            case Rare.usual:
+            case Rare.Usual:
                 _rareText.color = _normalColor;
                 break;
-            case Rare.normal:
+            case Rare.Rare:
                 _rareText.color = _usualColor;
                 break;
-            case Rare.rare:
+            case Rare.Legendary:
                 _rareText.color = _rareColor;
                 break;
         }
@@ -68,11 +68,11 @@ public class GetItemPopupView : MonoBehaviour
         {
             switch (item.GetRare)
             {
-                case Rare.usual:
+                case Rare.Usual:
                     return "Обычный";
-                case Rare.normal:
+                case Rare.Rare:
                     return "Редкий";
-                case Rare.rare:
+                case Rare.Legendary:
                     return "Легендарный";
             }
         }
@@ -80,11 +80,11 @@ public class GetItemPopupView : MonoBehaviour
         {
             switch (item.GetRare)
             {
-                case Rare.usual:
+                case Rare.Usual:
                     return "Regular";
-                case Rare.normal:
+                case Rare.Rare:
                     return "Rare";
-                case Rare.rare:
+                case Rare.Legendary:
                     return "Legendary";
             }
         }
