@@ -1,22 +1,33 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UI.Tweening;
+using UI.Tweening.Factory;
 
 namespace Events
 {
     public class UIEventPopup : MonoBehaviour
     {
+        private readonly Vector2 _minScale = Vector2.zero;
+        private readonly Vector2 _maxScale = Vector2.one;
+
+        private const float _minFade = 0;
+        private const float _maxFade = 0.9f;
+
         [SerializeField] private Text _descriptionText;
         [SerializeField] private RectTransform _popupTransform;
         [SerializeField] private CanvasGroup _popupGroup;
 
         private EventSystemHolder _eventSystemHolder;
-        private BasePopupTween _tweenAnimation;
+        private AnimationTween _tweenAnimation;
 
         public void Init(EventSystemHolder eventSystemHolder)
         {
             _eventSystemHolder = eventSystemHolder;
-            _tweenAnimation = new BasePopupTween(new PopupInfo(_popupGroup, _popupTransform));
+
+            var start = new PopupAnimationFactory(new PopupInfo(_popupGroup, _popupTransform), _minScale, _maxScale, _minFade, _maxFade);
+            var end = new PopupAnimationFactory(new PopupInfo(_popupGroup, _popupTransform), _maxScale, _minScale, _maxFade, _minFade);
+
+            _tweenAnimation = new AnimationTween(start, end);
 
             _eventSystemHolder.ChangedEvent += OnEventChange;
         }
@@ -26,7 +37,7 @@ namespace Events
             _eventSystemHolder.OnDisable();
 
             if (_tweenAnimation.IsActiveAnimation)
-                _tweenAnimation.CompleteAnimation();
+                _tweenAnimation.CompleteActiveAnimation();
             
             _eventSystemHolder.ChangedEvent -= OnEventChange;
         }
