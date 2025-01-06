@@ -30,14 +30,12 @@ public static class PlayerSaves
     {
         var list = Items;
 
-        foreach (var e in list)
-        {
-            if (e.ID == item.ID)
-            {
-                e.See();
-                break;
-            }
-        }
+        var e = list.FirstOrDefault(e => e.ID == item.ID);
+
+        if (e == null)
+            throw new System.ArgumentNullException($"Item {item.name} not found!");
+
+        e.See();
 
         YandexGame.savesData.ListItems = JsonConvert.SerializeObject(list);
         YandexGame.SaveProgress();
@@ -64,17 +62,18 @@ public static class PlayerSaves
 
     public static bool TryGetItemContain(Items item, out ItemsData itemData)
     {
-        foreach (var e in Items)
-        {
-            if (e.ID == item.ID)
-            {
-                itemData = e;
-                return true;
-            }
-        }
+        var e = Items.FirstOrDefault(e => e.ID == item.ID);
 
-        itemData = null;
-        return false;
+        if (e == null)
+        {
+            itemData = null;
+            return false;
+        }
+        else
+        {
+            itemData = e;
+            return true;
+        }        
     }
 
     public static void UpdateList(List<Items> items)
@@ -99,9 +98,6 @@ public static class PlayerSaves
         YandexGame.savesData.CoinsInBank.Value += CoinsInPocket.Value;
         YandexGame.savesData.CoinsInPocket.Value = 0;
 
-        SubscriptionKeeper.ChangeBank();
-        SubscriptionKeeper.ChangeMoneyValue();
-
         CheackLeaderBoard();
         YandexGame.SaveProgress();
     }
@@ -110,7 +106,6 @@ public static class PlayerSaves
     {
         YandexGame.savesData.CoinsInPocket.Value += value;
 
-        SubscriptionKeeper.ChangeMoneyValue();
         //CheackLeaderBoard();
 
         YandexGame.SaveProgress();
@@ -125,7 +120,6 @@ public static class PlayerSaves
             YandexGame.savesData.CoinsInPocket.Value = 0;
         }
 
-        SubscriptionKeeper.ChangeMoneyValue();
         YandexGame.SaveProgress();
     }
 
@@ -133,7 +127,6 @@ public static class PlayerSaves
     {
         YandexGame.savesData.CoinsInPocket.Value = 0;
 
-        SubscriptionKeeper.ChangeMoneyValue();
         YandexGame.SaveProgress();
     }
 

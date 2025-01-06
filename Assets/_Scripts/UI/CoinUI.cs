@@ -7,18 +7,18 @@ public class CoinUI : MonoBehaviour
 
     void Start()
     {
-        SubscriptionKeeper.MoneyValueChangedEvent += ChangeUI;
+        PlayerSaves.CoinsInPocket.Changed += ChangeUI;
 
-        ChangeUI();
+        ChangeUI(PlayerSaves.CoinsInPocket.Value);
     }
 
     private void OnDisable()
     {
-        SubscriptionKeeper.MoneyValueChangedEvent -= ChangeUI;        
+        PlayerSaves.CoinsInPocket.Changed -= ChangeUI;        
     }
 
-    private void ChangeUI()
+    private void ChangeUI(int value)
     {
-        _coinText.text = PlayerSaves.CoinsInPocket.ToString();
+        _coinText.text = value.ToString();
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +25,7 @@ public class Bank : MonoBehaviour
 
         PlayerSaves.AddButtonCount(count);
         //_freeButtonCount += count;
-        Cheack();
+        Cheack(PlayerSaves.CoinsInPocket.Value);
 
         _freeText.text = _freeButtonCount.ToString();
     }
@@ -86,17 +87,17 @@ public class Bank : MonoBehaviour
         _canAd = true;
 
         YG.YandexGame.RewardVideoEvent += PutCoinToBank;
-        SubscriptionKeeper.ChangeBankEvent += ChangeBankValue;
-        SubscriptionKeeper.MoneyValueChangedEvent += Cheack;
+        PlayerSaves.CoinsInBank.Changed += ChangeBankValue;
+        PlayerSaves.CoinsInPocket.Changed += Cheack;
 
-        ChangeBankValue();
+        ChangeBankValue(PlayerSaves.CoinsInBank.Value);
         ChangePopup(2);
-        Cheack();
+        Cheack(PlayerSaves.CoinsInPocket.Value);
     }
 
-    private void Cheack()
+    private void Cheack(int value)
     {
-        if (PlayerSaves.CoinsInPocket.Value == 0)
+        if (value == 0)
         {
             ChangePopup(4);
         }
@@ -114,16 +115,17 @@ public class Bank : MonoBehaviour
         }
     }
 
-    private void ChangeBankValue()
+    private void ChangeBankValue(int value)
     {
-        _bankText.text = PlayerSaves.CoinsInBank.ToString();
+        _bankText.text = value.ToString();
     } 
 
     private void OnDisable()
     {
-        SubscriptionKeeper.ChangeBankEvent -= ChangeBankValue;
         YG.YandexGame.RewardVideoEvent -= PutCoinToBank;
-        SubscriptionKeeper.MoneyValueChangedEvent -= Cheack;
+
+        PlayerSaves.CoinsInBank.Changed += ChangeBankValue;
+        PlayerSaves.CoinsInPocket.Changed += Cheack;
     }
 
     private IEnumerator TimerLogic()

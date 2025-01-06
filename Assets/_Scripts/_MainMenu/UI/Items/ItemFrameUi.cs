@@ -8,8 +8,8 @@ namespace Menu.UI
 {
     public class ItemFrameUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        private readonly Color DarkColor = new Color(11, 48, 0, 255);
-        private readonly Color NormalColor = Color.white;
+        private readonly Color32 DarkColor = new Color(0, 0, 0, 255);
+        private readonly Color32 NormalColor = Color.white;
 
         private readonly Dictionary<Rare, Color32> ImageColors = new Dictionary<Rare, Color32>()
     {
