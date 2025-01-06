@@ -21,10 +21,11 @@ namespace YG
 
         // Ваши сохранения
 
-        public int CoinsInBank = 0;
-        public int CoinsInPocket = 0;
-        public int CoinsInLeaderboard = 0;
-        public int ButtonCount = 3;
+        public ReactiveVarible<int> CoinsInBank = new ReactiveVarible<int>(0);
+        public ReactiveVarible<int> CoinsInPocket = new ReactiveVarible<int>(0);
+        public ReactiveVarible<int> CoinsInLeaderboard = new ReactiveVarible<int>(0);
+        public ReactiveVarible<int> ButtonCount = new ReactiveVarible<int>(3);
+
         public string ListItems = JsonConvert.SerializeObject(new List<ItemsData>());
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны

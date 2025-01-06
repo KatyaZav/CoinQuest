@@ -15,7 +15,7 @@ public class Bank : MonoBehaviour
     private GameObject _currentPopup;
     private bool _canAd = true;
     private bool _canFree = false;
-    private int _freeButtonCount => PlayerSaves.ButtonCount;
+    private int _freeButtonCount => PlayerSaves.ButtonCount.Value;
 
     public void AddFreeButton(int count)
     {
@@ -96,7 +96,7 @@ public class Bank : MonoBehaviour
 
     private void Cheack()
     {
-        if (PlayerSaves.CoinsInPocket == 0)
+        if (PlayerSaves.CoinsInPocket.Value == 0)
         {
             ChangePopup(4);
         }

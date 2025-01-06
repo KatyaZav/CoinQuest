@@ -6,23 +6,23 @@ using YG;
 
 public static class PlayerSaves
 {
-    public static int CoinsInBank => YandexGame.savesData.CoinsInBank;
-    public static int CoinsInPocket => YandexGame.savesData.CoinsInPocket;
-    public static int CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
+    public static IReadonlyReactive<int> CoinsInBank => YandexGame.savesData.CoinsInBank;
+    public static IReadonlyReactive<int> CoinsInPocket => YandexGame.savesData.CoinsInPocket;
+    public static IReadonlyReactive<int> CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
+    public static IReadonlyReactive<int> ButtonCount => YandexGame.savesData.ButtonCount;
+ 
     public static List<ItemsData> Items =>
         JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
 
-    public static int ButtonCount => YandexGame.savesData.ButtonCount;
-
     public static void AddButtonCount(int count)
     {
-        YandexGame.savesData.ButtonCount += count;
+        YandexGame.savesData.ButtonCount.Value += count;
         YandexGame.SaveProgress();
     }
 
     public static void RemoveButtonCount(int count)
     {
-        YandexGame.savesData.ButtonCount -= count;
+        YandexGame.savesData.ButtonCount.Value -= count;
         YandexGame.SaveProgress();
     }
 
@@ -96,8 +96,8 @@ public static class PlayerSaves
     #region Coins
     public static void PutCoinsToBank()
     {
-        YandexGame.savesData.CoinsInBank += CoinsInPocket;
-        YandexGame.savesData.CoinsInPocket = 0;
+        YandexGame.savesData.CoinsInBank.Value += CoinsInPocket.Value;
+        YandexGame.savesData.CoinsInPocket.Value = 0;
 
         SubscriptionKeeper.ChangeBank();
         SubscriptionKeeper.ChangeMoneyValue();
@@ -108,7 +108,7 @@ public static class PlayerSaves
 
     public static void AddCoins(int value)
     {
-        YandexGame.savesData.CoinsInPocket += value;
+        YandexGame.savesData.CoinsInPocket.Value += value;
 
         SubscriptionKeeper.ChangeMoneyValue();
         //CheackLeaderBoard();
@@ -118,11 +118,11 @@ public static class PlayerSaves
 
     public static void RemoveCoins(int value)
     {
-        YandexGame.savesData.CoinsInPocket -= value;
+        YandexGame.savesData.CoinsInPocket.Value -= value;
 
-        if (CoinsInPocket < 0)
+        if (CoinsInPocket.Value < 0)
         {
-            YandexGame.savesData.CoinsInPocket = 0;
+            YandexGame.savesData.CoinsInPocket.Value = 0;
         }
 
         SubscriptionKeeper.ChangeMoneyValue();
@@ -131,7 +131,7 @@ public static class PlayerSaves
 
     public static void LooseCoins()
     {
-        YandexGame.savesData.CoinsInPocket = 0;
+        YandexGame.savesData.CoinsInPocket.Value = 0;
 
         SubscriptionKeeper.ChangeMoneyValue();
         YandexGame.SaveProgress();
@@ -139,11 +139,11 @@ public static class PlayerSaves
 
     private static void CheackLeaderBoard()
     {
-        int count = CoinsInBank;
+        int count = CoinsInBank.Value;
 
-        if (CoinsInLeaderboards < count)
+        if (CoinsInLeaderboards.Value < count)
         {
-            YandexGame.savesData.CoinsInLeaderboard = count;
+            YandexGame.savesData.CoinsInLeaderboard.Value = count;
             YG.YandexGame.NewLeaderboardScores("leaderboard", count);
         }
     }

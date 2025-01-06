@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -25,6 +23,9 @@ public class LoadScene : MonoBehaviour
 
         var loader = new ItemsLoader();
         loader.Load();
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
 
         PlayerSaves.UpdateList(loader.GetItemsList());        
         SceneManager.LoadSceneAsync(1);

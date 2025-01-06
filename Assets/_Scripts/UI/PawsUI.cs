@@ -13,7 +13,7 @@ public class PawsUI : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
 
     private void Start()
     {
-        GetComponent<Text>().text = PlayerSaves.CoinsInBank.ToString();
+        GetComponent<Text>().text = PlayerSaves.CoinsInBank.Value.ToString();
 
         YandexGame.onGetLeaderboard += UpdateInfo;
         _leaderboard.text = GetLoadText(YandexGame.lang);
