@@ -7400,7 +7400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &603743278
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9715,6 +9715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameController: {fileID: 1818870622}
   _popup: {fileID: 1264610795}
+  _coinCountText: {fileID: 2009320549}
+  _itemPopupView: {fileID: 0}
 --- !u!4 &1507426926
 Transform:
   m_ObjectHideFlags: 0
@@ -11973,7 +11975,6 @@ GameObject:
   - component: {fileID: 2009320548}
   - component: {fileID: 2009320550}
   - component: {fileID: 2009320549}
-  - component: {fileID: 2009320551}
   m_Layer: 5
   m_Name: coin count
   m_TagString: Untagged
@@ -12043,19 +12044,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009320547}
   m_CullTransparentMesh: 1
---- !u!114 &2009320551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009320547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e806962cb4b02644ebd58c8db28fb06f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coinText: {fileID: 2009320549}
 --- !u!1 &2015373776
 GameObject:
   m_ObjectHideFlags: 0
