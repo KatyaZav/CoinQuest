@@ -1,0 +1,41 @@
+using Assets.System;
+using Assets.UI;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Assets.Menu
+{
+    public class Bootstrap : MonoBehaviour
+    {
+        private const int GameSceneIndex = 2;
+
+        [Header("Buttons")]
+        [SerializeField] private Button _playButton;
+
+        [Header("Texts")]
+        [SerializeField] private Text _pawsCountText;
+
+        private ReactiveUI<int> _pawsCount;
+
+        private void Start()
+        {
+            _pawsCount = new ReactiveUI<int>(PlayerSaves.CoinsInBank, _pawsCountText);
+
+            _pawsCount.OnInit();
+
+            _playButton.onClick.AddListener(OnPlayButtonClicked);
+        }
+
+        private void OnDestroy()
+        {
+            _pawsCount.OnDisable();
+
+            _playButton.onClick.RemoveListener(OnPlayButtonClicked);
+        }
+
+        private void OnPlayButtonClicked()
+        {
+            new SceneLoader().Load(GameSceneIndex);
+        }
+    }
+}
