@@ -7395,12 +7395,12 @@ GameObject:
   - component: {fileID: 603743279}
   - component: {fileID: 603743280}
   m_Layer: 5
-  m_Name: GetPopup
+  m_Name: NewItemPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &603743278
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7439,11 +7439,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 277317572}
   _rareText: {fileID: 1049820269}
+  _anticlickZone: {fileID: 1531479478}
+  _popupZone: {fileID: 822529139}
+  _canvasGroup: {fileID: 603743280}
   _normalColor: {r: 0.7647059, g: 0.37254903, b: 0.23137255, a: 0.6745098}
   _usualColor: {r: 1, g: 0, b: 0.06666667, a: 0.6745098}
   _rareColor: {r: 0.18039216, g: 0.7372549, b: 0.015686275, a: 1}
-  _anticlickZone: {fileID: 1531479478}
-  _popupZone: {fileID: 822529139}
   _durection: 1
 --- !u!225 &603743280
 CanvasGroup:
@@ -9716,7 +9717,7 @@ MonoBehaviour:
   _gameController: {fileID: 1818870622}
   _popup: {fileID: 1264610795}
   _coinCountText: {fileID: 2009320549}
-  _itemPopupView: {fileID: 0}
+  _itemPopupView: {fileID: 603743279}
 --- !u!4 &1507426926
 Transform:
   m_ObjectHideFlags: 0
