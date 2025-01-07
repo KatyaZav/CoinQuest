@@ -2,7 +2,7 @@ using DG.Tweening;
 using System;
 using UnityEngine;
 
-namespace UI.Tweening.Factory
+namespace Assets.UI.Tweening.Factory
 {
     public class FadeScalerFactory : ITweenFactory
     {

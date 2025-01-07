@@ -1,7 +1,7 @@
 using DG.Tweening;
 using System.Collections.Generic;
-using UI.Tweening;
-using UI.Tweening.Factory;
+using Assets.UI.Tweening;
+using Assets.UI.Tweening.Factory;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;

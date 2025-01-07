@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UI.Tweening;
-using UI.Tweening.Factory;
+using Assets.UI.Tweening;
+using Assets.UI.Tweening.Factory;
 
-namespace UI
+namespace Assets.UI
 {
     public class OnMouseScaleAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {

@@ -1,44 +1,45 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CustomSlider
+namespace Assets.UI
 {
-    public Action OnSliderEndEvent;
-
-    [SerializeField] private Image _image;
-    [SerializeField] private float _maxValue;
-    private float _currentValue = 0;
-
-    public CustomSlider(Image image, float maxValue)
+    public class CustomSlider
     {
-        _image = image;
-        _maxValue = maxValue;
-        _currentValue = 0;
-    }
+        public Action OnSliderEndEvent;
 
-    public void ResetValue()
-    {
-        _currentValue = 0;
-        SetValue(0);
-    } 
+        [SerializeField] private Image _image;
+        [SerializeField] private float _maxValue;
+        private float _currentValue = 0;
 
-    public void SetValue(float a)
-    {
-        _image.fillAmount = a;
-    }
-
-    public void AddValue(float a = 1)
-    {
-        _currentValue += a;
-        _image.fillAmount = _currentValue/_maxValue;
-
-        if (_currentValue / _maxValue >= 1)
+        public CustomSlider(Image image, float maxValue)
         {
-            ResetValue();
-            OnSliderEndEvent?.Invoke();
+            _image = image;
+            _maxValue = maxValue;
+            _currentValue = 0;
+        }
+
+        public void ResetValue()
+        {
+            _currentValue = 0;
+            SetValue(0);
+        }
+
+        public void SetValue(float a)
+        {
+            _image.fillAmount = a;
+        }
+
+        public void AddValue(float a = 1)
+        {
+            _currentValue += a;
+            _image.fillAmount = _currentValue / _maxValue;
+
+            if (_currentValue / _maxValue >= 1)
+            {
+                ResetValue();
+                OnSliderEndEvent?.Invoke();
+            }
         }
     }
 }

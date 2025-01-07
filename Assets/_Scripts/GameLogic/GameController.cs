@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.UI;
 using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour

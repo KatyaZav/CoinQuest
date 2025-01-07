@@ -1,8 +1,8 @@
 using DG.Tweening;
 using System;
-using UI.Tweening.Factory;
+using Assets.UI.Tweening.Factory;
 
-namespace UI.Tweening
+namespace Assets.UI.Tweening
 {
     public class AnimationTween
     {

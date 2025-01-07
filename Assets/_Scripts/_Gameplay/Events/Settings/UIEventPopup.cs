@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UI.Tweening;
-using UI.Tweening.Factory;
+using Assets.UI.Tweening;
+using Assets.UI.Tweening.Factory;
 
 namespace Events
 {

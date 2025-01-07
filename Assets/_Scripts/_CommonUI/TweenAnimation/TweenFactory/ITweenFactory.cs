@@ -1,7 +1,7 @@
 using DG.Tweening;
 using System;
 
-namespace UI.Tweening.Factory
+namespace Assets.UI.Tweening.Factory
 {
     public interface ITweenFactory
     {
