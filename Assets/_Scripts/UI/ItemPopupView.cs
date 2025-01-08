@@ -9,7 +9,7 @@ namespace Assets.Game.UI
     public class ItemPopupView : MonoBehaviour
     {
         private const float MinFade = 0, MaxFade = 1;
-        private const float Duraction = 0.5f;
+        private const float Duration = 0.5f;
 
         [Header("UI")]
         [SerializeField] private Image _image;
@@ -20,7 +20,6 @@ namespace Assets.Game.UI
 
         [Header("Settings")]
         [SerializeField] private Color _normalColor, _usualColor, _rareColor;
-        [SerializeField] private float _durection;
 
         private AnimationTween _animation;
 
@@ -54,17 +53,17 @@ namespace Assets.Game.UI
         public void Init()
         {
             var startAnimation = new PopupAnimationFactory
-                (new PopupInfo(_canvasGroup, _popupZone), Vector2.zero, Vector2.one, MinFade, MaxFade, Duraction);
+                (new PopupInfo(_canvasGroup, _popupZone), Vector2.zero, Vector2.one, MinFade, MaxFade, Duration);
 
             var endAnimation = new PopupAnimationFactory
-                (new PopupInfo(_canvasGroup, _popupZone), Vector2.one, Vector2.zero, MaxFade, MinFade, Duraction);
+                (new PopupInfo(_canvasGroup, _popupZone), Vector2.one, Vector2.zero, MaxFade, MinFade, Duration);
 
             _animation = new AnimationTween(startAnimation, endAnimation);
 
             SubscriptionKeeper.GettedNewEvent += Open;
         }
 
-        public void OnDisable()
+        public void Dispose()
         {
             SubscriptionKeeper.GettedNewEvent -= Open;
         }

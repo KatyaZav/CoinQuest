@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Events
 {
-    [CreateAssetMenu(fileName = "EventData", menuName = "Data/EventData", order = 1)]
+    [CreateAssetMenu(fileName = "EventData", menuName = "Configs/EventData", order = 1)]
     public class EventData : ScriptableObject
     {
         [SerializeField] private string _russianDescription;

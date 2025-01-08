@@ -3,6 +3,7 @@ using Events;
 using Assets.UI;
 using UnityEngine.UI;
 using Assets.Game.UI;
+using Assets.Gameplay.UI;
 
 namespace Assets.Game
 {
@@ -16,7 +17,7 @@ namespace Assets.Game
         [SerializeField] private ReactiveUI<int> _coinText;
 
         [Header("Initable")]
-        [SerializeField] private ItemPopupView _itemPopupView;
+        [SerializeField] private UIHolder _uiHolder;
 
         private EventSystemHolder _eventSystemHolder;
 
@@ -25,8 +26,7 @@ namespace Assets.Game
             _coinText = new ReactiveUI<int>(PlayerSaves.CoinsInPocket, _coinCountText);
             _coinText.OnInit();
 
-            _itemPopupView.Init();
-
+            _uiHolder.Init();
             _gameController.Init();
 
             _eventSystemHolder = new EventSystemHolder();
@@ -43,8 +43,7 @@ namespace Assets.Game
 
             _popup.Exit();
 
-            _coinText.OnDisable();
-            _itemPopupView.OnDisable();
+            _coinText.Dispose();
         }
     }
 }

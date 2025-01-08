@@ -28,7 +28,7 @@ namespace Assets.Menu
 
         private void OnDestroy()
         {
-            _pawsCount.OnDisable();
+            _pawsCount.Dispose();
 
             _playButton.onClick.RemoveListener(OnPlayButtonClicked);
         }

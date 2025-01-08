@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Items", order = 1)]
+[CreateAssetMenu(fileName = "Data", menuName = "Configs/Items", order = 1)]
 public class Items : ScriptableObject
 {
     private const string NotFoundLanguageError = "Language not founded";

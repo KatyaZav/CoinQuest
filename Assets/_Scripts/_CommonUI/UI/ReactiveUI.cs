@@ -26,7 +26,7 @@ namespace Assets.UI
             _varible.Changed += ChangeText;
         }
 
-        public void OnDisable()
+        public void Dispose()
         {
             if (_varible == null)
                 throw new Exception("UI wasn't init!");
