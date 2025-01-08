@@ -9,6 +9,9 @@ namespace Assets.UI
     [RequireComponent(typeof(CanvasGroup))]
     public class PopupView : MonoBehaviour
     {
+        private readonly Vector2 _minScale = Vector2.zero;
+        private readonly Vector2 _maxScale = Vector2.one;
+
         private const float MinFade = 0, MaxFade = 1;
         private const float Duration = 0.5f;
 
@@ -32,10 +35,10 @@ namespace Assets.UI
             _canvasGroup = GetComponent<CanvasGroup>();
 
             var startAnimation = new PopupAnimationFactory
-                (new PopupInfo(_canvasGroup, _popupZone), Vector2.zero, Vector2.one, MinFade, MaxFade, Duration);
+                (new PopupInfo(_canvasGroup, _popupZone), _minScale, _maxScale, MinFade, MaxFade, Duration);
 
             var endAnimation = new PopupAnimationFactory
-                (new PopupInfo(_canvasGroup, _popupZone), Vector2.one, Vector2.zero, MaxFade, MinFade, Duration);
+                (new PopupInfo(_canvasGroup, _popupZone), _maxScale, _minScale, MaxFade, MinFade, Duration);
 
             _animation = new AnimationTween(startAnimation, endAnimation);
         }

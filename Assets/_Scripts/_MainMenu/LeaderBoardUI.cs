@@ -10,8 +10,6 @@ namespace Assets.Menu
     {
         [SerializeField] private Text _leaderboard;
 
-        private bool _wasInit = false;
-
         private void Start()
         {
             YandexGame.onGetLeaderboard += UpdateInfo;
@@ -64,8 +62,6 @@ namespace Assets.Menu
 
         private void UpdateInfo(LBData data)
         {
-            _wasInit = true;
-
             if (data.thisPlayer == null)
             {
                 _leaderboard.text = GetErrorText(YandexGame.lang);

@@ -15,7 +15,6 @@ public class Bank : MonoBehaviour
 
     private GameObject _currentPopup;
     private bool _canAd = true;
-    private bool _canFree = false;
     private int _freeButtonCount => PlayerSaves.ButtonCount.Value;
 
     public void AddFreeButton(int count)
@@ -37,7 +36,6 @@ public class Bank : MonoBehaviour
 
         PlayerSaves.RemoveButtonCount(1);
         //_freeButtonCount -= 1;
-        _canFree = false;
         PlayerSaves.PutCoinsToBank();
 
         if (_freeButtonCount <= 0)
@@ -57,7 +55,6 @@ public class Bank : MonoBehaviour
         switch (a)
         {
             case 1:
-                _canFree = true;
                 _currentPopup = _freeButton;
                 _freeText.text = _freeButtonCount.ToString();
                 break;
