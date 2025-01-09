@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Gameplay.UI
 {
@@ -23,21 +24,22 @@ namespace Assets.Gameplay.UI
         [SerializeField] private RectTransform _canvasBase;
         [SerializeField] private PopupView _popupView;
 
-        private PopupView _eventPopupView, _itemPopupView;
+        [Header("Text")]
+        [SerializeField] private Text _coinsCount;
 
+        private PopupView _eventPopupView, _itemPopupView;
+        private ReactiveUI<int> _coinCountUi;
         private EventSystemHolder _eventSystemHolder;
 
         public void Init(EventSystemHolder eventSystemHolder)
         {
-            GetDictionary();
+            GetRareTextTranslates();
+
+            InitPopups();
+            InitReactiveUI();
 
             _eventSystemHolder = eventSystemHolder;
-
-            string language = YG.YandexGame.lang;
-
-            _itemPopupView = GetPopupView(_popupView, _canvasBase, _itemTranslate.GetText(language), ItemPopupName);
-            _eventPopupView = GetPopupView(_popupView, _canvasBase, _eventTranslate.GetText(language), EventPopupName);
-
+            
             _eventSystemHolder.ChangedEvent += OnEventChange;
             SubscriptionKeeper.GettedNewEvent += OnGettedNewItem;
         }
@@ -46,6 +48,8 @@ namespace Assets.Gameplay.UI
         {
             _eventSystemHolder.ChangedEvent -= OnEventChange;
             SubscriptionKeeper.GettedNewEvent -= OnGettedNewItem;
+
+            _coinCountUi.Dispose();
         }
 
         private PopupView GetPopupView(PopupView view, RectTransform transform, string header, string name)
@@ -69,7 +73,7 @@ namespace Assets.Gameplay.UI
             _itemPopupView.Open(item.Icon, _itemsRareTranslate[item.GetRare].GetText(YG.YandexGame.lang));
         }
 
-        private void GetDictionary()
+        private void GetRareTextTranslates()
         {
             foreach (Rare i in Enum.GetValues(typeof(Rare)))
             {
@@ -81,6 +85,20 @@ namespace Assets.Gameplay.UI
 
                 _itemsRareTranslate[i] = item;
             }
+        }
+
+        private void InitPopups()
+        {
+            string language = YG.YandexGame.lang;
+
+            _itemPopupView = GetPopupView(_popupView, _canvasBase, _itemTranslate.GetText(language), ItemPopupName);
+            _eventPopupView = GetPopupView(_popupView, _canvasBase, _eventTranslate.GetText(language), EventPopupName);
+        }
+
+        private void InitReactiveUI()
+        {
+            _coinCountUi = new ReactiveUI<int>(PlayerSaves.CoinsInPocket, _coinsCount);
+            _coinCountUi.Init();
         }
     }
 }

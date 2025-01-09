@@ -22,7 +22,7 @@ namespace Assets.Game
         void Start()
         {
             _coinText = new ReactiveUI<int>(PlayerSaves.CoinsInPocket, _coinCountText);
-            _coinText.OnInit();
+            _coinText.Init();
 
             _gameController.Init();
 

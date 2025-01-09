@@ -16,7 +16,7 @@ namespace Assets.UI
 
         public bool Inited => _varible != null && _currentText != null;
 
-        public void OnInit()
+        public void Init()
         {
             if (Inited == false)
                 throw new Exception("UI wasn't init!");

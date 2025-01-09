@@ -21,7 +21,7 @@ namespace Assets.Menu
         {
             _pawsCount = new ReactiveUI<int>(PlayerSaves.CoinsInBank, _pawsCountText);
 
-            _pawsCount.OnInit();
+            _pawsCount.Init();
 
             _playButton.onClick.AddListener(OnPlayButtonClicked);
         }
