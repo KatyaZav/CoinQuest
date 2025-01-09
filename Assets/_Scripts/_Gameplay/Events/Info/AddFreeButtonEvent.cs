@@ -1,3 +1,5 @@
+using Assets.Gameplay;
+
 namespace Events
 {
     public class AddFreeButtonEvent : IEvent

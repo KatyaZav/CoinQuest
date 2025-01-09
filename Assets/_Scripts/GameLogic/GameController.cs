@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.UI;
 using Random = UnityEngine.Random;
+using Assets.Gameplay;
 
 public class GameController : MonoBehaviour
 {
