@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Scrimmer : MonoBehaviour, IPointerClickHandler
 {
+    public event Action MimikDied;
+
     [SerializeField] private Image _image;
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioSource _audioSource;
@@ -30,6 +34,7 @@ public class Scrimmer : MonoBehaviour, IPointerClickHandler
     {
         if (_wasStopped == false)
         {
+            print("Lose coins");
             PlayerSaves.LooseCoins();
             PlayerSaves.SetHealth(2);
         }
@@ -42,8 +47,6 @@ public class Scrimmer : MonoBehaviour, IPointerClickHandler
 
         _health -= 1;
         UpdateSlider();
-
-        print(_health);
 
         if (_health <= 0)
             Die();
@@ -95,6 +98,7 @@ public class Scrimmer : MonoBehaviour, IPointerClickHandler
     {
         PlayerSaves.SetHealth(PlayerSaves.Health + 1);
         _wasStopped = true;
+        MimikDied?.Invoke();
     }
 
     private void UpdateSlider()

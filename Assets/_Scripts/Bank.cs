@@ -71,7 +71,7 @@ public class Bank : MonoBehaviour
         Cheack();
     }
 
-    private void Cheack()
+    public void Cheack()
     {
         if (PlayerSaves.CoinsInPocket == 0)
         {

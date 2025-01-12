@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour
         _playersChoice.CoinCollectedEvent -= OnCoinCollect;
         _playersChoice.CoinDropedEvent -= OnCoinDrop;
         _playersChoice.MimikGettedEvent -= OnMimikGet;
+
+        _scrimmer.MimikDied -= MimikDied;
     }
     private void OnValidate()
     {
@@ -45,6 +47,8 @@ public class GameController : MonoBehaviour
         _playersChoice.CoinCollectedEvent += OnCoinCollect;
         _playersChoice.CoinDropedEvent += OnCoinDrop;
         _playersChoice.MimikGettedEvent += OnMimikGet;
+
+        _scrimmer.MimikDied += MimikDied;
 
         StartRound();
     }
@@ -121,6 +125,7 @@ public class GameController : MonoBehaviour
     private void ActivateMimik()
     {
         _scrimmer.Activate();
+        _bank.ChangePopup(4);
     }
 
     public void RemoveMimik()
@@ -128,6 +133,12 @@ public class GameController : MonoBehaviour
         _scrimmer.Remove();
     }
     #endregion
+
+    private void MimikDied()
+    {
+        _scrimmer.Remove();
+        _bank.Cheack();
+    }
 
     private void CraryAnimationActivate(float waitTime, bool success)
     {
@@ -157,7 +168,7 @@ public class GameController : MonoBehaviour
 
     void LooseCoins()
     {
-        PlayerSaves.LooseCoins();
+        //PlayerSaves.LooseCoins();
         //_loseSystem.Play();
     }
 }
