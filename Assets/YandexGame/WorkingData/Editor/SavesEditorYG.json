@@ -1,5 +1,5 @@
 {
-    "idSave": 45,
+    "idSave": 13,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -10,24 +10,15 @@
         true,
         false
     ],
-    "PreviousMoney": 0,
-    "Health": 2.0,
-    "CoinsInBank": 30,
-    "CoinsInPocket": 0,
-    "CoinsInLeaderboard": 30,
+    "PreviousMoney": -1,
+    "Health": 4.0,
+    "CoinsInBank": 0,
+    "CoinsInPocket": 12,
+    "CoinsInLeaderboard": 0,
     "GettedScrimmersID": [
-        24234,
-        24242,
-        30236,
-        30392,
-        30324,
-        24344,
-        30224,
-        30308,
-        24352,
         24250,
-        24266,
-        24308
+        30308,
+        24316
     ],
     "WasTutorial": true,
     "IsSoundOn": true

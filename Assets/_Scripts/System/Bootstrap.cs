@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class Bootstrap : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class Bootstrap : MonoBehaviour
 
     void Start()
     {
+        if (YandexGame.EnvironmentData.payload == "DeleteSaves")
+        {
+            YandexGame.ResetSaveProgress();
+            YandexGame.SaveProgress();
+        }
+
         _scrimmer.Init();
         _uIScrimmersText.Init();
         _countHolder.Init();
