@@ -26,6 +26,7 @@ namespace YG
         public int CoinsInPocket = 0;
         public int CoinsInLeaderboard = 0;
         public List<int> GettedScrimmersID = new();
+        public bool WasTutorial = false;
 
         public bool IsSoundOn = true; 
 

@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Scrimmer : MonoBehaviour, IPointerClickHandler
 {
-    public event Action MimikDied;
+    public event Action MimikDied, MimikLived, MimikActivate;
 
     [SerializeField] private Image _image;
     [SerializeField] private Animator _animator;
@@ -37,6 +37,8 @@ public class Scrimmer : MonoBehaviour, IPointerClickHandler
             print("Lose coins");
             PlayerSaves.LooseCoins();
             PlayerSaves.SetHealth(2);
+
+            MimikLived?.Invoke();
         }
     }
 
@@ -54,6 +56,8 @@ public class Scrimmer : MonoBehaviour, IPointerClickHandler
 
     public void Activate()
     {
+        MimikActivate?.Invoke();
+
         gameObject.SetActive(true);
 
         _wasStopped = false;
