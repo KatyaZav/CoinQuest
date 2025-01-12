@@ -1,5 +1,5 @@
 {
-    "idSave": 160,
+    "idSave": 177,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -11,6 +11,7 @@
         false
     ],
     "PreviousMoney": 290,
+    "Health": 3.0,
     "CoinsInBank": 309,
     "CoinsInPocket": 0,
     "CoinsInLeaderboard": 309,
@@ -29,7 +30,11 @@
         21234,
         21254,
         21210,
-        21166
+        21166,
+        24344,
+        24274,
+        24250,
+        24258
     ],
-    "IsSoundOn": true
+    "IsSoundOn": false
 }

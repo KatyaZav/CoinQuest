@@ -14,6 +14,13 @@ public static class PlayerSaves
     public static int PreviousMoney => YandexGame.savesData.PreviousMoney;
 
     public static int GettedScrimmerCount => YandexGame.savesData.GettedScrimmersID.Count;
+    public static float Health => YandexGame.savesData.Health;
+
+    public static void SetHealth(float health)
+    {
+        YandexGame.savesData.Health = health;
+        YandexGame.SaveProgress();
+    }
 
     public static bool CheakIsScrimmerGetted(int id) => 
         YandexGame.savesData.GettedScrimmersID

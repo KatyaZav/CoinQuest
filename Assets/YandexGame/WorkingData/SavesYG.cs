@@ -21,7 +21,7 @@ namespace YG
         // Ваши сохранения
 
         public int PreviousMoney = -1;
-
+        public float Health = 2;
         public int CoinsInBank = 0;
         public int CoinsInPocket = 0;
         public int CoinsInLeaderboard = 0;
