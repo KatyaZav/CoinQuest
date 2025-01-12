@@ -8734,7 +8734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 563043485}
   _image: {fileID: 1855152076}
-  _maxValue: 15
+  _maxValue: 25
 --- !u!1 &1551750092
 GameObject:
   m_ObjectHideFlags: 0
