@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
 
     [Space(5), Header("Particles")]
     [SerializeField] private ParticleSystem _winSystem;
+    [SerializeField] private ParticleSystem _mimikDie;
     //[SerializeField] private ParticleSystem _loseSystem;
 
     private void OnDisable()
@@ -136,6 +137,7 @@ public class GameController : MonoBehaviour
 
     private void MimikDied()
     {
+        Instantiate(_mimikDie, _scrimmer.gameObject.transform.position, _scrimmer.gameObject.transform.rotation);
         _scrimmer.Remove();
         _bank.Cheack();
     }

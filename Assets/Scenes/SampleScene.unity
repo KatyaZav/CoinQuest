@@ -173,6 +173,7 @@ MonoBehaviour:
   _min: 0.8
   _max: 1.2
   _winSystem: {fileID: 1594066026}
+  _mimikDie: {fileID: 7777013466906283497, guid: aaace3d6272780748a50e7815110ccc4, type: 3}
 --- !u!4 &81335169
 Transform:
   m_ObjectHideFlags: 0
