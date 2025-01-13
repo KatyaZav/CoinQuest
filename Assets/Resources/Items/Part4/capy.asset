@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4eaf68bc0113949b37915e6eab2242, type: 3}
   m_Name: capy
   m_EditorClassIdentifier: 
-  _icon: {fileID: 55081293, guid: 503a90fe2a165fd44a3b4bba05b3e63f, type: 3}
+  _icon: {fileID: 800381058, guid: ed3b42d88760bf543bd1fa9e47eeef44, type: 3}
   _sound: {fileID: 8300000, guid: 90877d44a310fb5489f96f62ecd5d2a4, type: 3}
