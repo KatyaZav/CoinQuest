@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onAchieved: {fileID: 0}
   <MinScore>k__BackingField: 5700
-  <Rus>k__BackingField: "\u041D\u0435\u0442, \u043E\u043D\u0430 \u043D\u0435 \u043E\u043F\u0430\u0441\u043D\u0430.
-    \u0412\u0441\u0435 \u0445\u043E\u0440\u043E\u0448\u043E"
-  <En>k__BackingField: No, she's not dangerous. Everything is fine
+  <Rus>k__BackingField: "\u041D\u0435 \u043E\u043F\u0430\u0441\u043D\u0430... "
+  <En>k__BackingField: Not dangerous...

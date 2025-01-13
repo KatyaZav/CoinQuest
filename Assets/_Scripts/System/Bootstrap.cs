@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 public class Bootstrap : MonoBehaviour
@@ -10,17 +11,25 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private CountHolder _countHolder;
     [SerializeField] private Tutorial _tutorial;
 
-    private void Awake()
+    [SerializeField] private GameObject _buttonTest;
+
+    public void ResetLevel()
     {
-        if (YandexGame.EnvironmentData.payload == "DeleteSaves")
-        {
-            YandexGame.ResetSaveProgress();
-            YandexGame.SaveProgress();
-        }        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void Start()
     {
+        if (YandexGame.EnvironmentData.payload == "DeleteSaves")
+        {
+            _buttonTest.SetActive(true);
+        }
+        else
+        {
+            _buttonTest.SetActive(false);
+        }
+
+
         _scrimmer.Init();
         _uIScrimmersText.Init();
         _countHolder.Init();
