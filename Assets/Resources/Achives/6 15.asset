@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 6 15
   m_EditorClassIdentifier: 
   _onAchieved: {fileID: 0}
-  <MinScore>k__BackingField: 3500
+  <MinScore>k__BackingField: 7100
   <Rus>k__BackingField: "\u0410 \u0435\u0441\u043B\u0438 \u0442\u0430\u043A?"
   <En>k__BackingField: What if so?

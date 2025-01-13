@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074c7c7dd1e93a4b84489c866ba1400, type: 3}
   m_Name: 3 2
   m_EditorClassIdentifier: 
-  <MinScore>k__BackingField: 600
+  _onAchieved: {fileID: 0}
+  <MinScore>k__BackingField: 1300
   <Rus>k__BackingField: "\u0411\u0438\u043B\u043B \u0432\u044B\u0448\u0435\u043B
     \u043D\u0430 \u043E\u0445\u043E\u0442\u0443!"
   <En>k__BackingField: Bill is out hunting!

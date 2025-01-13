@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074c7c7dd1e93a4b84489c866ba1400, type: 3}
   m_Name: 6 16
   m_EditorClassIdentifier: 
-  <MinScore>k__BackingField: 3600
+  _onAchieved: {fileID: 0}
+  <MinScore>k__BackingField: 7300
   <Rus>k__BackingField: " \u0422\u043E-\u0442\u043E \u0436\u0435... \u0422\u0435\u043F\u0435\u0440\u044C
     \u0442\u044B \u0432\u0438\u0434\u0435\u043B \u043C\u043D\u043E\u0433\u043E\u0435... "
   <En>k__BackingField: That's the same... Now you've seen a lot...

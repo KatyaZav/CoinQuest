@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074c7c7dd1e93a4b84489c866ba1400, type: 3}
   m_Name: 5 4
   m_EditorClassIdentifier: 
-  <MinScore>k__BackingField: 1900
+  _onAchieved: {fileID: 0}
+  <MinScore>k__BackingField: 3900
   <Rus>k__BackingField: "\u041C\u0435\u043C\u043D\u044B\u0435 \u043A\u043E\u0442\u0438\u043A\u0438!
     \u0427\u0442\u043E \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u043B\u0443\u0447\u0448\u0435?"
   <En>k__BackingField: ' Meme cats! What could be better?'

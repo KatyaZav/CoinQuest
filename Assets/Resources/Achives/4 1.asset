@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074c7c7dd1e93a4b84489c866ba1400, type: 3}
   m_Name: 4 1
   m_EditorClassIdentifier: 
-  <MinScore>k__BackingField: 1100
+  _onAchieved: {fileID: 0}
+  <MinScore>k__BackingField: 2300
   <Rus>k__BackingField: "\u041D\u0430 \u0447\u0438\u043B\u0435, \u043D\u0430 \u0440\u0430\u0441\u043B\u0430\u0431\u043E\u043D\u0435."
   <En>k__BackingField: On chill, on relaxation.

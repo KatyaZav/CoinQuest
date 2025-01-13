@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074c7c7dd1e93a4b84489c866ba1400, type: 3}
   m_Name: 3 1
   m_EditorClassIdentifier: 
-  <MinScore>k__BackingField: 500
+  _onAchieved: {fileID: 0}
+  <MinScore>k__BackingField: 1100
   <Rus>k__BackingField: "\u041E\u0441\u0442\u0435\u0440\u0435\u0433\u0430\u0439\u0441\u044F
     \u0434\u044B\u0445\u0430\u043D\u0438\u044F \u043A\u043E\u0442\u0430 \u0434\u0440\u0435\u043C\u043E\u0442\u0430!"
   <En>k__BackingField: Beware of the catnap's breath!

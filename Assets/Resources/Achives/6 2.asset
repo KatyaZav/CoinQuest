@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074c7c7dd1e93a4b84489c866ba1400, type: 3}
   m_Name: 6 2
   m_EditorClassIdentifier: 
-  <MinScore>k__BackingField: 2200
+  _onAchieved: {fileID: 0}
+  <MinScore>k__BackingField: 4500
   <Rus>k__BackingField: "\u042D\u0442\u043E\u0442 \u0437\u0430\u044F\u0446 \u041D\u041F\u0421.
     \u041D\u043E \u0442\u0441\u0441\u0441..."
   <En>k__BackingField: This bunny is an NPC. But shh...

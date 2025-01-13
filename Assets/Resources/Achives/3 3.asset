@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3 3
   m_EditorClassIdentifier: 
   _onAchieved: {fileID: 0}
-  <MinScore>k__BackingField: 700
+  <MinScore>k__BackingField: 1500
   <Rus>k__BackingField: "\u0411\u0435\u0440\u0435\u0433\u0438\u0441\u044C \u043A\u0440\u0430\u0441\u043D\u044B\u0445
     \u0446\u0438\u0444\u0435\u0440\u043E\u043A!"
   <En>k__BackingField: Beware of red numbers!

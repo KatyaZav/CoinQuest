@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074c7c7dd1e93a4b84489c866ba1400, type: 3}
   m_Name: 4
   m_EditorClassIdentifier: 
-  <MinScore>k__BackingField: 1000
+  _onAchieved: {fileID: 0}
+  <MinScore>k__BackingField: 2100
   <Rus>k__BackingField: "\u041F\u0435\u0440\u0432\u0430\u044F \u0442\u044B\u0441\u044F\u0447\u0430!"
   <En>k__BackingField: First thousand!

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074c7c7dd1e93a4b84489c866ba1400, type: 3}
   m_Name: 6 1
   m_EditorClassIdentifier: 
-  <MinScore>k__BackingField: 2100
+  _onAchieved: {fileID: 0}
+  <MinScore>k__BackingField: 4300
   <Rus>k__BackingField: "\u041A \u0441\u043B\u043E\u0432\u0443 \u043E \u043A\u043E\u0442\u0438\u043A\u0430\u0445...
     \u0417\u043D\u0430\u0435\u0448\u044C \u043A\u0430\u043A \u043E\u043D\u0438 \u0437\u0435\u0432\u0430\u044E\u0442?"
   <En>k__BackingField: Speaking of cats... Do you know how they yawn?
