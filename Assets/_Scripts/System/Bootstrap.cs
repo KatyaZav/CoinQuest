@@ -10,14 +10,17 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private CountHolder _countHolder;
     [SerializeField] private Tutorial _tutorial;
 
-    void Start()
+    private void Awake()
     {
         if (YandexGame.EnvironmentData.payload == "DeleteSaves")
         {
             YandexGame.ResetSaveProgress();
             YandexGame.SaveProgress();
-        }
+        }        
+    }
 
+    void Start()
+    {
         _scrimmer.Init();
         _uIScrimmersText.Init();
         _countHolder.Init();
