@@ -21,5 +21,10 @@ namespace Events
         public void Exit()
         {
         }
+
+        public void OnPopupClosed()
+        {
+
+        }
     }
 }

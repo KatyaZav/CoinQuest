@@ -27,5 +27,10 @@ namespace Events
         {
             _coin.ChangeExtraProbability(_probability * -1);
         }
+
+        public void OnPopupClosed()
+        {
+
+        }
     }
 }

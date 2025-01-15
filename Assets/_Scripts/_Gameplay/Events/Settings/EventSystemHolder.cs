@@ -7,8 +7,8 @@ namespace Events
 {
     public class EventSystemHolder
     {
-        public Action<EventData> ChangedEvent;
-
+        public event Action<EventData> ChangedEvent;
+        
         private List<IEvent> _events;
 
         private IEvent _currentEvent;
@@ -16,6 +16,11 @@ namespace Events
         public void Init(List<IEvent> eventsList)
         {
             _events = eventsList;
+        }
+
+        public void OnPopupClose()
+        {
+            _currentEvent?.OnPopupClosed();
         }
 
         public void OnNewEvent()

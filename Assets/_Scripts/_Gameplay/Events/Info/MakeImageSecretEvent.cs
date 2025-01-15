@@ -27,5 +27,10 @@ namespace Events
         {
             _coin.DisactivateImageSecret();
         }
+
+        public void OnPopupClosed()
+        {
+
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace Assets.UI
     [RequireComponent(typeof(CanvasGroup))]
     public class PopupView : MonoBehaviour
     {
+        public event Action PopupClosed;
+
         private readonly Vector2 _minScale = Vector2.zero;
         private readonly Vector2 _maxScale = Vector2.one;
 
@@ -55,7 +57,7 @@ namespace Assets.UI
             }
 
             _isClosing = true;
-            _animation.Disactivate(() => gameObject.SetActive(false));
+            _animation.Disactivate(OnClose);
         }
 
         public void Open(Sprite sprite, string text)
@@ -70,6 +72,12 @@ namespace Assets.UI
 
             gameObject.SetActive(true);
             _animation.Activate();
+        }
+
+        private void OnClose()
+        {
+            gameObject.SetActive(false);
+            PopupClosed?.Invoke();
         }
     }
 }

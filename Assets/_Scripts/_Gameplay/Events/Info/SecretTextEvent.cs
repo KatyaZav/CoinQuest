@@ -30,5 +30,10 @@ namespace Events
             _coin.ChangeExtraProbability(_probability * -1);
             _coin.DisactivateTextSecret();
         }
+
+        public void OnPopupClosed()
+        {
+
+        }
     }
 }

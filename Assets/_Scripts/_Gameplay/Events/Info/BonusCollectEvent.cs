@@ -26,5 +26,10 @@ namespace Events
         {
             _generator.ChangeCountModifier(1);
         }
+
+        public void OnPopupClosed()
+        {
+
+        }
     }
 }

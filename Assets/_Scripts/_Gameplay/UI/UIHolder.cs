@@ -23,6 +23,7 @@ namespace Assets.Gameplay.UI
         [Header("Settings")]
         [SerializeField] private RectTransform _canvasBase;
         [SerializeField] private PopupView _popupView;
+        [SerializeField] private ScrimmerPopupView _scrimmerView;
 
         [Header("Text")]
         [SerializeField] private Text _coinsCount;
@@ -41,26 +42,39 @@ namespace Assets.Gameplay.UI
             _eventSystemHolder = eventSystemHolder;
             
             _eventSystemHolder.ChangedEvent += OnEventChange;
+            _eventPopupView.PopupClosed += OnPopupClosed;
             SubscriptionKeeper.GettedNewEvent += OnGettedNewItem;
+
+            SubscriptionKeeper.MimikClosed += OnMimikClose;
+            SubscriptionKeeper.MimikActivated += OnMimikActivate;
         }
 
         public void Dispose()
         {
             _eventSystemHolder.ChangedEvent -= OnEventChange;
+            _eventPopupView.PopupClosed -= OnPopupClosed;
             SubscriptionKeeper.GettedNewEvent -= OnGettedNewItem;
+
+            SubscriptionKeeper.MimikClosed -= OnMimikClose;
+            SubscriptionKeeper.MimikActivated -= OnMimikActivate;
 
             _coinCountUi.Dispose();
         }
 
-        private PopupView GetPopupView(PopupView view, RectTransform transform, string header, string name)
+        private void OnMimikActivate()
         {
-            var popup = Instantiate(view, transform);
+            _scrimmerView.gameObject.SetActive(true);
+            _scrimmerView.Activate();
+        }
 
-            popup.gameObject.SetActive(false);
-            popup.gameObject.name = name;
-            popup.Init(header);
+        private void OnMimikClose()
+        {
+            _scrimmerView.Deactivate(() => _scrimmerView.gameObject.SetActive(false));
+        }
 
-            return popup;
+        private void OnPopupClosed()
+        {
+            _eventSystemHolder.OnPopupClose();
         }
 
         private void OnEventChange(EventData data)
@@ -86,6 +100,17 @@ namespace Assets.Gameplay.UI
                 _itemsRareTranslate[i] = item;
             }
         }
+        
+        private PopupView GetPopupView(PopupView view, RectTransform transform, string header, string name)
+        {
+            var popup = Instantiate(view, transform);
+
+            popup.gameObject.SetActive(false);
+            popup.gameObject.name = name;
+            popup.Init(header);
+
+            return popup;
+        }
 
         private void InitPopups()
         {
@@ -93,6 +118,8 @@ namespace Assets.Gameplay.UI
 
             _itemPopupView = GetPopupView(_popupView, _canvasBase, _itemTranslate.GetText(language), ItemPopupName);
             _eventPopupView = GetPopupView(_popupView, _canvasBase, _eventTranslate.GetText(language), EventPopupName);
+            
+            _scrimmerView.Init();
         }
 
         private void InitReactiveUI()

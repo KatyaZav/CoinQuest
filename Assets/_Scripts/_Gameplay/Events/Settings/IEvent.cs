@@ -5,6 +5,7 @@ namespace Events
         public EventData EventData {get;}
         public void Enter();
         public void Exit();
+        public void OnPopupClosed();
         //public void Update(float deltaTime);
     }
 }

@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private ItemGenerator _generator;
     [SerializeField] private PlayersChoice _playersChoice;
     [SerializeField] private Bank _bank;
-    [SerializeField] private Scrimmer _scrimmer;
     [SerializeField] private ItemView _coin;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _winSound, _dropSound;
@@ -144,12 +143,12 @@ public class GameController : MonoBehaviour
 
     private void ActivateMimik()
     {
-        _scrimmer.Activate();
+        //_scrimmer.Activate();
     }
 
     public void RemoveMimik()
     {
-        _scrimmer.Remove();
+        //_scrimmer.Remove();
     }
     #endregion
 
