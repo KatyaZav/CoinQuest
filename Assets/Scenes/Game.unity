@@ -2383,7 +2383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.012512207, y: 97}
+  m_AnchoredPosition: {x: 0.012573242, y: 97}
   m_SizeDelta: {x: 0.025024414, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588308535
@@ -2807,8 +2807,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _dangerousColor: {r: 1, g: 0.10980393, b: 0.10980393, a: 0}
-  _safeColor: {r: 0.30980393, g: 1, b: 0.16470589, a: 0}
+  _dangerousColor: {r: 1, g: 0.10980393, b: 0.10980393, a: 1}
+  _safeColor: {r: 0.30980393, g: 1, b: 0.16470589, a: 1}
 --- !u!1 &1855152074
 GameObject:
   m_ObjectHideFlags: 0

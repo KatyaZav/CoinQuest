@@ -42,7 +42,7 @@ namespace Assets.Gameplay
 
         public Sprite GetImage() => IsSecretImage == false ? _item.Icon : _secretImage;
         public Color32 GetColor() => (100 - FailProbability) > 50 ? _safeColor : _dangerousColor;
-        public string GetText() => IsSecretText ? (100 - FailProbability).ToString() + "%" : _secretText;
+        public string GetText() => IsSecretText == false? (100 - FailProbability).ToString("0") + "%" : _secretText;
 
         public void MakeImageSecret(Sprite sprite)
         {
