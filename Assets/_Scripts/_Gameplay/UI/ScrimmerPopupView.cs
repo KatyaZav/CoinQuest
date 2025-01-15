@@ -33,6 +33,11 @@ namespace Assets.Gameplay.UI
             _animation = new AnimationTween(startAnimation, endAnimation);
         }
 
+        public void Close()
+        {
+            _animation.CompleteActiveAnimation();
+        }
+
         public void Activate(Action callback = null)
         {
             _animation.Activate(callback);

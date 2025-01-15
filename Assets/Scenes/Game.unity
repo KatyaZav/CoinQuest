@@ -725,6 +725,7 @@ MonoBehaviour:
   _itemTranslate: {fileID: 11400000, guid: 1edbd63f6956e9c43b119b9418b73f56, type: 2}
   _canvasBase: {fileID: 243729459}
   _popupView: {fileID: 5956222611094683506, guid: 18ec9cff30dabec45b3627904d9b2278, type: 3}
+  _scrimmerView: {fileID: 1186397210}
   _coinsCount: {fileID: 2009320549}
 --- !u!4 &305561296
 Transform:
@@ -739,7 +740,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &311363384
 GameObject:
@@ -1840,7 +1841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1186397209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1890,77 +1891,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &1234635176
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1234635178}
-  - component: {fileID: 1234635177}
-  m_Layer: 0
-  m_Name: CoinGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1234635177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234635176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6efe9669c9559574386837964124eea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemView: {fileID: 163428141}
-  _failProbability:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2.4877665
-      outSlope: 2.4877665
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.03441018
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _dangerousColor: {r: 0.30980393, g: 1, b: 0.16470589, a: 0}
-  _safeColor: {r: 1, g: 0.10980393, b: 0.10980393, a: 0}
---- !u!4 &1234635178
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234635176}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5582386, y: -0.66313446, z: 73.46681}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319605946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,7 +1976,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1450359963}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayersChoice, Assembly-CSharp
         m_MethodName: DropCoin
         m_Mode: 1
@@ -2169,53 +2099,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf9732433f4dc044845763962493607, type: 3}
---- !u!1 &1450359962
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1450359964}
-  - component: {fileID: 1450359963}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1450359963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450359962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7b67463fe521840a7fd83118ba59a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _generator: {fileID: 1234635177}
-  _yes: {fileID: 2116158169}
-  _no: {fileID: 1319605948}
---- !u!4 &1450359964
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450359962}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9429083, y: -0.66297823, z: 75.572495}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1462790232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,10 +2248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa128a5bb651cd4298b417b769f7a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameController: {fileID: 1818870622}
-  _coinCountText: {fileID: 2009320549}
   _uiHolder: {fileID: 305561295}
-  _itemGenerator: {fileID: 0}
+  _gameCycle: {fileID: 1818870624}
+  _bank: {fileID: 563043485}
 --- !u!4 &1507426926
 Transform:
   m_ObjectHideFlags: 0
@@ -2382,7 +2264,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551750092
 GameObject:
@@ -2829,7 +2711,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1818870623}
-  - component: {fileID: 1818870622}
   - component: {fileID: 1818870624}
   m_Layer: 0
   m_Name: GameController
@@ -2838,39 +2719,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1818870622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818870621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d29580ae244ec9f40a32ca6437084724, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _generator: {fileID: 1234635177}
-  _playersChoice: {fileID: 1450359963}
-  _bank: {fileID: 563043485}
-  _scrimmer: {fileID: 0}
-  _coin: {fileID: 163428141}
-  _audioSource: {fileID: 1818870624}
-  _winSound: {fileID: 8300000, guid: 38a09e45bd8845946a3c84bd4b5a3fa2, type: 3}
-  _dropSound: {fileID: 8300000, guid: 38a09e45bd8845946a3c84bd4b5a3fa2, type: 3}
-  _moneyText: {fileID: 2009320549}
-  _coinView: {fileID: 1551750092}
-  _sliderImage: {fileID: 1855152076}
-  _eventMaxCount: 2
-  _time: 0
-  _timeBetweenCoinGet: 0.5
-  _timeBetweenScrimmers: 2
-  _scaryProbability: 60
-  _minScary: 0
-  _maxScary: 0
-  _min: 0
-  _max: 0
-  _winSystem: {fileID: 0}
 --- !u!4 &1818870623
 Transform:
   m_ObjectHideFlags: 0
@@ -2884,104 +2732,51 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1818870624
-AudioSource:
+--- !u!114 &1818870624
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818870621}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e4f7303e749e949adbab5fba4647bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _yesButton: {fileID: 2116158169}
+  _noButton: {fileID: 1319605948}
+  _itemView: {fileID: 163428141}
+  _sliderImage: {fileID: 1855152076}
+  _eventMaxCount: 10
+  _failProbability:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _dangerousColor: {r: 1, g: 0.10980393, b: 0.10980393, a: 0}
+  _safeColor: {r: 0.30980393, g: 1, b: 0.16470589, a: 0}
 --- !u!1 &1855152074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,7 +2840,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3124,7 +2919,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1947851642
 GameObject:
@@ -3693,7 +3488,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1450359963}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayersChoice, Assembly-CSharp
         m_MethodName: CollectCoin
         m_Mode: 1

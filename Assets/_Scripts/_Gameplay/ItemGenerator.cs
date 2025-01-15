@@ -4,14 +4,13 @@ using UnityEngine;
 
 namespace Assets.Gameplay
 {
-    public class ItemGenerator : MonoBehaviour
+    public class ItemGenerator
     {
-        [SerializeField] private ItemView _itemView;
+        private ItemView _itemView;
 
-        [Header("Settings")]
-        [SerializeField] private AnimationCurve _failProbability;
-        [SerializeField] private Color _dangerousColor;
-        [SerializeField] private Color _safeColor;
+        private AnimationCurve _failProbability;
+        private Color _dangerousColor;
+        private Color _safeColor;
 
         private ItemsLoader _loader;
         private Items _item;
@@ -22,8 +21,13 @@ namespace Assets.Gameplay
         private Sprite _secretImage;
         private string _secretText = "";
 
-        public void Init(ItemsLoader itemLoader)
+        public ItemGenerator(ItemView itemView, AnimationCurve failProbability, Color dangerousColor, Color safeColor, ItemsLoader itemLoader)
         {
+            _itemView = itemView;
+            _failProbability = failProbability;
+            _dangerousColor = dangerousColor;
+            _safeColor = safeColor;
+
             _loader = itemLoader;
         }
 
@@ -35,6 +39,10 @@ namespace Assets.Gameplay
 
         public bool IsSecretImage => _secretImage != null;
         public bool IsSecretText => _secretText != "";
+
+        public Sprite GetImage() => IsSecretImage == false ? _item.Icon : _secretImage;
+        public Color32 GetColor() => (100 - FailProbability) > 50 ? _safeColor : _dangerousColor;
+        public string GetText() => IsSecretText ? (100 - FailProbability).ToString() + "%" : _secretText;
 
         public void MakeImageSecret(Sprite sprite)
         {
@@ -93,7 +101,7 @@ namespace Assets.Gameplay
 
             IsMimik = randomProcent < FailProbability;
 
-            ChangeCoinAppearance(CoinValue, 100 - Mathf.Round(FailProbability));
+            //ChangeCoinAppearance(CoinValue, 100 - Mathf.Round(FailProbability));
         }
 
         private Items GetRandomItem(ItemsLoader loader)
@@ -155,29 +163,6 @@ namespace Assets.Gameplay
             }
 
             return rare;
-        }
-
-        private void ChangeCoinAppearance(float coinValue, float probability)
-        {
-            _itemView.SetImage(IsSecretImage == false ? _item.Icon : _secretImage);
-            _itemView.SetTextColor(probability > 50 ? _safeColor : _dangerousColor);
-            
-            if (IsSecretText)
-                MakeSecretText();
-            else
-                MakeText(probability);
-
-            _itemView.ActivateStartAnimation();
-        }
-
-        private void MakeText(float probability)
-        {
-            _itemView.SetProbabilityText(probability.ToString() + "%");
-        }
-
-        private void MakeSecretText()
-        {
-            _itemView.SetProbabilityText(_secretText);
         }
     }
 }

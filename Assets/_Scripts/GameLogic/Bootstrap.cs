@@ -8,43 +8,30 @@ namespace Assets.Gameplay
 {
     public class Bootstrap : MonoBehaviour
     {
-        [SerializeField] private GameController _gameController;
-
-        [Header("Text")]
-        [SerializeField] private Text _coinCountText;
-        [SerializeField] private ReactiveUI<int> _coinText;
-
         [Header("Initable")]
         [SerializeField] private UIHolder _uiHolder;
         [SerializeField] private ItemGenerator _itemGenerator;
-
-        private EventSystemHolder _eventSystemHolder;
+        [SerializeField] private GameCycle _gameCycle;
+        [SerializeField] private Bank _bank;
 
         void Start()
         {
             ItemsLoader loader = new ItemsLoader();
             loader.Load(true);
 
-            _coinText = new ReactiveUI<int>(PlayerSaves.CoinsInPocket, _coinCountText);
-            _coinText.Init();
+            _bank.Init();
 
-            _gameController.Init();
+            EventSystemHolder eventSystemHolder = new EventSystemHolder();
+            eventSystemHolder.Init(new EventsFabric().GetFullEventsList());
 
-            _eventSystemHolder = new EventSystemHolder();
-            _eventSystemHolder.Init(new EventsFabric().GetFullEventsList());
-
-            _uiHolder.Init(_eventSystemHolder);
-            _itemGenerator.Init(loader);
-
-            _gameController.OnSliderEnded.OnSliderEndEvent += _eventSystemHolder.OnNewEvent;
+            _uiHolder.Init(eventSystemHolder);
+            _gameCycle.Init(eventSystemHolder, loader);
         }
 
         private void OnDisable()
         {
-            _gameController.OnSliderEnded.OnSliderEndEvent -= _eventSystemHolder.OnNewEvent;
-
-            _uiHolder.Dispose();
-            _coinText.Dispose();
+            _uiHolder.OnDispose();
+            _gameCycle.OnDispose();
         }
     }
 }

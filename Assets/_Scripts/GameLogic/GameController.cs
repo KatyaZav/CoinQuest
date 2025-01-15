@@ -8,19 +8,13 @@ using Assets.Gameplay.UI;
 
 public class GameController : MonoBehaviour
 {
-    [Header("Components")]
-    [SerializeField] private ItemGenerator _generator;
-    [SerializeField] private PlayersChoice _playersChoice;
-    [SerializeField] private Bank _bank;
+    /*[Header("Components")]    
     [SerializeField] private ItemView _coin;
-    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _winSound, _dropSound;
-    [SerializeField] private Text _moneyText;
 
     [Space(5), Header("Settings")]
     [SerializeField] private GameObject _coinView;
-    [SerializeField] private Image _sliderImage;
-    [SerializeField] private int _eventMaxCount;
+    
     [SerializeField] private float _time;
     [SerializeField] private float _timeBetweenCoinGet = 0.5f;
     [SerializeField] private float _timeBetweenScrimmers = 2;
@@ -32,46 +26,27 @@ public class GameController : MonoBehaviour
     [SerializeField] private ParticleSystem _winSystem;
     //[SerializeField] private ParticleSystem _loseSystem;
     
-    private CustomSlider _sliderPoints;
+    
     
     public void Init()
     {
-        _bank.Init();
         _coin.Init();
 
         _playersChoice.ItemCollectedEvent += OnCoinCollect;
         _playersChoice.ItemDropedEvent += OnCoinDrop;
         _playersChoice.MimikGettedEvent += OnMimikGet;
 
-        _sliderPoints = new CustomSlider(_sliderImage, _eventMaxCount);
-        _sliderPoints.OnSliderEndEvent += OnPointsGetted;
         StartRound();
-
-        _moneyText.text = PlayerSaves.CoinsInPocket.ToString();
     }
 
-    public CustomSlider OnSliderEnded => _sliderPoints;
 
     private void OnDisable()
     {
         _playersChoice.ItemCollectedEvent -= OnCoinCollect;
         _playersChoice.ItemDropedEvent -= OnCoinDrop;
         _playersChoice.MimikGettedEvent -= OnMimikGet;
-
-        _sliderPoints.OnSliderEndEvent -= OnPointsGetted;
-    }
-    private void OnValidate()
-    {
-        _generator = FindAnyObjectByType<ItemGenerator>();
-        _bank = FindAnyObjectByType<Bank>();
     }
 
-
-    private void OnPointsGetted()
-    {
-    }
-
-    #region Input Events
     private void OnMimikGet()
     {
         StopRound();
@@ -94,8 +69,6 @@ public class GameController : MonoBehaviour
     private void OnCoinDrop()
     {
         StopRound();
-        _audioSource.clip = _dropSound;
-        _audioSource.Play();
         Invoke("StartRound", _timeBetweenCoinGet);
     }
 
@@ -114,9 +87,7 @@ public class GameController : MonoBehaviour
 
         Invoke("StartRound", _timeBetweenCoinGet + time);
     }
-    #endregion
 
-    #region Game logic
     private void StartRound()
     {
         print("start round");
@@ -141,17 +112,6 @@ public class GameController : MonoBehaviour
         //_coin.SetAnimation();
     }
 
-    private void ActivateMimik()
-    {
-        //_scrimmer.Activate();
-    }
-
-    public void RemoveMimik()
-    {
-        //_scrimmer.Remove();
-    }
-    #endregion
-
     private void CraryAnimationActivate(int waitTime, bool success)
     {
         if (success)
@@ -168,13 +128,9 @@ public class GameController : MonoBehaviour
     void AddCoins()
     {
         _sliderPoints.AddValue();
-        _audioSource.clip = _winSound;
-        _audioSource.pitch = Random.Range(_min, _max);
-        _audioSource.Play();
         _generator.GenerateItem();
 
         PlayerSaves.AddCoins(_generator.CoinValue);
-        _moneyText.text = PlayerSaves.CoinsInPocket.ToString();
      //   _winSystem.Play();
     }
 
@@ -182,5 +138,5 @@ public class GameController : MonoBehaviour
     {
         PlayerSaves.LooseCoins();
         //_loseSystem.Play();
-    }
+    }*/
 }

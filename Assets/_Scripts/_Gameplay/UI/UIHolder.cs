@@ -45,17 +45,15 @@ namespace Assets.Gameplay.UI
             _eventPopupView.PopupClosed += OnPopupClosed;
             SubscriptionKeeper.GettedNewEvent += OnGettedNewItem;
 
-            SubscriptionKeeper.MimikClosed += OnMimikClose;
             SubscriptionKeeper.MimikActivated += OnMimikActivate;
         }
 
-        public void Dispose()
+        public void OnDispose()
         {
             _eventSystemHolder.ChangedEvent -= OnEventChange;
             _eventPopupView.PopupClosed -= OnPopupClosed;
             SubscriptionKeeper.GettedNewEvent -= OnGettedNewItem;
 
-            SubscriptionKeeper.MimikClosed -= OnMimikClose;
             SubscriptionKeeper.MimikActivated -= OnMimikActivate;
 
             _coinCountUi.Dispose();
@@ -65,11 +63,6 @@ namespace Assets.Gameplay.UI
         {
             _scrimmerView.gameObject.SetActive(true);
             _scrimmerView.Activate();
-        }
-
-        private void OnMimikClose()
-        {
-            _scrimmerView.Deactivate(() => _scrimmerView.gameObject.SetActive(false));
         }
 
         private void OnPopupClosed()
