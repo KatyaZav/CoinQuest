@@ -106,7 +106,7 @@ namespace Assets.Gameplay
 
         private void OnItemCollectButtonClick()
         {
-            throw new NotImplementedException();
+            TryCollectItem();
         }
 
         private void OnItemDroppedButtonClick()
@@ -116,7 +116,14 @@ namespace Assets.Gameplay
 
         private void TryCollectItem()
         {
-
+            if (_itemGenerator.IsMimik)
+            {
+                GetMimik();
+            }
+            else
+            {
+                CollectItem();
+            }
         }
 
         private void StartRound()
@@ -127,12 +134,24 @@ namespace Assets.Gameplay
             _itemView.SetTextColor(_itemGenerator.GetColor());
             _itemView.SetProbabilityText(_itemGenerator.GetText());
 
-            _itemView.ActivateStartAnimation(OnCompleteActivatingItem);
+            _itemView.ActivateStartAnimation();
+
+            PlayerSaves.MakeSeen(_itemGenerator.Item);
         }
 
-        private void OnCompleteActivatingItem()
+        private void CollectItem()
         {
+            PlayerSaves.MakeGetted(_itemGenerator.Item);
+            PlayerSaves.AddCoins(_itemGenerator.ItemValue);
 
+            _itemView.ActivateCollectAnimation(StartRound);
+        }
+
+        private void GetMimik()
+        {
+            _itemView.ActivateCollectAnimation(StartRound);
+
+            //SubscriptionKeeper.MimikActivate();
         }
     }
 }

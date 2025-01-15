@@ -32,7 +32,7 @@ namespace Assets.Gameplay
         }
 
         public float FailProbability { get; private set; }
-        public int CoinValue { get; private set; }
+        public int ItemValue { get; private set; }
         public bool IsMimik { get; private set; }
 
         public Items Item => _item;
@@ -93,7 +93,7 @@ namespace Assets.Gameplay
 
             PlayerSaves.MakeSeen(_item);
 
-            CoinValue = GetValue();
+            ItemValue = GetValue();
 
             float rnd = UnityEngine.Random.Range(0, 1f);
             float randomProcent = UnityEngine.Random.Range(1, 101);
