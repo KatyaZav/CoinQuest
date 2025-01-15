@@ -16,6 +16,7 @@ namespace Assets.Gameplay
         [SerializeField] private Button _yesButton;
         [SerializeField] private Button _noButton;
         [SerializeField] private ItemView _itemView;
+        [SerializeField] private AnswerHolderBehavior _answerHolderBehavior;
 
         [Header("Slider")]
         [SerializeField] private Image _sliderImage;
@@ -42,6 +43,7 @@ namespace Assets.Gameplay
             _itemsLoader = items;
             _currentEventCount = _eventMaxCount;
 
+            _answerHolderBehavior.Init();
             _itemView.Init();
 
             CreatePlayerInput();
@@ -106,11 +108,13 @@ namespace Assets.Gameplay
 
         private void OnItemCollectButtonClick()
         {
+            _answerHolderBehavior.Disactivate();
             TryCollectItem();
         }
 
         private void OnItemDroppedButtonClick()
         {
+            _answerHolderBehavior.Disactivate();
             _itemView.ActivateDestroyAnimation(StartRound);
         }
 
@@ -128,6 +132,8 @@ namespace Assets.Gameplay
 
         private void StartRound()
         {
+            _answerHolderBehavior.Activate();
+
             _itemGenerator.GenerateItem();
 
             _itemView.SetImage(_itemGenerator.GetImage());

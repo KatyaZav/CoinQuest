@@ -2353,6 +2353,8 @@ GameObject:
   - component: {fileID: 1588308534}
   - component: {fileID: 1588308536}
   - component: {fileID: 1588308535}
+  - component: {fileID: 1588308538}
+  - component: {fileID: 1588308537}
   m_Layer: 5
   m_Name: answer
   m_TagString: Untagged
@@ -2381,8 +2383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.125, y: 97}
-  m_SizeDelta: {x: 0.30004883, y: 200}
+  m_AnchoredPosition: {x: 0.012512207, y: 97}
+  m_SizeDelta: {x: 0.025024414, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588308535
 MonoBehaviour:
@@ -2422,6 +2424,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588308533}
   m_CullTransparentMesh: 1
+--- !u!114 &1588308537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588308533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf005f6895b27434cb057d7410de425a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _durection: 0.6
+  _canvasGroup: {fileID: 1588308538}
+  _rectTransform: {fileID: 1588308534}
+  _startPosition: {x: 0, y: -331}
+  _finishPosition: {x: 0, y: 97}
+--- !u!225 &1588308538
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588308533}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!224 &1589791517 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3697109957508821074, guid: 60c304d66257f484a97385906b2028c8, type: 3}
@@ -2749,6 +2780,7 @@ MonoBehaviour:
   _yesButton: {fileID: 2116158169}
   _noButton: {fileID: 1319605948}
   _itemView: {fileID: 163428141}
+  _answerHolderBehavior: {fileID: 1588308537}
   _sliderImage: {fileID: 1855152076}
   _eventMaxCount: 10
   _failProbability:
