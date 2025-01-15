@@ -1,7 +1,5 @@
 using Assets.UI.Tweening;
 using Assets.UI.Tweening.Factory;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnswerHolderBehavior : MonoBehaviour
@@ -24,14 +22,12 @@ public class AnswerHolderBehavior : MonoBehaviour
 
     public void Activate()
     {
-        print("Act");
         _canvasGroup.interactable = true;
         _animation.Activate();
     }
 
     public void Disactivate()
     {
-        print("Dis");
         _canvasGroup.interactable = false;
         _animation.Disactivate();
     }

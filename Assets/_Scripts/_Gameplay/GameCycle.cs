@@ -157,7 +157,7 @@ namespace Assets.Gameplay
         {
             _itemView.ActivateCollectAnimation(StartRound);
 
-            //SubscriptionKeeper.MimikActivate();
+            SubscriptionKeeper.MimikActivate();
         }
     }
 }
