@@ -8,7 +8,7 @@ using Assets.Gameplay;
 public class GameController : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private CoinGenerator _generator;
+    [SerializeField] private ItemGenerator _generator;
     [SerializeField] private PlayersChoice _playersChoice;
     [SerializeField] private Bank _bank;
     [SerializeField] private Scrimmer _scrimmer;
@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
     }
     private void OnValidate()
     {
-        _generator = FindAnyObjectByType<CoinGenerator>();
+        _generator = FindAnyObjectByType<ItemGenerator>();
         _bank = FindAnyObjectByType<Bank>();
     }
 
@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
 
         int waitTime = 0;
 
-        if (_generator.GetMimikProbability() > _scaryProbability)
+        if (_generator.GetFailProbability() > _scaryProbability)
             waitTime += UnityEngine.Random.Range(_minScary, _maxScary);
         else
             waitTime += (int)_timeBetweenCoinGet;
@@ -105,7 +105,7 @@ public class GameController : MonoBehaviour
 
         int time = 0;
 
-        if (_generator.GetMimikProbability() > _scaryProbability)
+        if (_generator.GetFailProbability() > _scaryProbability)
         {
             time += UnityEngine.Random.Range(_minScary, _maxScary);
         }

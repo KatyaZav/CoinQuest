@@ -1,6 +1,8 @@
+using Assets.Gameplay.UI;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class PlayersChoice : MonoBehaviour
 {
@@ -8,6 +10,14 @@ public class PlayersChoice : MonoBehaviour
 
     [SerializeField] CoinGenerator _generator;
     [SerializeField] Button _yes, _no;
+
+
+    public void GetCoin()
+    {
+        PlayerSaves.MakeGetted(_item);
+
+        _itemView.ActivateCollectAnimation();
+    }
 
     public void DropCoin()
     {
