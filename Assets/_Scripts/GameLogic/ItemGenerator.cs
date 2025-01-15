@@ -79,7 +79,7 @@ namespace Assets.Gameplay
         /// <summary>
         /// Generate new item with fail probability and value 
         /// </summary>
-        public void GenerateCoin()
+        public void GenerateItem()
         {
             _item = GetRandomItem(_loader);
 

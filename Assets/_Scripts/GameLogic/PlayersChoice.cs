@@ -1,54 +1,55 @@
-using Assets.Gameplay.UI;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
-public class PlayersChoice : MonoBehaviour
+namespace Assets.Gameplay
 {
-    public Action ItemDropedEvent, MimikGettedEvent, ItemCollectedEvent;
-
-    [SerializeField] CoinGenerator _generator;
-    [SerializeField] Button _yes, _no;
-
-
-    public void GetCoin()
+    public class PlayersChoice : MonoBehaviour
     {
-        PlayerSaves.MakeGetted(_item);
+        public Action ItemDropedEvent, MimikGettedEvent, ItemCollectedEvent;
 
-        _itemView.ActivateCollectAnimation();
-    }
+        [SerializeField] ItemGenerator _generator;
+        [SerializeField] Button _yes, _no;
 
-    public void DropCoin()
-    {
-        ItemDropedEvent?.Invoke();
-    }
 
-    public void CollectCoin()
-    {
-        if (_generator.GetIsMimik())
+        public void GetCoin()
         {
-            MimikGettedEvent?.Invoke();
+            PlayerSaves.MakeGetted(_generator.Item);
+
+            //_itemView.ActivateCollectAnimation();
         }
-        else
+
+        public void DropCoin()
         {
-            ItemCollectedEvent?.Invoke();
+            ItemDropedEvent?.Invoke();
         }
-    }       
 
-    public void DisableButtons()
-    {
-        Activate(false);
-    }
+        public void CollectCoin()
+        {
+            if (_generator.IsMimik)
+            {
+                MimikGettedEvent?.Invoke();
+            }
+            else
+            {
+                ItemCollectedEvent?.Invoke();
+            }
+        }
 
-    public void ActivateButtons()
-    {
-        Activate(true);
-    }
+        public void DisableButtons()
+        {
+            Activate(false);
+        }
 
-    void Activate(bool isTrue)
-    {
-        _yes.gameObject.SetActive(isTrue);
-        _no.gameObject.SetActive(isTrue);
+        public void ActivateButtons()
+        {
+            Activate(true);
+        }
+
+        void Activate(bool isTrue)
+        {
+            _yes.gameObject.SetActive(isTrue);
+            _no.gameObject.SetActive(isTrue);
+        }
     }
 }

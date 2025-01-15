@@ -1,15 +1,15 @@
-using UnityEngine;
+using Assets.Gameplay;
 
 namespace Events
 {
     public class ChangeProbabilityEvent : IEvent
     {
-        private Coin _coin;
+        private ItemGenerator _coin;
         private EventData _data;
 
         private int _probability;
 
-        public ChangeProbabilityEvent(Coin coin, int probability, EventData data)
+        public ChangeProbabilityEvent(ItemGenerator coin, int probability, EventData data)
         {
             _coin = coin;
             _data = data;

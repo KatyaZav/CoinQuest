@@ -3,9 +3,8 @@ using Events;
 using Assets.UI;
 using UnityEngine.UI;
 using Assets.Gameplay.UI;
-using Assets.Gameplay;
 
-namespace Assets.Game
+namespace Assets.Gameplay
 {
     public class Bootstrap : MonoBehaviour
     {

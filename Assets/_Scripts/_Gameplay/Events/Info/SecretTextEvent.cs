@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Assets.Gameplay;
 
 namespace Events
 {
     public class SecretTextEvent : IEvent
     {
-        private Coin _coin;
+        private ItemGenerator _coin;
         private EventData _data;
         private int _probability;
         private string _text;
 
-        public SecretTextEvent(Coin coin, EventData data, int probability, string text)
+        public SecretTextEvent(ItemGenerator coin, EventData data, int probability, string text)
         {
             _coin = coin;
             _data = data;

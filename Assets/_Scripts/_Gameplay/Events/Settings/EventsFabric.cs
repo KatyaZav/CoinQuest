@@ -47,7 +47,7 @@ namespace Events
         {
             List<IEvent> events = new List<IEvent>();
 
-            Coin coin = GetScriptFromScene<Coin>();
+            ItemGenerator coin = GetScriptFromScene<ItemGenerator>();
             Bank bank = GetScriptFromScene<Bank>();
 
             #region Probability

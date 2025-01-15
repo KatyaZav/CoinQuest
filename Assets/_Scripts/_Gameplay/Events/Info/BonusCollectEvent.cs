@@ -1,28 +1,30 @@
+using Assets.Gameplay;
+
 namespace Events
 {
     public class BonusCollectEvent : IEvent
     {
         private EventData _data;
         private float _modifier;
-        private Coin _coin;
+        private ItemGenerator _generator;
 
-        public BonusCollectEvent(EventData data, float modifier, Coin coin)
+        public BonusCollectEvent(EventData data, float modifier, ItemGenerator coin)
         {
             _data = data;
             _modifier = modifier;
-            _coin = coin;
+            _generator = coin;
         }
 
         public EventData EventData => _data;
 
         public void Enter()
         {
-            _coin.ChangeModifier(_modifier);
+            _generator.ChangeCountModifier(_modifier);
         }
 
         public void Exit()
         {
-            _coin.ChangeModifier(1);
+            _generator.ChangeCountModifier(1);
         }
     }
 }

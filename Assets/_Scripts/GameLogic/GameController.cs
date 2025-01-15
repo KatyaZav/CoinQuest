@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using Assets.UI;
 using Random = UnityEngine.Random;
 using Assets.Gameplay;
+using Assets.Gameplay.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayersChoice _playersChoice;
     [SerializeField] private Bank _bank;
     [SerializeField] private Scrimmer _scrimmer;
-    [SerializeField] private Coin _coin;
+    [SerializeField] private ItemView _coin;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _winSound, _dropSound;
     [SerializeField] private Text _moneyText;
@@ -78,7 +79,7 @@ public class GameController : MonoBehaviour
 
         int waitTime = 0;
 
-        if (_generator.GetFailProbability() > _scaryProbability)
+        if (_generator.FailProbability > _scaryProbability)
             waitTime += UnityEngine.Random.Range(_minScary, _maxScary);
         else
             waitTime += (int)_timeBetweenCoinGet;
@@ -105,7 +106,7 @@ public class GameController : MonoBehaviour
 
         int time = 0;
 
-        if (_generator.GetFailProbability() > _scaryProbability)
+        if (_generator.FailProbability > _scaryProbability)
         {
             time += UnityEngine.Random.Range(_minScary, _maxScary);
         }
@@ -124,7 +125,7 @@ public class GameController : MonoBehaviour
 
         GenerateCoin();
 
-        _coin.SetAnimation();
+        //_coin.SetAnimation();
         _playersChoice.ActivateButtons();
     }
     private void StopRound()
@@ -137,8 +138,8 @@ public class GameController : MonoBehaviour
     private void GenerateCoin()
     {
         _coin.gameObject.SetActive(true);
-        _generator.GenerateCoin();
-        _coin.SetAnimation();
+        _generator.GenerateItem();
+        //_coin.SetAnimation();
     }
 
     private void ActivateMimik()
@@ -171,9 +172,9 @@ public class GameController : MonoBehaviour
         _audioSource.clip = _winSound;
         _audioSource.pitch = Random.Range(_min, _max);
         _audioSource.Play();
-        _generator.GetCoin();
+        _generator.GenerateItem();
 
-        PlayerSaves.AddCoins(_generator.GetCoinValue());
+        PlayerSaves.AddCoins(_generator.CoinValue);
         _moneyText.text = PlayerSaves.CoinsInPocket.ToString();
      //   _winSystem.Play();
     }

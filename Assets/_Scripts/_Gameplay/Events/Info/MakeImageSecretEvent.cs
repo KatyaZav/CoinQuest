@@ -1,14 +1,15 @@
+using Assets.Gameplay;
 using UnityEngine;
 
 namespace Events
 {
     public class MakeImageSecretEvent : IEvent
     {
-        private Coin _coin;
+        private ItemGenerator _coin;
         private EventData _data;
         private Sprite _sprite;
 
-        public MakeImageSecretEvent(Coin coin, EventData data, Sprite sprite)
+        public MakeImageSecretEvent(ItemGenerator coin, EventData data, Sprite sprite)
         {
             _coin = coin;
             _data = data;

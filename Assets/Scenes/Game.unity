@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 163428138}
   - component: {fileID: 163428140}
   - component: {fileID: 163428141}
+  - component: {fileID: 163428142}
   m_Layer: 5
   m_Name: item
   m_TagString: Untagged
@@ -414,53 +415,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b049a5e8c0daa574fa78ef856b05657b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 163428138}
+  _canvasGroup: {fileID: 163428142}
   _coinProbabilityText: {fileID: 888575782}
-  _img: {fileID: 1551750094}
-  _animator: {fileID: 0}
-  _dangerousColor: {r: 1, g: 0, b: 0, a: 1}
-  _safeColor: {r: 0.017004728, g: 1, b: 0, a: 1}
-  _probability:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: -0.020420792
-      outSlope: -0.020420792
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.3
-    - serializedVersion: 3
-      time: 0.4
-      value: 0.1
-      inSlope: 0.70970345
-      outSlope: 0.70970345
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.18363774
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8
-      value: 0.4
-      inSlope: 1.5161335
-      outSlope: 1.5161335
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.019727085
-      outSlope: 0.019727085
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.35833335
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  _image: {fileID: 1551750094}
+--- !u!225 &163428142
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163428137}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &181054637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,7 +2371,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efe9669c9559574386837964124eea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: {fileID: 163428141}
+  _itemView: {fileID: 163428141}
+  _failProbability:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.4877665
+      outSlope: 2.4877665
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03441018
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _dangerousColor: {r: 0.30980393, g: 1, b: 0.16470589, a: 0}
+  _safeColor: {r: 1, g: 0.10980393, b: 0.10980393, a: 0}
 --- !u!4 &1234635178
 Transform:
   m_ObjectHideFlags: 0
@@ -2900,6 +2896,7 @@ MonoBehaviour:
   _gameController: {fileID: 1818870622}
   _coinCountText: {fileID: 2009320549}
   _uiHolder: {fileID: 305561295}
+  _itemGenerator: {fileID: 0}
 --- !u!4 &1507426926
 Transform:
   m_ObjectHideFlags: 0
