@@ -23,6 +23,7 @@ namespace Assets.Gameplay.UI
         [SerializeField] private RectTransform _catTransform;
 
         private AnimationTween _animation, _catAnimation;
+        private bool _isClosing = false;
 
         public void Init()
         {
@@ -32,21 +33,34 @@ namespace Assets.Gameplay.UI
             _catAnimation = new AnimationTween(start, finish);
 
             var startAnimation = new PopupAnimationFactory
-                (new PopupInfo(_canvasGroup, _popupZone), _minScale, _maxScale, MinFade, MaxFade, Duration);
+                (new PopupInfo(_canvasGroup, _popupZone), _minScale, _maxScale, MinFade, MaxFade, Duration/2);
 
             var endAnimation = new PopupAnimationFactory
-                (new PopupInfo(_canvasGroup, _popupZone), _maxScale, _minScale, MaxFade, MinFade, Duration/2);
+                (new PopupInfo(_canvasGroup, _popupZone), _maxScale, _maxScale, MaxFade, MinFade, Duration/2);
 
             _animation = new AnimationTween(startAnimation, endAnimation);
         }
 
         public void Close()
         {
-            _animation.CompleteActiveAnimation();
+            if (_isClosing)
+            {
+                _animation.CompleteActiveAnimation();
+                _catAnimation.CompleteActiveAnimation();
+
+                _isClosing = false;
+                return;
+            }
+
+            _isClosing = true;
+            Deactivate();
         }
 
         public void Activate(Action callback = null)
         {
+            _isClosing = false;
+            gameObject.SetActive(true);
+
             _animation.Activate(() =>
             {
                 _catAnimation.Activate();
@@ -57,7 +71,7 @@ namespace Assets.Gameplay.UI
         public void Deactivate(Action callback = null)
         {
             _animation.Disactivate(callback);
-            _catAnimation.Disactivate();
+            _catAnimation.Disactivate(() => gameObject.SetActive(false));
         }
     }
 }
