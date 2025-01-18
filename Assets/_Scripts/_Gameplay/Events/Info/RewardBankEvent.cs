@@ -18,10 +18,7 @@ namespace Events
 
         public void Enter()
         {
-            YandexGame.FullscreenShow();
-
-            PlayerSaves.AddCoins(_count);
-            PlayerSaves.PutCoinsToBank();
+            
         }
 
         public void Exit()
@@ -30,7 +27,10 @@ namespace Events
 
         public void OnPopupClosed()
         {
+            YandexGame.FullscreenShow();
 
+            PlayerSaves.AddCoins(_count);
+            PlayerSaves.PutCoinsToBank();
         }
     }
 }

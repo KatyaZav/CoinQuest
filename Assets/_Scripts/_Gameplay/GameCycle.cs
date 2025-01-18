@@ -155,10 +155,10 @@ namespace Assets.Gameplay
 
         private void GetMimik()
         {
-            _itemView.ActivateCollectAnimation(StartRound);
+            _itemView.ActivateCollectAnimation();
 
             PlayerSaves.LooseCoins();
-            SubscriptionKeeper.MimikActivate();
+            SubscriptionKeeper.MimikActivate(StartRound);
         }
     }
 }

@@ -25,6 +25,8 @@ namespace Assets.Gameplay.UI
         private AnimationTween _animation, _catAnimation;
         private bool _isClosing = false;
 
+        private Action _callback;
+
         public void Init()
         {
             var start = new MovingFactory(_catTransform, _finish, _start, Duration);
@@ -39,6 +41,11 @@ namespace Assets.Gameplay.UI
                 (new PopupInfo(_canvasGroup, _popupZone), _maxScale, _maxScale, MaxFade, MinFade, Duration/2);
 
             _animation = new AnimationTween(startAnimation, endAnimation);
+        }
+
+        public void AddCallback(Action callback)
+        {
+            _callback = callback;
         }
 
         public void Close()
@@ -70,8 +77,14 @@ namespace Assets.Gameplay.UI
 
         public void Deactivate(Action callback = null)
         {
-            _animation.Disactivate(callback);
-            _catAnimation.Disactivate(() => gameObject.SetActive(false));
+            _animation.Disactivate(() => {
+                callback?.Invoke();
+                });
+            _catAnimation.Disactivate(() =>
+                {
+                    _callback?.Invoke();
+                    gameObject.SetActive(false);
+                });
         }
     }
 }

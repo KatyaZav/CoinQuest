@@ -1,5 +1,6 @@
 using Assets.System;
 using Assets.UI;
+using Menu.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ namespace Assets.Menu
         [Header("Texts")]
         [SerializeField] private Text _pawsCountText;
 
+        [SerializeField] private ItemSlider _slider;
+
         private ReactiveUI<int> _pawsCount;
 
         private void Start()
@@ -22,6 +25,7 @@ namespace Assets.Menu
             _pawsCount = new ReactiveUI<int>(PlayerSaves.CoinsInBank, _pawsCountText);
 
             _pawsCount.Init();
+            _slider.Init();
 
             _playButton.onClick.AddListener(OnPlayButtonClicked);
         }

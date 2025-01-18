@@ -69,8 +69,10 @@ namespace Assets.Gameplay.UI
             SceneManager.LoadScene(_sceneName);
         }
 
-        private void OnMimikActivate()
+        private void OnMimikActivate(Action callback)
         {
+            _scrimmerView.AddCallback(callback);
+
             _scrimmerView.gameObject.SetActive(true);
             _scrimmerView.Activate();
         }

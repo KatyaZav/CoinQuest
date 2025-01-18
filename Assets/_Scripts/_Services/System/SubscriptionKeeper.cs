@@ -4,7 +4,7 @@ using UnityEngine;
 public static class SubscriptionKeeper
 {
     public static Action<Items> GettedNewEvent;
-    public static event Action MimikActivated;
+    public static event Action<Action> MimikActivated;
 
     public static void GettedNew(Items item)
     {
@@ -12,8 +12,8 @@ public static class SubscriptionKeeper
         GettedNewEvent?.Invoke(item);
     }
 
-    public static void MimikActivate()
+    public static void MimikActivate(Action callback)
     {
-        MimikActivated?.Invoke();
+        MimikActivated?.Invoke(callback);
     }
 }

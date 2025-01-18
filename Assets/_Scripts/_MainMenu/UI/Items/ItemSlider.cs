@@ -28,7 +28,7 @@ namespace Menu.UI
         private List<ItemFrameUi> _items = new List<ItemFrameUi>();
         private ItemsLoader _itemLoader;
 
-        private void Start()
+        public void Init()
         {
             _itemLoader = new ItemsLoader();
             _itemLoader.Load();
@@ -74,6 +74,8 @@ namespace Menu.UI
                         element.SetNormalColor();
                 }
 
+                _items.Add(element);
+
                 element.OnMouseEnterEvent += ActivateDescription;
                 element.OnMouseExitEvent += DisactivateDescription;
             }
@@ -83,8 +85,14 @@ namespace Menu.UI
         {
             foreach (var item in _items)
             {
-                item.OnMouseEnterEvent -= ActivateDescription;
-                item.OnMouseExitEvent -= DisactivateDescription;
+                if (item != null)
+                {
+                    item.OnMouseEnterEvent -= ActivateDescription;
+                    item.OnMouseExitEvent -= DisactivateDescription;
+
+                    if (item.gameObject != null)
+                        Destroy(item.gameObject);
+                }
             }
 
             _animation.CompleteActiveAnimation();
