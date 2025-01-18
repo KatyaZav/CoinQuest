@@ -1,5 +1,5 @@
 {
-  "idSave": 887,
+  "idSave": 72,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -11,16 +11,16 @@
     false
   ],
   "CoinsInBank": {
-    "Value": 108
+    "Value": 0
   },
   "CoinsInPocket": {
-    "Value": 42
+    "Value": 1
   },
   "CoinsInLeaderboard": {
-    "Value": 108
+    "Value": 0
   },
   "ButtonCount": {
-    "Value": 5
+    "Value": 3
   },
-  "ListItems": "[{\"_isGetted\":false,\"_isSaw\":true,\"ID\":20298,\"IsSaw\":true,\"IsGetted\":false},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20262,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20256,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20306,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20320,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20350,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20316,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20270,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":false,\"_isSaw\":true,\"ID\":20294,\"IsSaw\":true,\"IsGetted\":false},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20258,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":20332,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20334,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20268,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20254,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20284,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20266,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":false,\"_isSaw\":false,\"ID\":20278,\"IsSaw\":false,\"IsGetted\":false},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22876,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22826,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22778,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22738,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22708,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22732,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22904,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22856,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22842,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22788,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22816,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22866,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22760,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":false,\"_isSaw\":true,\"ID\":22836,\"IsSaw\":true,\"IsGetted\":false},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22724,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":true,\"_isSaw\":true,\"ID\":22750,\"IsSaw\":true,\"IsGetted\":true},{\"_isGetted\":false,\"_isSaw\":true,\"ID\":22894,\"IsSaw\":true,\"IsGetted\":false}]"
+  "ListItems": "[{\"_id\":20294,\"_isGetted\":true,\"_isSaw\":true,\"_count\":2,\"ID\":20294,\"IsSaw\":true,\"IsGetted\":true,\"Count\":2},{\"_id\":20260,\"_isGetted\":true,\"_isSaw\":true,\"_count\":1,\"ID\":20260,\"IsSaw\":true,\"IsGetted\":true,\"Count\":1},{\"_id\":20254,\"_isGetted\":false,\"_isSaw\":true,\"_count\":0,\"ID\":20254,\"IsSaw\":true,\"IsGetted\":false,\"Count\":0},{\"_id\":20302,\"_isGetted\":true,\"_isSaw\":true,\"_count\":3,\"ID\":20302,\"IsSaw\":true,\"IsGetted\":true,\"Count\":3},{\"_id\":20314,\"_isGetted\":false,\"_isSaw\":false,\"_count\":0,\"ID\":20314,\"IsSaw\":false,\"IsGetted\":false,\"Count\":0},{\"_id\":20350,\"_isGetted\":true,\"_isSaw\":true,\"_count\":2,\"ID\":20350,\"IsSaw\":true,\"IsGetted\":true,\"Count\":2},{\"_id\":20310,\"_isGetted\":true,\"_isSaw\":true,\"_count\":3,\"ID\":20310,\"IsSaw\":true,\"IsGetted\":true,\"Count\":3},{\"_id\":20268,\"_isGetted\":false,\"_isSaw\":false,\"_count\":0,\"ID\":20268,\"IsSaw\":false,\"IsGetted\":false,\"Count\":0},{\"_id\":20292,\"_isGetted\":false,\"_isSaw\":false,\"_count\":0,\"ID\":20292,\"IsSaw\":false,\"IsGetted\":false,\"Count\":0},{\"_id\":20256,\"_isGetted\":false,\"_isSaw\":true,\"_count\":0,\"ID\":20256,\"IsSaw\":true,\"IsGetted\":false,\"Count\":0},{\"_id\":20330,\"_isGetted\":false,\"_isSaw\":true,\"_count\":0,\"ID\":20330,\"IsSaw\":true,\"IsGetted\":false,\"Count\":0},{\"_id\":20332,\"_isGetted\":false,\"_isSaw\":true,\"_count\":0,\"ID\":20332,\"IsSaw\":true,\"IsGetted\":false,\"Count\":0},{\"_id\":20266,\"_isGetted\":false,\"_isSaw\":false,\"_count\":0,\"ID\":20266,\"IsSaw\":false,\"IsGetted\":false,\"Count\":0},{\"_id\":20252,\"_isGetted\":false,\"_isSaw\":true,\"_count\":0,\"ID\":20252,\"IsSaw\":true,\"IsGetted\":false,\"Count\":0},{\"_id\":20282,\"_isGetted\":false,\"_isSaw\":false,\"_count\":0,\"ID\":20282,\"IsSaw\":false,\"IsGetted\":false,\"Count\":0},{\"_id\":20264,\"_isGetted\":false,\"_isSaw\":false,\"_count\":0,\"ID\":20264,\"IsSaw\":false,\"IsGetted\":false,\"Count\":0},{\"_id\":20274,\"_isGetted\":false,\"_isSaw\":false,\"_count\":0,\"ID\":20274,\"IsSaw\":false,\"IsGetted\":false,\"Count\":0}]"
 }

@@ -3,6 +3,7 @@ using Events;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Gameplay.UI
@@ -22,9 +23,13 @@ namespace Assets.Gameplay.UI
         [SerializeField] private RectTransform _canvasBase;
         [SerializeField] private PopupView _popupView;
         [SerializeField] private ScrimmerPopupView _scrimmerView;
+        [SerializeField] private string _sceneName; 
 
         [Header("Text")]
         [SerializeField] private Text _coinsCount;
+
+        [Header("Buttons")]
+        [SerializeField] private Button _homeButton;
 
         private PopupView _eventPopupView, _itemPopupView;
         private ReactiveUI<int> _coinCountUi;
@@ -44,6 +49,7 @@ namespace Assets.Gameplay.UI
             SubscriptionKeeper.GettedNewEvent += OnGettedNewItem;
 
             SubscriptionKeeper.MimikActivated += OnMimikActivate;
+            _homeButton.onClick.AddListener(OnSceneChange);
         }
 
         public void OnDispose()
@@ -53,8 +59,14 @@ namespace Assets.Gameplay.UI
             SubscriptionKeeper.GettedNewEvent -= OnGettedNewItem;
 
             SubscriptionKeeper.MimikActivated -= OnMimikActivate;
+            _homeButton.onClick.RemoveListener(OnSceneChange);
 
             _coinCountUi.Dispose();
+        }
+
+        private void OnSceneChange()
+        {
+            SceneManager.LoadScene(_sceneName);
         }
 
         private void OnMimikActivate()

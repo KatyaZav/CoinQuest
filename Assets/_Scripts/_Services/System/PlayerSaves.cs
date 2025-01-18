@@ -55,6 +55,10 @@ public static class PlayerSaves
             e.Get();
             SubscriptionKeeper.GettedNew(item);
         }
+        else
+        {
+            e.AddCount();
+        }
 
         YandexGame.savesData.ListItems = JsonConvert.SerializeObject(list);
         YandexGame.SaveProgress();

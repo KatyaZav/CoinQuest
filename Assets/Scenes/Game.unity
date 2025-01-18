@@ -783,7 +783,9 @@ MonoBehaviour:
   _canvasBase: {fileID: 243729459}
   _popupView: {fileID: 5956222611094683506, guid: 18ec9cff30dabec45b3627904d9b2278, type: 3}
   _scrimmerView: {fileID: 1186397210}
+  _sceneName: Menu
   _coinsCount: {fileID: 2009320549}
+  _homeButton: {fileID: 1711672956}
 --- !u!4 &305561296
 Transform:
   m_ObjectHideFlags: 0
@@ -2440,7 +2442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.012573242, y: 97}
+  m_AnchoredPosition: {x: 0.0126953125, y: 97}
   m_SizeDelta: {x: 0.025024414, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588308535
@@ -2728,19 +2730,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1711672957}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1711672957
 MonoBehaviour:
   m_ObjectHideFlags: 0

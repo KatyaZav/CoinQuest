@@ -23,6 +23,7 @@ namespace Menu.UI
 
         [SerializeField] private Image _image;
         [SerializeField] private Image _rampImage;
+        [SerializeField] private Text _textCount;
 
         private ItemsData _itemData;
         private Items _item;
@@ -42,10 +43,12 @@ namespace Menu.UI
             _itemData = data;
             _item = item;
             _image.sprite = item.Icon;
+            _textCount.text = "";
 
-            if (item.name != "Closed")
+            if (item.name != "Closed" && data.Count > 0)
             {
                 _rampImage.color = ImageColors[item.GetRare];
+                _textCount.text = data.Count.ToString();
             }
         }
 

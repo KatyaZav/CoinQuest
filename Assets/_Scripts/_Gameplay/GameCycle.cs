@@ -157,6 +157,7 @@ namespace Assets.Gameplay
         {
             _itemView.ActivateCollectAnimation(StartRound);
 
+            PlayerSaves.LooseCoins();
             SubscriptionKeeper.MimikActivate();
         }
     }
