@@ -6,12 +6,21 @@ namespace Assets.Menu.UI
 {
     public class ButtonView : MonoBehaviour
     {
-        public event Action Clicked;
+        public event Action<CatPart, bool> Clicked;
 
         [SerializeField] private Image _iconImage;
         [SerializeField] private Button _button;
 
-        public void SetImage(Image iconImage) => _iconImage = iconImage;
+        private CatPart _config;
+        private bool _isColor;
+
+        public void SetType(CatPart type, bool isColor)
+        {
+            _config = type;
+            _isColor = isColor;
+        }
+        public void SetImage(Sprite iconImage) => _iconImage.sprite = iconImage;
+        public void SetImageColor(Color32 color) => _iconImage.color = color;
 
         private void OnEnable()
         {
@@ -25,7 +34,7 @@ namespace Assets.Menu.UI
 
         private void OnClick()
         {
-            Clicked?.Invoke();
+            Clicked?.Invoke(_config, _isColor);
         }
     }
 }

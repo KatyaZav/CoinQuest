@@ -15,6 +15,7 @@ namespace Assets.Menu.Shop
         [SerializeField] private GameObject _buyingInfoPanel;
         [SerializeField] private Text _costText;
 
+        public void SetColor(Color32 color) => _iconImage.color = color;
         public void SetIcon(Sprite image) => _iconImage.sprite = image;
         public void SetStatusIcon(Sprite image) => _statusImage.sprite = image;
         public void SetCostText(string text) => _costText.text = text;

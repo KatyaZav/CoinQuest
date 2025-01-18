@@ -1,17 +1,15 @@
 using UnityEngine;
 
+public abstract class CatConfig : ScriptableObject
+{
+}
+
+
 [CreateAssetMenu(fileName = "CatData", menuName = "Configs/Cat/Part", order = 1)]
-public class CatPartConfig : ScriptableObject
+public class CatPartConfig : CatConfig
 {
     [field: SerializeField] public CatPart PartType { get; private set; }
     [field: SerializeField] public Sprite PartSprite { get; private set; }
-    [field: SerializeField] public float Cost { get; private set; } = 0;
-}
-
-[CreateAssetMenu(fileName = "ColorData", menuName = "Configs/Cat/Color", order = 1)]
-public class CatColorConfig : ScriptableObject
-{
-    [field: SerializeField] public Color32 PartColor { get; private set; }
     [field: SerializeField] public float Cost { get; private set; } = 0;
 }
 
