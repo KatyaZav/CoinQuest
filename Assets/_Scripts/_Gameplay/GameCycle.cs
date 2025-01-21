@@ -27,6 +27,9 @@ namespace Assets.Gameplay
         [SerializeField] private Color _dangerousColor;
         [SerializeField] private Color _safeColor;
 
+        [Header("Particles")]
+        [SerializeField] private WinParticleBehavior _winParticle;
+
         private EventSystemHolder _eventSystemHolder;
         ItemsLoader _itemsLoader;
 
@@ -147,6 +150,9 @@ namespace Assets.Gameplay
 
         private void CollectItem()
         {
+            var win = Instantiate(_winParticle, transform.position, transform.rotation);
+            win.Init(_itemGenerator.GetImage());
+
             PlayerSaves.MakeGetted(_itemGenerator.Item);
             PlayerSaves.AddCoins(_itemGenerator.ItemValue);
 

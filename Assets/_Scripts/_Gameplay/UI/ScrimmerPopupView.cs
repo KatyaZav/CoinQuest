@@ -1,5 +1,4 @@
 using UnityEngine;
-using DG.Tweening;
 using System;
 using Assets.UI.Tweening.Factory;
 using Assets.UI.Tweening;
@@ -20,19 +19,15 @@ namespace Assets.Gameplay.UI
         [Header("UI")]
         [SerializeField] private RectTransform _popupZone;
         [SerializeField] private CanvasGroup _canvasGroup;
-        [SerializeField] private RectTransform _catTransform;
+        //[SerializeField] private RectTransform _catTransform;
 
-        private AnimationTween _animation, _catAnimation;
+        private AnimationTween _animation;
         private bool _isClosing = false;
 
         private Action _callback;
 
         public void Init()
         {
-            var start = new MovingFactory(_catTransform, _finish, _start, Duration);
-            var finish = new MovingFactory(_catTransform, _start, _finish, Duration);
-
-            _catAnimation = new AnimationTween(start, finish);
 
             var startAnimation = new PopupAnimationFactory
                 (new PopupInfo(_canvasGroup, _popupZone), _minScale, _maxScale, MinFade, MaxFade, Duration/2);
@@ -53,7 +48,6 @@ namespace Assets.Gameplay.UI
             if (_isClosing)
             {
                 _animation.CompleteActiveAnimation();
-                _catAnimation.CompleteActiveAnimation();
 
                 _isClosing = false;
                 return;
@@ -70,7 +64,6 @@ namespace Assets.Gameplay.UI
 
             _animation.Activate(() =>
             {
-                _catAnimation.Activate();
                 callback?.Invoke();
             });
         }
@@ -79,12 +72,9 @@ namespace Assets.Gameplay.UI
         {
             _animation.Disactivate(() => {
                 callback?.Invoke();
-                });
-            _catAnimation.Disactivate(() =>
-                {
-                    _callback?.Invoke();
-                    gameObject.SetActive(false);
-                });
+                _callback?.Invoke();
+                gameObject.SetActive(false);
+            });
         }
     }
 }
