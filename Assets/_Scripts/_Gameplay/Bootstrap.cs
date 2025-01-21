@@ -10,7 +10,6 @@ namespace Assets.Gameplay
     {
         [Header("Initable")]
         [SerializeField] private UIHolder _uiHolder;
-        [SerializeField] private ItemGenerator _itemGenerator;
         [SerializeField] private GameCycle _gameCycle;
         [SerializeField] private Bank _bank;
 
@@ -22,10 +21,11 @@ namespace Assets.Gameplay
             _bank.Init();
 
             EventSystemHolder eventSystemHolder = new EventSystemHolder();
-            eventSystemHolder.Init(new EventsFabric().GetFullEventsList());
 
             _uiHolder.Init(eventSystemHolder);
             _gameCycle.Init(eventSystemHolder, loader);
+            
+            eventSystemHolder.Init(new EventsFabric().GetFullEventsList());
         }
 
         private void OnDisable()

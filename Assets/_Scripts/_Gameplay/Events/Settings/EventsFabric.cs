@@ -68,7 +68,6 @@ namespace Events
             #region BonusCollection
             events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath), 2, coin));
             events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath2), 3, coin));
-            events.Add(new BonusCollectEvent(LoadEventData(BonusCollectionPath3), 0.5f, coin));
             #endregion
 
             #region Secret

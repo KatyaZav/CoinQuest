@@ -153,6 +153,8 @@ namespace Assets.Gameplay
             var win = Instantiate(_winParticle, transform.position, transform.rotation);
             win.Init(_itemGenerator.GetImage());
 
+            _currentSlider.AddValue();
+
             PlayerSaves.MakeGetted(_itemGenerator.Item);
             PlayerSaves.AddCoins(_itemGenerator.ItemValue);
 
