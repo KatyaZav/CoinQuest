@@ -5,6 +5,7 @@ using Assets.UI.Tweening.Factory;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
+using System.Linq;
 
 namespace Menu.UI
 {
@@ -21,7 +22,10 @@ namespace Menu.UI
         [SerializeField] private RectTransform _rectTransform;
 
         [SerializeField] private Text _descriptionText;
+        [SerializeField] private Text _placeText;
         [SerializeField] private Transform _content;
+
+        [SerializeField] private List<RoomInfo> _roomInfo = new List<RoomInfo> ();
 
         private AnimationTween _animation;
 
@@ -105,6 +109,7 @@ namespace Menu.UI
             else
                 _descriptionText.text = item.GetDescription(YandexGame.lang);
 
+            _placeText.text = GetRoomText(item);
             _description.gameObject.SetActive(true);
             _animation.Activate();
         }
@@ -113,5 +118,27 @@ namespace Menu.UI
         {
             _animation.Disactivate(() => _description.gameObject?.SetActive(false));
         }
+
+        private string GetRoomText(Items needItem)
+        {
+            if (needItem.Place == 0)
+                return "";
+
+            var roomInfo = _roomInfo.FirstOrDefault(item => item.Room == needItem.Place);
+
+            if (roomInfo == null)
+                throw new System
+                    .ArgumentException($"Not found Room type of {needItem.Place} in item {needItem}");
+
+            return roomInfo.TextTranslate.GetText(YandexGame.lang);
+        }
     }
+}
+
+[System.Serializable]
+public class RoomInfo
+{
+    [field: SerializeField] public Room Room { get; private set; }
+    [field: SerializeField] public TextTranslate TextTranslate { get; private set; }
+    
 }

@@ -5,6 +5,8 @@ public class Items : ScriptableObject
 {
     private const string NotFoundLanguageError = "Language not founded";
 
+    public Room Place;
+
     [SerializeField] private Sprite _icon;
     [SerializeField] private string _rusDesccription;
     [SerializeField] private string _enDesccription;
@@ -35,4 +37,13 @@ public enum Rare
     Usual = 1,
     Rare = 2,
     Legendary = 4,
+}
+
+public enum Room
+{
+    Hallway = 1,
+    Bedroom = 2,
+    LivingRoom = 4,
+    Bathroom = 8,
+    Closet = 16,
 }

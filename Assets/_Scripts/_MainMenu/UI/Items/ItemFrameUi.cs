@@ -18,12 +18,12 @@ namespace Menu.UI
         {Rare.Legendary, new Color32(196, 248, 188, 255) }
     };
 
-        public Action<Items, ItemsData> OnMouseEnterEvent;
-        public Action OnMouseExitEvent;
+        public event Action<Items, ItemsData> OnMouseEnterEvent;
+        public event Action OnMouseExitEvent;
 
         [SerializeField] private Image _image;
         [SerializeField] private Image _rampImage;
-        [SerializeField] private Text _textCount;
+        //[SerializeField] private Text _textCount;
 
         private ItemsData _itemData;
         private Items _item;
@@ -43,12 +43,12 @@ namespace Menu.UI
             _itemData = data;
             _item = item;
             _image.sprite = item.Icon;
-            _textCount.text = "";
+            //_textCount.text = "";
 
-            if (item.name != "Closed" && data.Count > 0)
+            if (item.name != "Closed")
             {
                 _rampImage.color = ImageColors[item.GetRare];
-                _textCount.text = data.Count.ToString();
+                //_textCount.text = data.Count.ToString();
             }
         }
 

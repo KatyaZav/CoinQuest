@@ -37,6 +37,8 @@ public class ItemsLoader
         _items = Resources.LoadAll<Items>(PathItems).ToList();
         _noneItem = Resources.Load<Items>(NoneItem);
 
+        _items = _items.OrderBy(item => item.Place).ToList();
+
         if (needToMakeList)
         {
             foreach (var item in _items)
