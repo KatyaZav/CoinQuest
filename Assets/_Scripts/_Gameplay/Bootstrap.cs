@@ -3,6 +3,7 @@ using Events;
 using Assets.UI;
 using UnityEngine.UI;
 using Assets.Gameplay.UI;
+using Assets.Gameplay.Minigame.Audio;
 
 namespace Assets.Gameplay
 {
@@ -12,6 +13,7 @@ namespace Assets.Gameplay
         [SerializeField] private UIHolder _uiHolder;
         [SerializeField] private GameCycle _gameCycle;
         [SerializeField] private Bank _bank;
+        [SerializeField] private AudioHolder _audioHolder;
 
         void Start()
         {
@@ -26,6 +28,8 @@ namespace Assets.Gameplay
             _gameCycle.Init(eventSystemHolder, loader);
             
             eventSystemHolder.Init(new EventsFabric().GetFullEventsList());
+
+            _audioHolder.Init(eventSystemHolder);
         }
 
         private void OnDisable()

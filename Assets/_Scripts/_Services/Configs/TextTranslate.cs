@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TranslateData", menuName = "Configs/TranslateData", order = 1)]
+[CreateAssetMenu(fileName = "TranslateData", menuName = "Configs/System/TranslateData", order = 1)]
 public class TextTranslate : ScriptableObject
 {
     [SerializeField] private string _russian, _english;
