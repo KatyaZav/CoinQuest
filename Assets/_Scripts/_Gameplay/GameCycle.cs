@@ -102,6 +102,7 @@ namespace Assets.Gameplay
             _itemGenerator = new ItemGenerator(_itemView, _failProbability, _dangerousColor,
                 _safeColor, loader, PlayerSaves.CurrentRoom);
         }
+       
         #endregion
 
         private void OnSliderEnd()
@@ -168,6 +169,11 @@ namespace Assets.Gameplay
 
             PlayerSaves.LooseCoins();
             SubscriptionKeeper.MimikActivate(StartRound);
+        }
+
+        private void OnRoomChange(Room room)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -2,7 +2,9 @@ using Assets.UI;
 using Events;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -23,7 +25,9 @@ namespace Assets.Gameplay.UI
         [SerializeField] private RectTransform _canvasBase;
         [SerializeField] private PopupView _popupView;
         [SerializeField] private ScrimmerPopupView _scrimmerView;
-        [SerializeField] private string _sceneName; 
+        [SerializeField] private string _sceneName;
+        [SerializeField] private Image _backgroundImage;
+        [SerializeField] private List<RoomInfo> _roomsInfo;
 
         [Header("Text")]
         [SerializeField] private Text _coinsCount;
@@ -49,7 +53,10 @@ namespace Assets.Gameplay.UI
             SubscriptionKeeper.GettedNewEvent += OnGettedNewItem;
 
             SubscriptionKeeper.MimikActivated += OnMimikActivate;
+            SubscriptionKeeper.RoomChanged += OnRoomChange;
             _homeButton.onClick.AddListener(OnSceneChange);
+
+            OnRoomChange(PlayerSaves.CurrentRoom);
         }
 
         public void OnDispose()
@@ -59,9 +66,20 @@ namespace Assets.Gameplay.UI
             SubscriptionKeeper.GettedNewEvent -= OnGettedNewItem;
 
             SubscriptionKeeper.MimikActivated -= OnMimikActivate;
+            SubscriptionKeeper.RoomChanged -= OnRoomChange;
             _homeButton.onClick.RemoveListener(OnSceneChange);
 
             _coinCountUi.Dispose();
+        }
+
+        private void OnRoomChange(Room room)
+        {
+            var roomInfo = _roomsInfo.FirstOrDefault(item => item.RoomId == room);
+
+            if (roomInfo == null)
+                throw new ArgumentNullException($"Not found room of id {room}");
+
+            _backgroundImage.sprite = roomInfo.Sprite;
         }
 
         private void OnSceneChange()
@@ -132,5 +150,13 @@ namespace Assets.Gameplay.UI
             _coinCountUi = new ReactiveUI<int>(PlayerSaves.CoinsInPocket, _coinsCount);
             _coinCountUi.Init();
         }
+    }
+
+    [Serializable]
+    public class RoomInfo
+    {
+        [SerializeField] private string name;
+        [field:SerializeField] public Room RoomId { get; private set; }
+        [field: SerializeField] public Sprite Sprite { get; private set; }
     }
 }

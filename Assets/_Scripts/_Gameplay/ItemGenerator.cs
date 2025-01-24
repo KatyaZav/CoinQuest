@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Assets.Gameplay
 {
     public class ItemGenerator
-    {
+    {       
         private ItemView _itemView;
 
         private AnimationCurve _failProbability;
@@ -54,6 +54,7 @@ namespace Assets.Gameplay
                 throw new ArgumentException("Tryed change room to same!");
 
             _currentRoom = room;
+            SubscriptionKeeper.ChangeRoom(_currentRoom);
         }
 
         public Sprite GetImage() => IsSecretImage == false ? _item.Icon : _secretImage;

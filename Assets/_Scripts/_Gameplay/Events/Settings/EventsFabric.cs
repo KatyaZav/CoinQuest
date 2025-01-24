@@ -51,7 +51,7 @@ namespace Events
 
             ItemGenerator coin = GetScriptFromScene<GameCycle>().CurrentItemGenerator;
             Bank bank = GetScriptFromScene<Bank>();
-
+            
             #region Probability
             events.Add(new ChangeProbabilityEvent(coin, 20, LoadEventData(ChangeProbabilityEventDataPath)));
             events.Add(new ChangeProbabilityEvent(coin, -20, LoadEventData(ChangeProbabilityEventData2Path)));
@@ -99,8 +99,10 @@ namespace Events
 
             events.Add(new RewardBankEvent(AdRewardData, 5));
             #endregion
-
+            
             EventData changeRoomData = LoadEventData(ChangeRoomDataPath);
+            events.Add(new ChangeRoomEvent(coin, changeRoomData));
+            events.Add(new ChangeRoomEvent(coin, changeRoomData));
             events.Add(new ChangeRoomEvent(coin, changeRoomData));
             events.Add(new ChangeRoomEvent(coin, changeRoomData));
             events.Add(new ChangeRoomEvent(coin, changeRoomData));
