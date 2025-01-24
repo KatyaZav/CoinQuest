@@ -105,6 +105,7 @@ namespace Events
             events.Add(new ChangeRoomEvent(coin, changeRoomData));
             events.Add(new ChangeRoomEvent(coin, changeRoomData));
             events.Add(new ChangeRoomEvent(coin, changeRoomData));
+            events.Add(new ChangeRoomEvent(coin, changeRoomData));
 
             return events;
         }
