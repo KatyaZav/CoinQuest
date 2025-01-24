@@ -141,8 +141,7 @@ namespace Assets.Gameplay
             }
 
             float probability = Math.Clamp(_failProbability.Evaluate(random) * 100, minRange, maxRange);
-
-            return Math.Clamp(probability + _extraFailProbability, 0, 100);
+            return (int)Math.Clamp(probability + _extraFailProbability, 0, 100);
         }
 
         private Rare GetRare(float random)
