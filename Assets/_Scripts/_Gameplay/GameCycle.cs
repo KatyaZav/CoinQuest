@@ -99,7 +99,8 @@ namespace Assets.Gameplay
         #region ItemGenerator
         private void CreateItemGenerator(ItemsLoader loader)
         {
-            _itemGenerator = new ItemGenerator(_itemView, _failProbability, _dangerousColor, _safeColor, loader);
+            _itemGenerator = new ItemGenerator(_itemView, _failProbability, _dangerousColor,
+                _safeColor, loader, PlayerSaves.CurrentRoom);
         }
         #endregion
 

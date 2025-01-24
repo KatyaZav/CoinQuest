@@ -1,5 +1,7 @@
 using Assets.Gameplay.UI;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Gameplay
@@ -21,7 +23,11 @@ namespace Assets.Gameplay
         private Sprite _secretImage;
         private string _secretText = "";
 
-        public ItemGenerator(ItemView itemView, AnimationCurve failProbability, Color dangerousColor, Color safeColor, ItemsLoader itemLoader)
+        private Room _currentRoom;
+
+        public ItemGenerator(ItemView itemView, AnimationCurve failProbability, 
+            Color dangerousColor, Color safeColor, ItemsLoader itemLoader,
+            Room currentRoom)
         {
             _itemView = itemView;
             _failProbability = failProbability;
@@ -29,6 +35,7 @@ namespace Assets.Gameplay
             _safeColor = safeColor;
 
             _loader = itemLoader;
+            _currentRoom = currentRoom;
         }
 
         public float FailProbability { get; private set; }
@@ -36,9 +43,18 @@ namespace Assets.Gameplay
         public bool IsMimik { get; private set; }
 
         public Items Item => _item;
+        public Room CurrentRoom => _currentRoom;
 
         public bool IsSecretImage => _secretImage != null;
         public bool IsSecretText => _secretText != "";
+
+        public void ChangeRoom(Room room)
+        {
+            if (_currentRoom == room)
+                throw new ArgumentException("Tryed change room to same!");
+
+            _currentRoom = room;
+        }
 
         public Sprite GetImage() => IsSecretImage == false ? _item.Icon : _secretImage;
         public Color32 GetColor() => (100 - FailProbability) > 50 ? _safeColor : _dangerousColor;
@@ -107,9 +123,15 @@ namespace Assets.Gameplay
         private Items GetRandomItem(ItemsLoader loader)
         {
             int rnd = UnityEngine.Random.Range(0, 101);
-            Rare rare = GetRare(rnd);
+            //Rare rare = GetRare(rnd);
 
-            var listItems = loader.GetListByRare(rare);
+            List<Items> listItems = new List<Items>(loader.GetItemsList());
+            listItems = listItems
+                .Where(item => item.RoomPlace == _currentRoom)
+                .ToList();
+
+            if (listItems.Count == 0)
+                throw new ArgumentNullException($"Not found items in room {_currentRoom}");
 
             return listItems[UnityEngine.Random.Range(0, listItems.Count)];
         }

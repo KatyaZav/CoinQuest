@@ -37,7 +37,7 @@ public class ItemsLoader
         _items = Resources.LoadAll<Items>(PathItems).ToList();
         _noneItem = Resources.Load<Items>(NoneItem);
 
-        _items = _items.OrderBy(item => item.Place).ToList();
+        _items = _items.OrderBy(item => item.RoomPlace).ToList();
 
         if (needToMakeList)
         {

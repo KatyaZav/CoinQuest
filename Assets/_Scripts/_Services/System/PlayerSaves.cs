@@ -10,7 +10,7 @@ public static class PlayerSaves
     public static IReadonlyReactive<int> CoinsInPocket => YandexGame.savesData.CoinsInPocket;
     public static IReadonlyReactive<int> CoinsInLeaderboards => YandexGame.savesData.CoinsInLeaderboard;
     public static IReadonlyReactive<int> ButtonCount => YandexGame.savesData.ButtonCount;
- 
+    public static Room CurrentRoom = Room.LivingRoom;
     public static List<ItemsData> Items =>
         JsonConvert.DeserializeObject<List<ItemsData>>(YandexGame.savesData.ListItems);
 

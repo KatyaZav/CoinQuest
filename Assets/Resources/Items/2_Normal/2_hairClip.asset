@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4eaf68bc0113949b37915e6eab2242, type: 3}
   m_Name: 2_hairClip
   m_EditorClassIdentifier: 
-  Place: 8
+  RoomPlace: 8
   _icon: {fileID: -123692045, guid: 8894fc54b4195bb42b4f532aa1e85ca5, type: 3}
   _rusDesccription: "\u041E, \u0442\u0430 \u0441\u0430\u043C\u0430\u044F \u0437\u0430\u043A\u043E\u043B\u043A\u0430
     \u0434\u043B\u044F \u0432\u043E\u043B\u043E\u0441!"

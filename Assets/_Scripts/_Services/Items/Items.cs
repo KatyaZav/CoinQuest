@@ -5,7 +5,7 @@ public class Items : ScriptableObject
 {
     private const string NotFoundLanguageError = "Language not founded";
 
-    public Room Place;
+    public Room RoomPlace;
 
     [SerializeField] private Sprite _icon;
     [SerializeField] private string _rusDesccription;

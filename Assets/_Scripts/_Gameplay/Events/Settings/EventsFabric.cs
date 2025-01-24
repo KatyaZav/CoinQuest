@@ -43,6 +43,8 @@ namespace Events
         private const string AdRewardEventPath = "Events/Ad/AdReward";
         #endregion
 
+        private const string ChangeRoomDataPath = "Events/ChangeRoom/ChangeRoomEventData";
+
         public List<IEvent> GetFullEventsList()
         {
             List<IEvent> events = new List<IEvent>();
@@ -97,6 +99,12 @@ namespace Events
 
             events.Add(new RewardBankEvent(AdRewardData, 5));
             #endregion
+
+            EventData changeRoomData = LoadEventData(ChangeRoomDataPath);
+            events.Add(new ChangeRoomEvent(coin, changeRoomData));
+            events.Add(new ChangeRoomEvent(coin, changeRoomData));
+            events.Add(new ChangeRoomEvent(coin, changeRoomData));
+            events.Add(new ChangeRoomEvent(coin, changeRoomData));
 
             return events;
         }

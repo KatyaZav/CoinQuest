@@ -121,14 +121,14 @@ namespace Menu.UI
 
         private string GetRoomText(Items needItem)
         {
-            if (needItem.Place == 0)
+            if (needItem.RoomPlace == 0)
                 return "";
 
-            var roomInfo = _roomInfo.FirstOrDefault(item => item.Room == needItem.Place);
+            var roomInfo = _roomInfo.FirstOrDefault(item => item.Room == needItem.RoomPlace);
 
             if (roomInfo == null)
                 throw new System
-                    .ArgumentException($"Not found Room type of {needItem.Place} in item {needItem}");
+                    .ArgumentException($"Not found Room type of {needItem.RoomPlace} in item {needItem}");
 
             return roomInfo.TextTranslate.GetText(YandexGame.lang);
         }
